@@ -1,194 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Iglesia de Cristo en Sutiaba, León, Nicaragua. Adoramos según el Nuevo Testamento. Romanos 16:16. Bienvenidos!">
-    <title>Iglesia de Cristo - Sutiaba, Nicaragua</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="https://via.placeholder.com/32x32/003087/ffffff?text=✝" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>IDCLATAM | Iglesia de Cristo Latinoamérica</title>
+  <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos y directorio de iglesias locales. Uniendo a la hermandad en Cristo.">
+  <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos bíblicos, IDCLATAM">
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span class="cross">✝</span>
-                Iglesia de Cristo
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
-                <li><a href="#creencias">Creencias</a></li>
-                <li><a href="#horarios">Horarios</a></li>
-                <li><a href="#ministerios">Ministerios</a></li>
-                <li><a href="#visitanos">Visítanos</a></li>
-                <li><a href="#recursos">Recursos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+  <header class="header" id="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-church"></i>
+        <h1>IDCLATAM</h1>
+        <span class="logo-sub">Iglesia de Cristo Latinoamérica</span>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#quienes-somos" class="nav-link">Quiénes Somos</a></li>
+          <li><a href="#evangelismo" class="nav-link">Evangelismo</a></li>
+          <li><a href="#discipulado" class="nav-link">Discipulado</a></li>
+          <li><a href="#recursos" class="nav-link">Recursos</a></li>
+          <li><a href="#iglesias" class="nav-link">Iglesias</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Hero -->
+  <main>
+    <!-- HERO -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Bienvenidos a la Iglesia de Cristo en Sutiaba</h1>
-            <p class="subtitle">"Saludaos los unos a los otros con ósculo santo. Os saludan todas las iglesias de Cristo." — Romanos 16:16</p>
-            <a href="#visitanos" class="cta-button">Ven y adora con nosotros</a>
-            <a href="#horarios" class="cta-button secondary">Ver horarios</a>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="verse-day" id="verseOfDay"><i class="fas fa-bible"></i> Cargando versículo...</span>
+        <h2><strong>Iglesia de Cristo</strong> en toda Latinoamérica</h2>
+        <p>Un movimiento de fe, esperanza y amor. Predicamos a Jesucristo, hacemos discípulos y conectamos a la hermandad a lo largo del continente.</p>
+        <div class="hero-buttons">
+          <a href="#evangelismo" class="btn btn-primary"><i class="fas fa-heart"></i> Conoce el Evangelio</a>
+          <a href="#iglesias" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> Encuentra una iglesia</a>
         </div>
+      </div>
     </section>
 
-    <!-- Quiénes somos -->
+    <!-- QUIÉNES SOMOS -->
     <section id="quienes-somos" class="section">
-        <div class="container">
-            <h2>¿Quiénes somos?</h2>
-            <div class="grid-2">
-                <div>
-                    <p>Somos una congregación de la Iglesia de Cristo que busca restaurar el cristianismo del Nuevo Testamento. No somos una denominación, sino simplemente cristianos que seguimos la Biblia como única guía de fe y práctica.</p>
-                    <p>Nos reunimos en Sutiaba, León, Nicaragua, para adorar a Dios en espíritu y en verdad, predicar el evangelio y edificarnos mutuamente.</p>
-                </div>
-                <div class="image-placeholder">
-                    <img src="idc sutiava.jpeg" 
-     alt="Edificio de la Iglesia de Cristo en Sutiaba" 
-     style="max-width: 100%; height: auto; display: block;">
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-globe-americas"></i> Uniendo a la Iglesia de Cristo en Latinoamérica</h3>
+          <p>Somos una red de iglesias locales que comparten la misma fe, la misma doctrina bíblica y el mismo llamado: hacer discípulos en todas las naciones.</p>
         </div>
+        <div class="cards-grid">
+          <div class="card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h4>Unidad en la diversidad</h4>
+            <p>Desde México hasta Argentina, compartimos un solo Señor, una sola fe, un bautismo (Efesios 4:5).</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-bible"></i>
+            <h4>Sola Escritura</h4>
+            <p>La Biblia es nuestra única regla de fe y práctica, predicando a Cristo crucificado y resucitado.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-church"></i>
+            <h4>Autonomía y cooperación</h4>
+            <p>Cada iglesia local es autónoma, pero colaboramos en misiones, discipulado y evangelismo continental.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Creencias -->
-    <section id="creencias" class="section bg-light">
-        <div class="container">
-            <h2>Nuestras Creencias</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>La Biblia</h3>
-                    <p>Es la Palabra inspirada de Dios y nuestra única regla de fe y práctica.</p>
-                </div>
-                <div class="card">
-                    <h3>Plan de Salvación</h3>
-                    <p>Fe en Jesucristo, arrepentimiento, confesión y bautismo por inmersión para el perdón de pecados (Hechos 2:38).</p>
-                </div>
-                <div class="card">
-                    <h3>Adoración</h3>
-                    <p>Cantamos sin instrumentos (a capella), oramos, predicamos, partimos el pan del Señor cada primer día de la semana y damos según nuestra prosperidad.</p>
-                </div>
-            </div>
+    <!-- EVANGELISMO -->
+    <section id="evangelismo" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-cross"></i> El Evangelio para Latinoamérica</h3>
+          <p>Un mensaje de esperanza que trasciende fronteras y culturas.</p>
         </div>
+        <div class="evangelism-content">
+          <article class="gospel-card">
+            <h4>✝️ El plan de salvación</h4>
+            <p>Dios te ama y tiene un propósito eterno. Jesucristo murió por tus pecados y resucitó para darte vida nueva.</p>
+            <div class="gospel-steps">
+              <div class="step"><span class="step-num">1</span> Oír el evangelio (Romanos 10:17)</div>
+              <div class="step"><span class="step-num">2</span> Creer en Jesús (Juan 8:24)</div>
+              <div class="step"><span class="step-num">3</span> Arrepentirse (Hechos 17:30)</div>
+              <div class="step"><span class="step-num">4</span> Confesar a Cristo (Romanos 10:9-10)</div>
+              <div class="step"><span class="step-num">5</span> Ser bautizado para perdón de pecados (Hechos 2:38)</div>
+              <div class="step"><span class="step-num">6</span> Vivir fielmente (Apocalipsis 2:10)</div>
+            </div>
+            <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i> Oración de fe</button>
+            <div id="prayerMessage" class="prayer-message hidden">
+              <i class="fas fa-dove"></i> Señor Jesús, creo que eres el Hijo de Dios. Me arrepiento de mis pecados y te recibo como mi Salvador. Guíame a ser tu discípulo. ¡Amén!
+            </div>
+          </article>
+          <div class="testimony-card">
+            <i class="fas fa-quote-left"></i>
+            <p>"En la Iglesia de Cristo encontré la verdad que cambió mi vida. Ahora soy parte de esta gran familia latinoamericana."</p>
+            <span>— Hermano Carlos, Colombia</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Horarios -->
-    <section id="horarios" class="section">
-        <div class="container">
-            <h2>Horarios de Reuniones</h2>
-            <div class="grid-2">
-                <div class="schedule-card">
-                    <h3>Domingos</h3>
-                    <ul>
-                        <li><strong>Estudio Bíblico:</strong> 9:00 AM</li>
-                        <li><strong>Adoración:</strong> 10:00 AM</li>
-                        <li><strong>Adoración Vespertina:</strong> 6:00 PM</li>
-                    </ul>
-                </div>
-                <div class="schedule-card">
-                    <h3>Miércoles</h3>
-                    <ul>
-                        <li><strong>Estudio Bíblico y Oración:</strong> 6:00 PM</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="note">¡Todos son bienvenidos! No necesitas invitación especial.</p>
+    <!-- DISCIPULADO -->
+    <section id="discipulado" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-chalkboard-user"></i> Discipulado: Crece en tu Fe</h3>
+          <p>Ofrecemos materiales, cursos y acompañamiento para fortalecer tu caminar con Cristo.</p>
         </div>
+        <div class="discipulado-grid">
+          <div class="discipulo-card">
+            <i class="fas fa-users"></i>
+            <h4>Escuela de Discipulado Online</h4>
+            <p>Accede a clases virtuales en vivo y grabadas sobre fundamentos de la fe, apologética y vida cristiana.</p>
+            <a href="#contacto" class="card-link">Inscribirme <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="discipulo-card">
+            <i class="fas fa-chalkboard"></i>
+            <h4>Plan de Lectura Bíblica</h4>
+            <p>Recorre la Biblia en un año con nuestro plan especial para Latinoamérica.</p>
+            <a href="#contacto" class="card-link">Descargar plan <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="discipulo-card">
+            <i class="fas fa-video"></i>
+            <h4>Devocionales Diarios</h4>
+            <p>Videos cortos y reflexiones para cada día, enviadas a tu WhatsApp o Telegram.</p>
+            <a href="#contacto" class="card-link">Suscribirme <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Ministerios -->
-    <section id="ministerios" class="section bg-light">
-        <div class="container">
-            <h2>Ministerios</h2>
-            <div class="grid-3">
-                <div class="card">Evangelismo y Predicación</div>
-                <div class="card">Escuela Dominical para todas las edades</div>
-                <div class="card">Ministerio de Jóvenes y Universitarios</div>
-                <div class="card">Visitas a enfermos y ancianos</div>
-                <div class="card">Ayuda comunitaria en Sutiaba</div>
-                <div class="card">Estudios bíblicos personales</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visítanos -->
-    <section id="visitanos" class="section">
-        <div class="container">
-            <h2>Visítanos</h2>
-            <div class="grid-2">
-                <div>
-                    <h3>Dirección</h3>
-                    <p>Barrio Sutiaba, frente a la delegación de la Policía Nacional de Nicaragua (León, Nicaragua).</p>
-                    <p>Busca el letrero: <strong>Iglesia de Cristo</strong></p>
-                    
-                    <h3>¿Cómo llegar?</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.5!2d-86.88!3d12.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDI1JzQ4LjAiTiA4NsKwNTInNDguMCJX!5e0!3m2!1ses!2sni!4v123456789" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div>
-                    <h3>¿Qué esperar en tu primera visita?</h3>
-                    <ul>
-                        <li>Una bienvenida cálida y sincera</li>
-                        <li>Adoración sencilla y bíblica</li>
-                        <li>Predicación directa de la Palabra</li>
-                        <li>Gente de todas las edades</li>
-                    </ul>
-                    <a href="#contacto" class="cta-button">Quiero más información</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recursos -->
+    <!-- RECURSOS MULTIMEDIA -->
     <section id="recursos" class="section bg-light">
-        <div class="container">
-            <h2>Recursos para ti</h2>
-            <div class="grid-3">
-                <a href="#" class="resource-card">Estudios Bíblicos Gratuitos</a>
-                <a href="#" class="resource-card">Sermones en Audio y Video</a>
-                <a href="#" class="resource-card">¿Qué dice la Biblia sobre...?</a>
-            </div>
-            <div style="text-align:center; margin-top:2rem;">
-                <p>Comparte el evangelio:</p>
-                <button onclick="shareFacebook()" class="share-btn">Facebook</button>
-                <button onclick="shareWhatsApp()" class="share-btn">WhatsApp</button>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</h3>
+          <p>Materiales gratuitos: sermones, estudios bíblicos, cursos de formación de líderes.</p>
         </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <i class="fas fa-podcast"></i>
+            <h4>Podcast "Fe sin Fronteras"</h4>
+            <p>Episodios semanales sobre doctrina, familia y evangelismo en contexto latino.</p>
+            <button class="btn-outline-small" id="podcastBtn">Escuchar ahora</button>
+          </div>
+          <div class="resource-item">
+            <i class="fas fa-file-pdf"></i>
+            <h4>Biblioteca de Estudios</h4>
+            <p>Más de 50 estudios bíblicos listos para grupos pequeños.</p>
+            <button class="btn-outline-small" id="studiesBtn">Acceder a la biblioteca</button>
+          </div>
+          <div class="resource-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h4>Capacitación de Líderes</h4>
+            <p>Cursos gratuitos para ancianos, diáconos y maestros de Escuela Dominical.</p>
+            <button class="btn-outline-small" id="leadersBtn">Más información</button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section">
-        <div class="container">
-            <h2>Contáctanos</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Tu nombre" required>
-                <input type="email" id="email" placeholder="Tu correo electrónico" required>
-                <textarea id="message" placeholder="Tu mensaje o pregunta" required></textarea>
-                <button type="submit" class="cta-button">Enviar mensaje</button>
-            </form>
-            <p>Teléfono: +505 57514440</p>
-            <p>Email: juancanales5019@gmail.com</p>
+    <!-- DIRECTORIO DE IGLESIAS CON BÚSQUEDA (MEJORADO) -->
+    <section id="iglesias" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-map-marked-alt"></i> Iglesias de Cristo en Latinoamérica</h3>
+          <p>Encuentra una congregación cerca de ti. Escribe el nombre del país, ciudad o iglesia.</p>
         </div>
+
+        <!-- Buscador -->
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: México, Buenos Aires, Sutiaba, Bogotá...">
+        </div>
+
+        <!-- Contenedor de tarjetas de iglesias (dinámico) -->
+        <div id="churchesGrid" class="churches-grid">
+          <!-- Las tarjetas se generarán con JavaScript -->
+          <div class="loading-message"><i class="fas fa-spinner fa-pulse"></i> Cargando directorio...</div>
+        </div>
+
+        <div id="noResultsMsg" class="no-results hidden">
+          <i class="fas fa-map-pin"></i> No encontramos iglesias con ese criterio. ¿Eres miembro de una? <a href="#contacto">Contáctanos</a> para agregarla.
+        </div>
+
+        <div class="note-local">
+          <p><i class="fas fa-info-circle"></i> ¿Eres parte de una Iglesia de Cristo y quieres aparecer en este directorio? <a href="#contacto">Contáctanos</a>.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Iglesia de Cristo - Sutiaba, León, Nicaragua</p>
-            <p>"Os saludan todas las iglesias de Cristo" — Romanos 16:16</p>
+    <!-- CONTACTO Y NEWSLETTER -->
+    <section id="contacto" class="section bg-dark">
+      <div class="container contacto-flex">
+        <div class="contact-info">
+          <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
+          <p>Para oración, discipulado o información sobre nuestras sedes llena el formulario.</p>
+          <ul class="contact-details">
+            <li><i class="fas fa-envelope"></i> info@idclatam.org</li>
+            <li><i class="fab fa-whatsapp"></i> +54 9 11 1234-5678</li>
+            <li><i class="fab fa-facebook"></i> /iglesiadecristolatam</li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-    </footer>
+        <div class="contact-form">
+          <h4>Escríbenos</h4>
+          <form id="contactForm">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <select id="pais" required>
+              <option value="">Selecciona tu país</option>
+              <option>México</option><option>Guatemala</option><option>El Salvador</option><option>Honduras</option>
+              <option>Nicaragua</option><option>Costa Rica</option><option>Panamá</option><option>Colombia</option>
+              <option>Venezuela</option><option>Ecuador</option><option>Perú</option><option>Bolivia</option>
+              <option>Brasil</option><option>Paraguay</option><option>Chile</option><option>Argentina</option>
+              <option>Uruguay</option><option>República Dominicana</option><option>Puerto Rico</option>
+            </select>
+            <textarea id="mensaje" rows="4" placeholder="Tu mensaje (oración, discipulado, interés en una iglesia local...)" required></textarea>
+            <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+            <p id="formFeedback" class="form-feedback"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 IDCLATAM — Iglesia de Cristo Latinoamérica. <i class="fas fa-heart"></i> Uniendo a la hermandad.</p>
+      <p><small>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree” (Romanos 1:16)</small></p>
+    </div>
+  </footer>
+
+  <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="script.js"></script>
 </body>
 </html>

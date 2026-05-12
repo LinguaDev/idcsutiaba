@@ -1,61 +1,97 @@
-// Menú hamburguesa
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+// ==================== MENÚ HAMBURGUESA ====================
+const mobileToggle = document.getElementById('mobileToggle');
+const navbar = document.getElementById('navbar');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animación del hamburguesa
-    const spans = hamburger.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+if (mobileToggle && navbar) {
+  mobileToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    const icon = mobileToggle.querySelector('i');
+    if (navbar.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
     } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
     }
-});
+  });
 
-// Cerrar menú al hacer clic en un enlace (móvil)
-document.querySelectorAll('.nav-menu a').forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+      navbar.classList.remove('active');
+      const icon = mobileToggle.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
     });
+  });
+}
+
+// ==================== VERSÍCULO ALEATORIO ====================
+const verses = [
+  "Juan 3:16 — Porque de tal manera amó Dios al mundo...",
+  "Hechos 2:38 — Arrepentíos y bautícese cada uno...",
+  "Romanos 1:16 — No me avergüenzo del evangelio...",
+  "Mateo 28:19 — Id y haced discípulos a todas las naciones.",
+  "Efesios 4:5 — Un Señor, una fe, un bautismo."
+];
+const verseElement = document.getElementById('verseOfDay');
+if (verseElement) {
+  const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+  verseElement.innerHTML = `<i class="fas fa-bible"></i> ${randomVerse}`;
+}
+
+// ==================== ORACIÓN DE FE ====================
+const prayerBtn = document.getElementById('prayerBtn');
+const prayerMsg = document.getElementById('prayerMessage');
+if (prayerBtn && prayerMsg) {
+  prayerBtn.addEventListener('click', () => {
+    prayerMsg.classList.toggle('hidden');
+  });
+}
+
+// ==================== BOTONES DE RECURSOS ====================
+const sermonsBtn = document.getElementById('sermonsBtn');
+const downloadPlanBtn = document.getElementById('downloadPlanBtn');
+const evangelismKitBtn = document.getElementById('evangelismKitBtn');
+
+if (sermonsBtn) sermonsBtn.addEventListener('click', () => alert("🎙️ Pronto tendremos disponibles los sermones en audio. ¡Suscríbete para recibir novedades!"));
+if (downloadPlanBtn) downloadPlanBtn.addEventListener('click', () => alert("📘 Plan de lectura 'Discípulos en Acción' listo para descargar. (Simulacro - pronto estará disponible el PDF)"));
+if (evangelismKitBtn) evangelismKitBtn.addEventListener('click', () => alert("✝️ Recibirás por correo el kit de evangelismo digital. Pronto nos comunicaremos contigo."));
+
+// ==================== FORMULARIO DE CONTACTO ====================
+const contactForm = document.getElementById('contactForm');
+const formFeedback = document.getElementById('formFeedback');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre || !email || !mensaje) {
+      formFeedback.textContent = "⚠️ Por favor completa todos los campos.";
+      formFeedback.style.color = "#F5B041";
+      return;
+    }
+
+    formFeedback.innerHTML = `<i class="fas fa-check-circle"></i> ¡Gracias ${nombre}! Hemos recibido tu mensaje. Te contactaremos pronto.`;
+    formFeedback.style.color = "#a3e4d7";
+    contactForm.reset();
+    setTimeout(() => {
+      formFeedback.textContent = "";
+    }, 5000);
+  });
+}
+
+// ==================== BOTÓN SUBIR ====================
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  if (scrollBtn) {
+    if (window.scrollY > 600) {
+      scrollBtn.style.display = "flex";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  }
 });
-
-// Formulario de contacto (simulado)
-const form = document.getElementById('contact-form');
-if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('¡Mensaje enviado! Gracias por contactarnos. Un hermano te responderá pronto.');
-        form.reset();
-    });
-}
-
-// Funciones para compartir
-function shareFacebook() {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
-}
-
-function shareWhatsApp() {
-    const text = '¡Ven a la Iglesia de Cristo en Sutiaba! Romanos 16:16 ' + window.location.href;
-    window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
-}
-
-// Smooth scroll para enlaces internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href') !== '#') {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
+if (scrollBtn) scrollBtn.style.display = "none";
