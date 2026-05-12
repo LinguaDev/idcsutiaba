@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>IDCLATAM | Iglesia de Cristo Latinoamérica</title>
-  <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos y directorio de iglesias locales. Uniendo a la hermandad en Cristo.">
-  <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos bíblicos, IDCLATAM">
+  <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos y buscador de iglesias y hermanos.">
+  <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos, IDCLATAM">
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,6 +30,7 @@
           <li><a href="#discipulado" class="nav-link">Discipulado</a></li>
           <li><a href="#recursos" class="nav-link">Recursos</a></li>
           <li><a href="#iglesias" class="nav-link">Iglesias</a></li>
+          <li><a href="#hermanos" class="nav-link">Hermanos</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
       </nav>
@@ -171,32 +172,42 @@
       </div>
     </section>
 
-    <!-- DIRECTORIO DE IGLESIAS CON BÚSQUEDA (MEJORADO) -->
+    <!-- BUSCADOR DE IGLESIAS (/idc/) -->
     <section id="iglesias" class="section">
       <div class="container">
         <div class="section-header">
-          <h3><i class="fas fa-map-marked-alt"></i> Iglesias de Cristo en Latinoamérica</h3>
-          <p>Encuentra una congregación cerca de ti. Escribe el nombre del país, ciudad o iglesia.</p>
+          <h3><i class="fas fa-map-marked-alt"></i> Buscar Iglesias de Cristo</h3>
+          <p>Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</p>
         </div>
-
-        <!-- Buscador -->
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
-          <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: México, Buenos Aires, Sutiaba, Bogotá...">
+          <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: Sutiaba, México, Buenos Aires...">
         </div>
-
-        <!-- Contenedor de tarjetas de iglesias (dinámico) -->
-        <div id="churchesGrid" class="churches-grid">
-          <!-- Las tarjetas se generarán con JavaScript -->
-          <div class="loading-message"><i class="fas fa-spinner fa-pulse"></i> Cargando directorio...</div>
+        <div id="churchResults" class="results-list">
+          <div class="info-message">Escribe para buscar iglesias...</div>
         </div>
-
-        <div id="noResultsMsg" class="no-results hidden">
-          <i class="fas fa-map-pin"></i> No encontramos iglesias con ese criterio. ¿Eres miembro de una? <a href="#contacto">Contáctanos</a> para agregarla.
-        </div>
-
         <div class="note-local">
           <p><i class="fas fa-info-circle"></i> ¿Eres parte de una Iglesia de Cristo y quieres aparecer en este directorio? <a href="#contacto">Contáctanos</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSCADOR DE HERMANOS (/hn/) -->
+    <section id="hermanos" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-users"></i> Buscar Hermanos en Cristo</h3>
+          <p>Encuentra perfiles, testimonios y recursos de hermanos que comparten su fe.</p>
+        </div>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda, María, predicador...">
+        </div>
+        <div id="brotherResults" class="results-list">
+          <div class="info-message">Escribe para buscar hermanos...</div>
+        </div>
+        <div class="note-local">
+          <p><i class="fas fa-info-circle"></i> ¿Eres un hermano y deseas compartir tu testimonio? <a href="#contacto">Contáctanos</a>.</p>
         </div>
       </div>
     </section>

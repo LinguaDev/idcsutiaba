@@ -49,13 +49,13 @@ if (prayerBtn && prayerMsg) {
 }
 
 // ==================== BOTONES DE RECURSOS ====================
-const sermonsBtn = document.getElementById('sermonsBtn');
-const downloadPlanBtn = document.getElementById('downloadPlanBtn');
-const evangelismKitBtn = document.getElementById('evangelismKitBtn');
+const podcastBtn = document.getElementById('podcastBtn');
+const studiesBtn = document.getElementById('studiesBtn');
+const leadersBtn = document.getElementById('leadersBtn');
 
-if (sermonsBtn) sermonsBtn.addEventListener('click', () => alert("🎙️ Pronto tendremos disponibles los sermones en audio. ¡Suscríbete para recibir novedades!"));
-if (downloadPlanBtn) downloadPlanBtn.addEventListener('click', () => alert("📘 Plan de lectura 'Discípulos en Acción' listo para descargar. (Simulacro - pronto estará disponible el PDF)"));
-if (evangelismKitBtn) evangelismKitBtn.addEventListener('click', () => alert("✝️ Recibirás por correo el kit de evangelismo digital. Pronto nos comunicaremos contigo."));
+if (podcastBtn) podcastBtn.addEventListener('click', () => alert("🎙️ Pronto tendrás acceso a nuestros episodios. Te avisaremos por correo."));
+if (studiesBtn) studiesBtn.addEventListener('click', () => alert("📚 Biblioteca de estudios disponible próximamente. Déjanos tu email en contacto."));
+if (leadersBtn) leadersBtn.addEventListener('click', () => alert("👥 Capacitación para líderes: te enviaremos información al correo registrado."));
 
 // ==================== FORMULARIO DE CONTACTO ====================
 const contactForm = document.getElementById('contactForm');
@@ -66,9 +66,10 @@ if (contactForm) {
     e.preventDefault();
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
+    const pais = document.getElementById('pais').value;
     const mensaje = document.getElementById('mensaje').value.trim();
 
-    if (!nombre || !email || !mensaje) {
+    if (!nombre || !email || !pais || !mensaje) {
       formFeedback.textContent = "⚠️ Por favor completa todos los campos.";
       formFeedback.style.color = "#F5B041";
       return;
@@ -80,6 +81,120 @@ if (contactForm) {
     setTimeout(() => {
       formFeedback.textContent = "";
     }, 5000);
+  });
+}
+
+// ==================== DIRECTORIO DE IGLESIAS (/idc/) ====================
+// Cada objeto: nombre, ubicación, descripción breve, url (ruta relativa)
+const churchesCatalog = [
+  {
+    name: "Iglesia de Cristo en Sutiaba, Nicaragua",
+    location: "León, Nicaragua",
+    description: "Congregación local con énfasis en evangelismo y discipulado.",
+    url: "/idc/sutiaba.html"
+  },
+  {
+    name: "Iglesia de Cristo en Ciudad de México",
+    location: "Ciudad de México, México",
+    description: "Congregación centenaria, activa en misiones urbanas.",
+    url: "/idc/mexico-cdmx.html"
+  },
+  {
+    name: "Iglesia de Cristo en Buenos Aires",
+    location: "Buenos Aires, Argentina",
+    description: "Radio cristiana y podcasts. Discipulado para toda la familia.",
+    url: "/idc/buenos-aires.html"
+  }
+  // Puedes agregar más iglesias aquí (cada una con su archivo .html en /idc/)
+];
+
+// ==================== DIRECTORIO DE HERMANOS (/hn/) ====================
+const brothersCatalog = [
+  {
+    name: "Juan Pineda",
+    location: "Nicaragua",
+    description: "Predicador y maestro de la Palabra. Conferencias y estudios bíblicos.",
+    url: "/hn/juan-pineda.html"
+  },
+  {
+    name: "María González",
+    location: "Colombia",
+    description: "Escritora cristiana, autora de devocionales diarios.",
+    url: "/hn/maria-gonzalez.html"
+  },
+  {
+    name: "Carlos Méndez",
+    location: "Argentina",
+    description: "Músico y compositor de alabanza. Recursos para adoración.",
+    url: "/hn/carlos-mendez.html"
+  }
+  // Puedes agregar más hermanos aquí (cada uno con su archivo .html en /hn/)
+];
+
+// Función para renderizar resultados (genérica)
+function renderResults(containerId, dataArray, filterText, type) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const lowerFilter = filterText.toLowerCase().trim();
+  let filtered = dataArray;
+  if (lowerFilter !== "") {
+    filtered = dataArray.filter(item =>
+      item.name.toLowerCase().includes(lowerFilter) ||
+      item.location.toLowerCase().includes(lowerFilter) ||
+      (item.description && item.description.toLowerCase().includes(lowerFilter))
+    );
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i> No se encontraron ${type === 'church' ? 'iglesias' : 'hermanos'} con ese criterio.</div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => `
+    <div class="result-item">
+      <div class="result-info">
+        <h4>${escapeHtml(item.name)}</h4>
+        <p><i class="fas fa-map-marker-alt"></i> ${escapeHtml(item.location)}</p>
+        <p class="result-desc">${escapeHtml(item.description)}</p>
+      </div>
+      <a href="${item.url}" class="result-link">Ver página <i class="fas fa-arrow-right"></i></a>
+    </div>
+  `).join('');
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  });
+}
+
+// Buscador de iglesias
+const churchSearch = document.getElementById('churchSearch');
+const churchResults = document.getElementById('churchResults');
+
+if (churchSearch && churchResults) {
+  // Mostrar todas al inicio? Preferimos mostrar el mensaje inicial.
+  churchResults.innerHTML = '<div class="info-message">✝️ Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</div>';
+  
+  churchSearch.addEventListener('input', (e) => {
+    renderResults('churchResults', churchesCatalog, e.target.value, 'church');
+  });
+}
+
+// Buscador de hermanos
+const brotherSearch = document.getElementById('brotherSearch');
+const brotherResults = document.getElementById('brotherResults');
+
+if (brotherSearch && brotherResults) {
+  brotherResults.innerHTML = '<div class="info-message">🙏 Escribe el nombre de un hermano para encontrar su perfil.</div>';
+  
+  brotherSearch.addEventListener('input', (e) => {
+    renderResults('brotherResults', brothersCatalog, e.target.value, 'brother');
   });
 }
 
