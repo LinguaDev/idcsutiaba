@@ -19,6 +19,31 @@ body {
   padding: 0 24px;
 }
 
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F5B041;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e09d2c;
+}
+
+/* ===== TIPOGRAFÍA ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 /* ===== HEADER ===== */
 .header {
   background: #0d2c2a;
@@ -47,6 +72,12 @@ body {
 .logo i {
   font-size: 2rem;
   color: #F5B041;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .logo h1 {
@@ -79,6 +110,23 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #F5B041;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
 .nav-link:hover {
@@ -92,16 +140,22 @@ body {
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mobile-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  background: url('Iglesía\ de\ Cristo.png') center/cover no-repeat;
+  background: url('Iglesía de Cristo.png') center/cover no-repeat;
   min-height: 85vh;
   display: flex;
   align-items: center;
   text-align: center;
+  background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -119,6 +173,18 @@ body {
   color: white;
   max-width: 850px;
   margin: 0 auto;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .verse-day {
@@ -130,6 +196,11 @@ body {
   margin-bottom: 24px;
   font-size: 0.9rem;
   color: #0d2c2a;
+  transition: transform 0.3s;
+}
+
+.verse-day:hover {
+  transform: scale(1.05);
 }
 
 .hero h2 {
@@ -139,9 +210,14 @@ body {
   line-height: 1.2;
 }
 
+.hero h2 strong {
+  color: #F5B041;
+}
+
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 32px;
+  opacity: 0.95;
 }
 
 .hero-buttons {
@@ -159,8 +235,10 @@ body {
   border-radius: 40px;
   font-weight: 700;
   text-decoration: none;
-  transition: 0.2s;
+  transition: all 0.3s ease;
   font-size: 1rem;
+  cursor: pointer;
+  border: none;
 }
 
 .btn-primary {
@@ -170,7 +248,8 @@ body {
 
 .btn-primary:hover {
   background: #e09d2c;
-  transform: scale(1.02);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(245,176,65,0.3);
 }
 
 .btn-secondary {
@@ -181,6 +260,7 @@ body {
 
 .btn-secondary:hover {
   background: #F5B04120;
+  transform: translateY(-3px);
 }
 
 /* ===== SECCIONES ===== */
@@ -207,10 +287,34 @@ body {
   font-weight: 800;
   margin-bottom: 12px;
   color: #0d2c2a;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #F5B041;
+  border-radius: 2px;
 }
 
 .bg-dark .section-header h3 {
   color: #F5B041;
+}
+
+.bg-dark .section-header h3::after {
+  background: white;
+}
+
+.section-header p {
+  max-width: 700px;
+  margin: 16px auto 0;
+  opacity: 0.85;
 }
 
 /* Cards generales */
@@ -226,13 +330,28 @@ body {
   border-radius: 28px;
   text-align: center;
   box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-  transition: 0.2s;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.1);
 }
 
 .card i {
   font-size: 2.5rem;
   color: #F5B041;
   margin-bottom: 16px;
+  transition: transform 0.3s;
+}
+
+.card:hover i {
+  transform: scale(1.1);
+}
+
+.card h4 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
 }
 
 /* Evangelismo */
@@ -247,6 +366,11 @@ body {
   border-radius: 32px;
   padding: 32px;
   box-shadow: 0 16px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.gospel-card:hover, .testimony-card:hover {
+  transform: translateY(-5px);
 }
 
 .gospel-steps {
@@ -259,6 +383,15 @@ body {
   gap: 12px;
   margin: 16px 0;
   font-weight: 500;
+  padding: 8px 12px;
+  background: #f9f7f4;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.step:hover {
+  background: #F5B04120;
+  transform: translateX(5px);
 }
 
 .step-num {
@@ -270,6 +403,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  color: #0d2c2a;
 }
 
 .btn-prayer {
@@ -280,6 +414,13 @@ body {
   border-radius: 40px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-prayer:hover {
+  background: #F5B041;
+  color: #0d2c2a;
+  transform: scale(1.02);
 }
 
 .prayer-message {
@@ -288,10 +429,36 @@ body {
   padding: 16px;
   border-radius: 20px;
   font-style: italic;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hidden {
   display: none;
+}
+
+.testimony-card {
+  text-align: center;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimony-card i {
+  font-size: 2rem;
+  color: #F5B041;
+  margin-bottom: 16px;
+}
+
+.testimony-card span {
+  margin-top: 16px;
+  font-weight: 600;
+  color: #F5B041;
 }
 
 /* Discipulado */
@@ -308,11 +475,18 @@ body {
   border-radius: 28px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.discipulo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .discipulo-card i {
   font-size: 2.2rem;
   color: #F5B041;
+  margin-bottom: 16px;
 }
 
 .card-link {
@@ -322,6 +496,13 @@ body {
   color: #0d2c2a;
   text-decoration: none;
   border-bottom: 2px solid #F5B041;
+  transition: all 0.3s;
+}
+
+.card-link:hover {
+  color: #F5B041;
+  border-bottom-color: #0d2c2a;
+  transform: translateX(3px);
 }
 
 /* Recursos */
@@ -336,23 +517,36 @@ body {
   padding: 24px;
   border-radius: 24px;
   text-align: center;
+  transition: all 0.3s;
+}
+
+.resource-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.resource-item i {
+  font-size: 2rem;
+  color: #F5B041;
+  margin-bottom: 12px;
 }
 
 .btn-outline-small {
   background: none;
-  border: 1px solid #0d2c2a;
+  border: 2px solid #0d2c2a;
   padding: 8px 20px;
   border-radius: 40px;
   cursor: pointer;
   font-weight: 600;
   margin-top: 12px;
-  transition: 0.2s;
+  transition: all 0.3s;
 }
 
 .btn-outline-small:hover {
   background: #F5B041;
   border-color: #F5B041;
   color: #0d2c2a;
+  transform: scale(1.02);
 }
 
 /* ===== BUSCADORES Y LISTAS ===== */
@@ -369,6 +563,12 @@ body {
   transform: translateY(-50%);
   color: #0d2c2a;
   opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.search-input:focus + .search-icon {
+  opacity: 1;
+  color: #F5B041;
 }
 
 .search-input {
@@ -378,7 +578,7 @@ body {
   border: 2px solid #ddd;
   border-radius: 60px;
   font-family: inherit;
-  transition: 0.2s;
+  transition: all 0.3s;
   background: white;
 }
 
@@ -403,11 +603,12 @@ body {
   align-items: center;
   padding: 16px 24px;
   border-bottom: 1px solid #f0e9e0;
-  transition: 0.2s;
+  transition: all 0.3s;
 }
 
 .result-item:hover {
   background: #fef5e8;
+  transform: translateX(5px);
 }
 
 .result-info h4 {
@@ -421,6 +622,12 @@ body {
   color: #5e6e6b;
 }
 
+.result-desc {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
 .result-link {
   background: #F5B04120;
   padding: 8px 16px;
@@ -429,12 +636,13 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.85rem;
-  transition: 0.2s;
+  transition: all 0.3s;
 }
 
 .result-link:hover {
   background: #F5B041;
   color: #0d2c2a;
+  transform: scale(1.02);
 }
 
 .info-message, .no-results {
@@ -451,6 +659,11 @@ body {
   gap: 48px;
 }
 
+.contact-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
 .contact-details {
   list-style: none;
   margin: 24px 0;
@@ -461,6 +674,11 @@ body {
   display: flex;
   gap: 16px;
   align-items: center;
+  transition: transform 0.3s;
+}
+
+.contact-details li:hover {
+  transform: translateX(5px);
 }
 
 .social-icons a {
@@ -473,16 +691,57 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 12px;
-  transition: 0.2s;
+  transition: all 0.3s;
 }
 
-.contact-form input, .contact-form select, .contact-form textarea {
+.social-icons a:hover {
+  background: #F5B041;
+  transform: translateY(-3px);
+}
+
+.contact-form {
+  background: white;
+  padding: 28px;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contact-form h4 {
+  color: #0d2c2a;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
   width: 100%;
   padding: 14px;
   margin: 8px 0;
-  border: none;
+  border: 2px solid #e0e0e0;
   border-radius: 20px;
   font-family: inherit;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #F5B041;
+  box-shadow: 0 0 0 3px rgba(245,176,65,0.2);
+}
+
+.contact-form button {
+  margin-top: 16px;
+}
+
+.form-feedback {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  min-height: 40px;
 }
 
 .full-width {
@@ -490,6 +749,7 @@ body {
   justify-content: center;
 }
 
+/* Footer */
 .footer {
   background: #051f1e;
   color: #ccc;
@@ -497,6 +757,15 @@ body {
   padding: 36px 0;
 }
 
+.footer-content p:first-child {
+  margin-bottom: 12px;
+}
+
+.footer-content small {
+  opacity: 0.7;
+}
+
+/* Scroll Top Button */
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -512,19 +781,43 @@ body {
   font-size: 1.4rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 99;
-  transition: 0.2s;
+  transition: all 0.3s;
+  text-decoration: none;
+  opacity: 0.9;
 }
 
-/* Responsive */
+.scroll-top:hover {
+  background: #e09d2c;
+  transform: translateY(-3px);
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+
 @media (max-width: 900px) {
   .evangelism-content {
     grid-template-columns: 1fr;
   }
+  
   .contacto-flex {
     grid-template-columns: 1fr;
   }
+  
   .hero h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
   }
 }
 
@@ -532,6 +825,7 @@ body {
   .mobile-toggle {
     display: block;
   }
+  
   .navbar {
     position: fixed;
     top: 72px;
@@ -544,19 +838,79 @@ body {
     z-index: 999;
     box-shadow: 4px 0 20px rgba(0,0,0,0.3);
   }
+  
   .navbar.active {
     left: 0;
   }
+  
   .nav-menu {
     flex-direction: column;
     gap: 32px;
   }
+  
   .result-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
+  
   .result-link {
     align-self: flex-start;
+  }
+  
+  .cards-grid,
+  .discipulado-grid,
+  .resources-grid {
+    gap: 20px;
+  }
+  
+  .section-header h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.loading {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+}
+
+/* ===== ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .header,
+  .hero-buttons,
+  .btn-prayer,
+  .search-container,
+  .social-icons,
+  .scroll-top,
+  .mobile-toggle {
+    display: none;
+  }
+  
+  .section {
+    padding: 20px 0;
+    break-inside: avoid;
+  }
+  
+  body {
+    color: black;
   }
 }
