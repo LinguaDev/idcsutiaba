@@ -150,12 +150,17 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  background: url('Iglesía de Cristo.png') center/cover no-repeat;
+  /* IMAGEN EXTERNA CONFIABLE (Unsplash) */
+  background: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=2070&auto=format') center/cover no-repeat;
+  /* Si tienes imagen local, descomenta la siguiente línea y comenta la de arriba */
+  /* background: url('Iglesía de Cristo.png') center/cover no-repeat; */
   min-height: 85vh;
   display: flex;
   align-items: center;
   text-align: center;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-overlay {
@@ -164,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0d2c2aee, #0d2c2aaa);
+  background: linear-gradient(135deg, #0d2c2ae6, #0d2c2ab3);
 }
 
 .hero-content {
@@ -174,6 +179,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 850px;
   margin: 0 auto;
   animation: fadeInUp 1s ease;
+  padding: 20px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 @keyframes fadeInUp {
@@ -263,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-3px);
 }
 
-/* ===== SECCIONES ===== */
+/* ===== SECCIONES GENERALES ===== */
 .section {
   padding: 80px 0;
 }
@@ -317,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.85;
 }
 
-/* Cards generales */
+/* Cards (Misión, Visión, Creemos) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -354,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.3rem;
 }
 
-/* Evangelismo */
+/* Evangelismo: columna principal */
 .evangelism-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -373,39 +380,101 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-5px);
 }
 
+/* ===== ESTILOS DE LOS 7 PASOS (acordeón) ===== */
 .gospel-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin: 24px 0;
 }
 
-.step {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 16px 0;
-  font-weight: 500;
-  padding: 8px 12px;
-  background: #f9f7f4;
-  border-radius: 50px;
-  transition: all 0.3s;
+.step-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
 }
 
-.step:hover {
-  background: #F5B04120;
-  transform: translateX(5px);
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0d2c2a 0%, #1a4a44 100%);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.step-header:hover {
+  background: linear-gradient(135deg, #1a4a44 0%, #0d2c2a 100%);
 }
 
 .step-num {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: #F5B041;
+  color: #0d2c2a;
   border-radius: 50%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.step-header h4 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.step-ref {
+  font-family: monospace;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.step-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.step-card.active .step-icon {
+  transform: rotate(180deg);
+}
+
+.step-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #fefaf5;
+  border-top: 1px solid #e0d6c8;
+}
+
+.step-card.active .step-content {
+  max-height: 300px;
+  padding: 20px;
+}
+
+.step-content p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #1a2f2b;
+}
+
+.step-content p:first-child {
+  font-weight: 600;
   color: #0d2c2a;
 }
 
+/* Botón de oración */
 .btn-prayer {
   background: #0d2c2a;
   color: white;
@@ -415,6 +484,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
+  width: 100%;
+  margin-top: 16px;
 }
 
 .btn-prayer:hover {
@@ -428,7 +499,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #eef2ea;
   padding: 16px;
   border-radius: 20px;
-  font-style: italic;
+  font-style: normal;
+  line-height: 1.6;
   animation: fadeIn 0.5s ease;
 }
 
@@ -505,6 +577,15 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(3px);
 }
 
+.discipulado-cta {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 1.1rem;
+  background: #F5B04120;
+  padding: 16px;
+  border-radius: 60px;
+}
+
 /* Recursos */
 .resources-grid {
   display: grid;
@@ -531,6 +612,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 12px;
 }
 
+.resource-item ul {
+  list-style: none;
+  margin: 16px 0;
+}
+
+.resource-item li {
+  margin: 8px 0;
+}
+
 .btn-outline-small {
   background: none;
   border: 2px solid #0d2c2a;
@@ -549,107 +639,54 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.02);
 }
 
-/* ===== BUSCADORES Y LISTAS ===== */
-.search-container {
-  position: relative;
-  max-width: 500px;
-  margin: 0 auto 32px auto;
-}
-
-.search-icon {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #0d2c2a;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-}
-
-.search-input:focus + .search-icon {
-  opacity: 1;
-  color: #F5B041;
-}
-
-.search-input {
-  width: 100%;
-  padding: 14px 20px 14px 50px;
-  font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 60px;
-  font-family: inherit;
-  transition: all 0.3s;
-  background: white;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #F5B041;
-  box-shadow: 0 0 0 3px rgba(245,176,65,0.2);
-}
-
-.results-list {
-  background: white;
-  border-radius: 28px;
-  padding: 8px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.result-item {
+/* Eventos */
+.events-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  border-bottom: 1px solid #f0e9e0;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.event-card {
+  display: flex;
+  gap: 20px;
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: all 0.3s;
 }
 
-.result-item:hover {
-  background: #fef5e8;
+.event-card:hover {
   transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.result-info h4 {
-  font-size: 1.1rem;
-  margin-bottom: 4px;
-  color: #0d2c2a;
-}
-
-.result-info p {
-  font-size: 0.85rem;
-  color: #5e6e6b;
-}
-
-.result-desc {
-  margin-top: 4px;
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.result-link {
-  background: #F5B04120;
-  padding: 8px 16px;
-  border-radius: 40px;
-  color: #0d2c2a;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: all 0.3s;
-}
-
-.result-link:hover {
+.event-date {
   background: #F5B041;
+  border-radius: 20px;
+  padding: 12px;
+  text-align: center;
+  min-width: 70px;
+  font-weight: bold;
   color: #0d2c2a;
-  transform: scale(1.02);
 }
 
-.info-message, .no-results {
+.event-date span:first-child {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.event-date span {
+  display: block;
+}
+
+.services-info {
+  background: #e8e2d4;
+  padding: 16px;
+  border-radius: 60px;
   text-align: center;
-  padding: 32px;
-  color: #5e6e6b;
-  font-style: italic;
+  font-weight: 500;
 }
 
 /* Contacto */
@@ -713,7 +750,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-form input, 
-.contact-form select, 
 .contact-form textarea {
   width: 100%;
   padding: 14px;
@@ -726,7 +762,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-form input:focus,
-.contact-form select:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: #F5B041;
@@ -749,6 +784,15 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+/* Mapa */
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  margin-top: 48px;
+  border-radius: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
 /* Footer */
 .footer {
   background: #051f1e;
@@ -763,6 +807,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-content small {
   opacity: 0.7;
+}
+
+.footer a {
+  color: #F5B041;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 /* Scroll Top Button */
@@ -848,16 +901,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 32px;
   }
   
-  .result-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  
-  .result-link {
-    align-self: flex-start;
-  }
-  
   .cards-grid,
   .discipulado-grid,
   .resources-grid {
@@ -866,6 +909,44 @@ h1, h2, h3, h4, h5, h6 {
   
   .section-header h3 {
     font-size: 1.8rem;
+  }
+  
+  .step-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .step-header h4 {
+    width: 100%;
+    order: 1;
+  }
+  
+  .step-ref {
+    order: 2;
+    margin-left: auto;
+  }
+  
+  .step-icon {
+    order: 3;
+  }
+  
+  .step-num {
+    order: 0;
+  }
+  
+  .map-container iframe {
+    height: 250px;
+  }
+  
+  .event-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .event-date {
+    width: 100%;
+    max-width: 100px;
   }
 }
 
