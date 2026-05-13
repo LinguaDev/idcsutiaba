@@ -126,7 +126,7 @@ const churchesCatalog = [
     name: "Iglesia de Cristo en Sutiaba, Nicaragua",
     location: "León, Nicaragua",
     description: "Congregación local con énfasis en evangelismo y discipulado.",
-    url: "/idc/sutiaba.html"
+    url: "sutiaba.html"
   },
   {
     name: "Iglesia de Cristo en Ciudad de México",
