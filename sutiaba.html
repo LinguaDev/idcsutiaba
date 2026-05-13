@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Iglesia de Cristo en Sutiaba | Fe, Discipulado y Evangelismo</title>
   <meta name="description" content="Iglesia de Cristo en Sutiaba, León. Un lugar de adoración, crecimiento espiritual y misión evangelística. Conoce a Jesús, crece en discipulado y sé parte de nuestra familia.">
-  <!-- Google Fonts + Font Awesome (externos) -->
+  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="src/church.css">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="../src/church.css">
 </head>
 <body>
-  <!-- HEADER / NAVEGACIÓN CON HAMBURGUESA -->
   <header class="header" id="header">
     <div class="container header-container">
       <div class="logo">
         <i class="fas fa-cross"></i>
-        <h1>IC Sutiaba</h1>
+        <h1>IdC Sutiaba</h1>
         <span class="logo-sub">Iglesia de Cristo</span>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
@@ -26,7 +26,7 @@
         <ul class="nav-menu">
           <li><a href="#inicio" class="nav-link">Inicio</a></li>
           <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-          <li><a href="#evangelismo" class="nav-link">Evangelismo</a></li>
+          <li><a href="#evangelismo" class="nav-link">¿Qué debo hacer para ser salvo?</a></li>
           <li><a href="#discipulado" class="nav-link">Discipulado</a></li>
           <li><a href="#recursos" class="nav-link">Recursos</a></li>
           <li><a href="#eventos" class="nav-link">Eventos</a></li>
@@ -37,7 +37,7 @@
   </header>
 
   <main>
-    <!-- HERO (INICIO) -->
+    <!-- HERO -->
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <!-- NOSOTROS: Misión, Visión, Creencia (Deidad) -->
+    <!-- NOSOTROS -->
     <section id="nosotros" class="section">
       <div class="container">
         <div class="section-header">
@@ -78,7 +78,7 @@
       </div>
     </section>
 
-    <!-- EVANGELISMO (central) -->
+    <!-- EVANGELISMO (con los 7 pasos) -->
     <section id="evangelismo" class="section bg-light">
       <div class="container">
         <div class="section-header">
@@ -89,21 +89,118 @@
           <article class="gospel-card">
             <h4>✝️ Romanos 6:23</h4>
             <p>"Porque la paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro."</p>
+
+            <!-- 7 pasos del evangelio -->
             <div class="gospel-steps">
-              <div class="step"><span class="step-num">1</span> Dios te ama (Juan 3:16)</div>
-              <div class="step"><span class="step-num">2</span> Todos hemos pecado (Romanos 3:23)</div>
-              <div class="step"><span class="step-num">3</span> Cristo murió por ti (Romanos 5:8)</div>
-              <div class="step"><span class="step-num">4</span> Recíbele como Señor (Romanos 10:9-10)</div>
+              <div class="step-card" data-step="1">
+                <div class="step-header">
+                  <span class="step-num">1</span>
+                  <h4>Oír la Palabra de Dios</h4>
+                  <span class="step-ref">Romanos 10:17</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>📖 Romanos 10:17</strong> — "Así que la fe es por el oír, y el oír, por la palabra de Dios."</p>
+                  <p>La fe comienza cuando escuchamos el evangelio, la verdad, la buena noticia de la Muerte, Sepultura y Resurrección de Jesús. Es necesario oír la verdad de Dios para poder creer.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="2">
+                <div class="step-header">
+                  <span class="step-num">2</span>
+                  <h4>Creer en Jesús</h4>
+                  <span class="step-ref">Juan 8:24</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>✝️ Juan 8:24</strong> — "Porque si no creéis que yo soy, en vuestros pecados moriréis."</p>
+                  <p>Creer que Jesús es el Hijo de Dios, que murió por nuestros pecados y resucitó al tercer día.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="3">
+                <div class="step-header">
+                  <span class="step-num">3</span>
+                  <h4>Arrepentirse de los pecados</h4>
+                  <span class="step-ref">Hechos 17:30</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>🕊️ Hechos 17:30</strong> — "Dios manda a todos los hombres en todo lugar, que se arrepientan."</p>
+                  <p>Arrepentirse significa cambiar de mente y dirección, apartándose del pecado y volviéndose a Dios.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="4">
+                <div class="step-header">
+                  <span class="step-num">4</span>
+                  <h4>Confesar a Jesús como Señor</h4>
+                  <span class="step-ref">Romanos 10:9-10</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>🙌 Romanos 10:9-10</strong> — "Si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo."</p>
+                  <p>Confesar públicamente nuestra fe en Jesucristo como nuestro Salvador y Señor.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="5">
+                <div class="step-header">
+                  <span class="step-num">5</span>
+                  <h4>Bautizarse para perdón de pecados</h4>
+                  <span class="step-ref">Hechos 2:38</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>💧 Hechos 2:38</strong> — "Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados."</p>
+                  <p>El bautismo en agua es una inmersión que representa nuestra muerte al pecado y nueva vida en Cristo.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="6">
+                <div class="step-header">
+                  <span class="step-num">6</span>
+                  <h4>Perseverar en la fe</h4>
+                  <span class="step-ref">Apocalipsis 2:10</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>⚓ Apocalipsis 2:10</strong> — "Sé fiel hasta la muerte, y yo te daré la corona de la vida."</p>
+                  <p>Vivir una vida de obediencia constante, creciendo en gracia y conocimiento del Señor.</p>
+                </div>
+              </div>
+
+              <div class="step-card" data-step="7">
+                <div class="step-header">
+                  <span class="step-num">7</span>
+                  <h4>Enseñar a otros</h4>
+                  <span class="step-ref">Mateo 28:19-20</span>
+                  <i class="fas fa-chevron-down step-icon"></i>
+                </div>
+                <div class="step-content">
+                  <p><strong>🌍 Mateo 28:19-20</strong> — "Id, y haced discípulos a todas las naciones... enseñándoles que guarden todas las cosas que os he mandado."</p>
+                  <p>Compartir el evangelio y discipular a otros, ayudándoles a seguir los mismos pasos.</p>
+                </div>
+              </div>
             </div>
+
             <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i> Oración de fe</button>
             <div id="prayerMessage" class="prayer-message hidden">
-              <i class="fas fa-dove"></i> Señor Jesús, reconozco que soy pecador, creo que moriste y resucitaste. Te recibo como mi Salvador y Señor. Guía mi vida. ¡Amén!
+              <i class="fas fa-dove"></i> 
+              <strong>Oración de fe según el evangelio de Cristo</strong><br><br>
+              “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
+              Creo que Jesús es tu Hijo, que murió en la cruz por mis pecados y que resucitó al tercer día (Romanos 10:9).<br><br>
+              Me arrepiento de mis pecados y decido cambiar mi vida para seguir tus caminos (Hechos 17:30).<br><br>
+              Confieso a Jesucristo como mi Señor y Salvador (Romanos 10:10).<br><br>
+              Te pido que, al ser bautizado en agua para perdón de mis pecados, me concedas el don del Espíritu Santo y una nueva vida en Cristo (Hechos 2:38).<br><br>
+              Ayúdame a ser fiel hasta el fin y a compartir tu amor con otros. En el nombre de Jesús, amén.”
             </div>
           </article>
+
           <div class="testimony-card">
             <i class="fas fa-quote-left"></i>
             <p>"Cristo transformó mi vida. En esta iglesia encontré propósito y una familia que me enseña a seguir a Jesús."</p>
-            <span>— Hermana Marta, miembro IC Sutiaba</span>
+            <span>— Hermana Ana, miembro de la IdC en Sutiaba</span>
           </div>
         </div>
       </div>
@@ -201,13 +298,13 @@
           <div class="event-card">
             <div class="event-date"><span>05</span><span>Jun</span></div>
             <div class="event-info">
-              <h4>Noche de Oración y Avivamiento</h4>
+              <h4>Noche de Oración</h4>
               <p>Un encuentro especial para clamar por Sutiaba y las naciones.</p>
             </div>
           </div>
         </div>
         <div class="services-info">
-          <i class="fas fa-clock"></i> <strong>Horarios de servicios:</strong> Domingo 10:00 AM | Miércoles 7:00 PM (Estudio Bíblico) | Viernes 6:00 PM Jóvenes
+          <i class="fas fa-clock"></i> <strong>Horarios de servicios:</strong> Domingo 9:00 AM | Miércoles 6:00 PM (Estudio Bíblico en los Hogares) | Viernes 6:00 PM Oración en el salón de la iglesia.
         </div>
       </div>
     </section>
@@ -219,15 +316,15 @@
           <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
           <p>¿Necesitas ayuda, oración o deseas iniciar tu caminar con Cristo? Escríbenos.</p>
           <ul class="contact-details">
-            <li><i class="fas fa-map-marker-alt"></i> Barrio Central, Iglesia de Cristo en Sutiaba, León, Nicaragua</li>
-            <li><i class="fas fa-phone-alt"></i> +505 1234 5678</li>
-            <li><i class="fas fa-envelope"></i> discipulado@icsutiaba.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> Iglesia de Cristo en Sutiaba, Contiguo a Cosa de horno Adilia, León, Nicaragua</li>
+            <li><i class="fas fa-phone-alt"></i> +505 57514440</li>
+            <li><i class="fas fa-envelope"></i> idcsutiaba.org@gmail.com</li>
           </ul>
           <div class="social-icons">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/50557514440" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="contact-form">
@@ -242,20 +339,21 @@
         </div>
       </div>
       <div class="map-container">
-        <iframe title="Ubicación Iglesia Sutiaba" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.456789!2d-86.88288585!3d12.11930715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7156dfc4a91c3d%3A0xc480d0b446f4a2d8!2sSutiaba%2C%20Le%C3%B3n!5e0!3m2!1ses!2sni!4v1657730205891!5m2!1ses!2sni" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Ubicación exacta Iglesia Sutiaba" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d231.4651013265871!2d-86.8928868305102!3d12.434823030333806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sni!4v1778643450110!5m2!1ses!2sni" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-content">
-      <p>&copy; 2026 Iglesia de Cristo en Sutiaba — <i class="fas fa-heart"></i> Haciendo discípulos, compartiendo esperanza.</p>
+      <p>&copy; 2026 Iglesia de Cristo en Sutiaba — Haciendo discípulos, compartiendo esperanza.</p>
       <p><small>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación...” Romanos 1:16</small></p>
     </div>
   </footer>
 
   <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
-  
-  <script src="src/church.js" defer></script>
+
+  <!-- JavaScript externo -->
+  <script src="../src/church.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* RESET & GLOBAL */
+/* ===== RESET & GLOBAL ===== */
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +19,9 @@ body {
   padding: 0 24px;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header {
-  background: #0a2b2c;
+  background: #0d2c28;
   color: white;
   position: sticky;
   top: 0;
@@ -46,7 +46,7 @@ body {
 
 .logo i {
   font-size: 2rem;
-  color: #f4c542;
+  color: #f4b642;
 }
 
 .logo h1 {
@@ -57,14 +57,14 @@ body {
 
 .logo-sub {
   font-size: 0.75rem;
-  background: #f4c54220;
+  background: #f4b64220;
   padding: 2px 8px;
   border-radius: 40px;
   font-weight: 500;
-  color: #f4c542;
+  color: #f4b642;
 }
 
-/* NAV y HAMBURGUESA */
+/* Navegación y menú hamburguesa */
 .navbar {
   transition: all 0.3s ease;
 }
@@ -84,7 +84,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #f4c542;
+  color: #f4b642;
 }
 
 .mobile-toggle {
@@ -96,10 +96,10 @@ body {
   cursor: pointer;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1438035494737-8e5f2bb6cc4b?q=80&w=1974&auto=format') center/cover no-repeat;
+  background: url('iglesia y jardin.jpg') center/cover no-repeat;
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -112,7 +112,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a2b2ce6, #0a2b2cb3);
+  background: linear-gradient(135deg, #0d2c28e6, #0d2c28b3);
 }
 
 .hero-content {
@@ -124,7 +124,7 @@ body {
 }
 
 .verse-day {
-  background: #f4c542dd;
+  background: #f4b642dd;
   display: inline-block;
   padding: 8px 20px;
   border-radius: 50px;
@@ -166,26 +166,26 @@ body {
 }
 
 .btn-primary {
-  background: #f4c542;
-  color: #0a2b2c;
+  background: #f4b642;
+  color: #0d2c28;
 }
 
 .btn-primary:hover {
-  background: #e0b03b;
+  background: #e0a12e;
   transform: scale(1.02);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid #f4c542;
-  color: #f4c542;
+  border: 2px solid #f4b642;
+  color: #f4b642;
 }
 
 .btn-secondary:hover {
-  background: #f4c54220;
+  background: #f4b64220;
 }
 
-/* secciones */
+/* ===== SECCIONES GENERALES ===== */
 .section {
   padding: 80px 0;
 }
@@ -208,13 +208,14 @@ body {
   font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 12px;
-  color: #0a2b2c;
+  color: #0d2c28;
 }
 
 .bg-dark .section-header h3 {
-  color: #f4c542;
+  color: #f4b642;
 }
 
+/* Cards (Misión, Visión, Creemos) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -232,10 +233,11 @@ body {
 
 .card i {
   font-size: 2.5rem;
-  color: #f4c542;
+  color: #f4b542;
   margin-bottom: 16px;
 }
 
+/* Evangelismo: columna principal */
 .evangelism-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -249,31 +251,103 @@ body {
   box-shadow: 0 16px 30px rgba(0,0,0,0.05);
 }
 
+/* ===== ESTILOS DE LOS 7 PASOS (extraídos del inline) ===== */
 .gospel-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin: 24px 0;
 }
 
-.step {
+.step-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.step-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 16px 0;
-  font-weight: 500;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0d2c28 0%, #1a4a44 100%);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.step-header:hover {
+  background: linear-gradient(135deg, #1a4a44 0%, #0d2c28 100%);
 }
 
 .step-num {
-  width: 32px;
-  height: 32px;
-  background: #f4c542;
+  width: 40px;
+  height: 40px;
+  background: #f4b642;
+  color: #0d2c28;
   border-radius: 50%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
+.step-header h4 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.step-ref {
+  font-family: monospace;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.step-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.step-card.active .step-icon {
+  transform: rotate(180deg);
+}
+
+.step-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #fefaf5;
+  border-top: 1px solid #e0d6c8;
+}
+
+.step-card.active .step-content {
+  max-height: 300px;
+  padding: 20px;
+}
+
+.step-content p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #1a2f2b;
+}
+
+.step-content p:first-child {
+  font-weight: 600;
+  color: #0d2c28;
+}
+
+/* Botón de oración */
 .btn-prayer {
-  background: #0a2b2c;
+  background: #0d2c28;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -281,6 +355,12 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.btn-prayer:hover {
+  background: #1a4a44;
 }
 
 .prayer-message {
@@ -288,13 +368,15 @@ body {
   background: #eef4f0;
   padding: 16px;
   border-radius: 20px;
-  font-style: italic;
+  font-style: normal;
+  line-height: 1.6;
 }
 
 .hidden {
   display: none;
 }
 
+/* Discipulado */
 .discipulado-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -308,21 +390,33 @@ body {
   border-radius: 28px;
   text-align: center;
   transition: 0.2s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .discipulo-card i {
   font-size: 2.2rem;
-  color: #f4c542;
+  color: #f4b642;
 }
 
 .card-link {
   display: inline-block;
   margin-top: 20px;
   font-weight: 600;
-  color: #0a2b2c;
+  color: #0d2c28;
   text-decoration: none;
+  border-bottom: 2px solid #f4b642;
 }
 
+.discipulado-cta {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 1.1rem;
+  background: #f4b64220;
+  padding: 16px;
+  border-radius: 60px;
+}
+
+/* Recursos */
 .resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -346,7 +440,7 @@ body {
 
 .btn-outline-small {
   background: none;
-  border: 1px solid #0a2b2c;
+  border: 1px solid #0d2c28;
   padding: 8px 16px;
   border-radius: 30px;
   cursor: pointer;
@@ -354,6 +448,13 @@ body {
   transition: 0.2s;
 }
 
+.btn-outline-small:hover {
+  background: #f4b642;
+  border-color: #f4b642;
+  color: #0d2c28;
+}
+
+/* Eventos */
 .events-list {
   display: flex;
   flex-direction: column;
@@ -371,12 +472,16 @@ body {
 }
 
 .event-date {
-  background: #f4c542;
+  background: #f4b642;
   border-radius: 20px;
   padding: 12px;
   text-align: center;
   min-width: 70px;
   font-weight: bold;
+}
+
+.event-date span {
+  display: block;
 }
 
 .services-info {
@@ -387,6 +492,7 @@ body {
   font-weight: 500;
 }
 
+/* Contacto */
 .contacto-flex {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -407,7 +513,7 @@ body {
 
 .social-icons a {
   color: white;
-  background: #f4c54230;
+  background: #f4b64230;
   width: 40px;
   height: 40px;
   display: inline-flex;
@@ -416,6 +522,11 @@ body {
   justify-content: center;
   margin-right: 12px;
   transition: 0.2s;
+}
+
+.social-icons a:hover {
+  background: #f4b642;
+  color: #0d2c28;
 }
 
 .contact-form input, .contact-form textarea {
@@ -432,39 +543,57 @@ body {
   justify-content: center;
 }
 
+.form-feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Mapa */
 .map-container iframe {
   width: 100%;
-  height: 280px;
+  height: 350px;
   margin-top: 48px;
   border-radius: 28px;
 }
 
+/* Footer */
 .footer {
-  background: #071f20;
+  background: #051f1e;
   color: #ccc;
   text-align: center;
   padding: 36px 0;
 }
 
+.footer a {
+  color: #f4b642;
+  text-decoration: none;
+}
+
+/* Scroll top */
 .scroll-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #f4c542;
+  background: #f4b642;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0a2b2c;
+  color: #0d2c28;
   font-size: 1.4rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: 0.2s;
   z-index: 99;
 }
 
-/* responsive */
+.scroll-top:hover {
+  background: #e0a12e;
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .evangelism-content {
     grid-template-columns: 1fr;
@@ -487,7 +616,7 @@ body {
     left: -100%;
     width: 80%;
     height: calc(100vh - 70px);
-    background: #0a2b2c;
+    background: #0d2c28;
     transition: 0.3s;
     padding: 2rem;
     z-index: 999;
@@ -499,5 +628,26 @@ body {
   .nav-menu {
     flex-direction: column;
     gap: 32px;
+  }
+  .step-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .step-header h4 {
+    width: 100%;
+    order: 1;
+  }
+  .step-ref {
+    order: 2;
+    margin-left: auto;
+  }
+  .step-icon {
+    order: 3;
+  }
+  .step-num {
+    order: 0;
+  }
+  .map-container iframe {
+    height: 250px;
   }
 }
