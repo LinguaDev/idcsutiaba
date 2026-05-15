@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDCLATAM - Directorio de Iglesias, Hermanos y Ministerios</title>
+    <meta name="description" content="Selecciona un país y accede a enlaces externos de Iglesias de Cristo, hermanos que crean contenido y ministerios cristianos en Latinoamérica.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="iglesias-en-linea.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>IDCLATAM</h1>
+                <span>Iglesia de Cristo Latinoamérica</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Directorio de Iglesias, Hermanos y Ministerios</h2>
+                <p>Selecciona un país para explorar congregaciones, hermanos que comparten contenido y ministerios cristianos.</p>
+            </div>
+        </section>
+
+        <section class="countries-section">
+            <div class="container">
+                <h3>Países de Latinoamérica</h3>
+                <div id="countriesButtons" class="countries-buttons"></div>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <div class="container">
+                <h2 id="selectedCountryTitle"></h2>
+                
+                <div class="category">
+                    <h3><i class="fas fa-church"></i> Iglesias de Cristo</h3>
+                    <div id="iglesiasList" class="items-grid"></div>
+                </div>
+
+                <div class="category">
+                    <h3><i class="fas fa-users"></i> Hermanos que crean contenido</h3>
+                    <div id="hermanosList" class="items-grid"></div>
+                </div>
+
+                <div class="category">
+                    <h3><i class="fas fa-hands-helping"></i> Ministerios</h3>
+                    <div id="ministeriosList" class="items-grid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 IDCLATAM - Uniendo a la Iglesia de Cristo en Latinoamérica</p>
+        </div>
+    </footer>
+
+    <script src="iglesias-en-linea.js"></script>
+</body>
+</html>

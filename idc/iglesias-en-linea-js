@@ -1,0 +1,127 @@
+// ==================== LISTA DE PAÍSES ====================
+const paises = [
+    "Argentina", "Bolivia", "Brasil", "Chile", "Colombia",
+    "Costa Rica", "Cuba", "Ecuador", "El Salvador", "Guatemala",
+    "Haití", "Honduras", "México", "Nicaragua", "Panamá",
+    "Paraguay", "Perú", "República Dominicana", "Uruguay", "Venezuela"
+];
+
+// ==================== DATOS POR PAÍS ====================
+const datos = {};
+
+// Inicializar estructuras vacías para cada país
+paises.forEach(pais => {
+    const paisKey = pais.toLowerCase().replace(/ /g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    datos[paisKey] = {
+        iglesias: [],
+        hermanos: [],
+        ministerios: []
+    };
+});
+
+// ==================== DATOS DE EJEMPLO PARA NICARAGUA ====================
+// Reemplaza o agrega más países con información real
+
+datos.nicaragua.iglesias.push({
+    nombre: "Iglesia de Cristo en Sutiaba",
+    ubicacion: "León, Nicaragua",
+    url: "https://www.facebook.com/share/1B7pLaKeLe/"
+});
+
+datos.nicaragua.hermanos.push({
+    nombre: "Juan Pineda",
+    ubicacion: "León, Nicaragua",
+    url: "https://www.youtube.com/@PinedaAmador"
+});
+
+datos.nicaragua.ministerios.push({
+    nombre: "Ministerio Enseña",
+    ubicacion: "Managua, Nicaragua",
+    url: "https://idclatam.org/min/ensenia"
+});
+
+// ==================== FUNCIONES DE INTERFAZ ====================
+const countriesContainer = document.getElementById('countriesButtons');
+const resultsSection = document.getElementById('resultsSection');
+const selectedCountryTitle = document.getElementById('selectedCountryTitle');
+const iglesiasList = document.getElementById('iglesiasList');
+const hermanosList = document.getElementById('hermanosList');
+const ministeriosList = document.getElementById('ministeriosList');
+
+// Generar botones de países
+function renderCountryButtons() {
+    if (!countriesContainer) return;
+    
+    countriesContainer.innerHTML = paises.map(pais => {
+        const paisKey = pais.toLowerCase().replace(/ /g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return `<button class="country-btn" data-pais="${paisKey}">${pais}</button>`;
+    }).join('');
+
+    // Agregar eventos a los botones
+    document.querySelectorAll('.country-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const paisKey = btn.getAttribute('data-pais');
+            mostrarPais(paisKey);
+        });
+    });
+}
+
+// Mostrar datos del país seleccionado
+function mostrarPais(paisKey) {
+    // Obtener nombre original del país
+    const paisNombre = paises.find(p => {
+        const key = p.toLowerCase().replace(/ /g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return key === paisKey;
+    }) || paisKey;
+    
+    selectedCountryTitle.textContent = paisNombre;
+
+    const data = datos[paisKey] || { iglesias: [], hermanos: [], ministerios: [] };
+
+    renderList(iglesiasList, data.iglesias, 'iglesias');
+    renderList(hermanosList, data.hermanos, 'hermanos');
+    renderList(ministeriosList, data.ministerios, 'ministerios');
+
+    resultsSection.style.display = 'block';
+    window.scrollTo({ top: resultsSection.offsetTop - 20, behavior: 'smooth' });
+}
+
+// Renderizar una lista de items
+function renderList(container, items, tipo) {
+    if (!container) return;
+    
+    if (!items || items.length === 0) {
+        let mensaje = '';
+        if (tipo === 'iglesias') mensaje = 'No hay iglesias registradas aún.';
+        else if (tipo === 'hermanos') mensaje = 'No hay hermanos registrados aún.';
+        else mensaje = 'No hay ministerios registrados aún.';
+        
+        container.innerHTML = `<div class="empty-message"><i class="fas fa-info-circle"></i> ${mensaje}<br><a href="https://idclatam.org/contacto" style="color:#e67e22;">Contáctanos</a> para agregar información.</div>`;
+        return;
+    }
+
+    container.innerHTML = items.map(item => `
+        <div class="item-card">
+            <div class="item-name">${escapeHtml(item.nombre)}</div>
+            <div class="item-detail"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(item.ubicacion)}</div>
+            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="item-link"><i class="fas fa-external-link-alt"></i> Visitar</a>
+        </div>
+    `).join('');
+}
+
+// Función de seguridad para evitar inyección HTML
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+// ==================== INICIALIZAR ====================
+document.addEventListener('DOMContentLoaded', () => {
+    renderCountryButtons();
+    console.log('Directorio cargado correctamente');
+});
