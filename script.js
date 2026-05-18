@@ -1,8 +1,9 @@
-// ==================== MENÚ HAMBURGUESA ====================
+// ==================== MENÚ HAMBURGUESA Y SUBMENÚS EN MÓVIL ====================
 const mobileToggle = document.getElementById('mobileToggle');
 const navbar = document.getElementById('navbar');
 
 if (mobileToggle && navbar) {
+  // Abrir/cerrar menú principal
   mobileToggle.addEventListener('click', () => {
     navbar.classList.toggle('active');
     const icon = mobileToggle.querySelector('i');
@@ -15,15 +16,19 @@ if (mobileToggle && navbar) {
     }
   });
 
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('active');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
+  // Manejo de submenús en móvil (toggle)
+  const menuItemsWithChildren = document.querySelectorAll('.menu-item-has-children');
+  menuItemsWithChildren.forEach(item => {
+    const link = item.querySelector('a.nav-link');
+    if (link) {
+      link.addEventListener('click', (e) => {
+        // Solo en móvil (ancho < 768px) y si el menú está activo
+        if (window.innerWidth <= 768 && navbar.classList.contains('active')) {
+          e.preventDefault();
+          item.classList.toggle('active-submenu');
+        }
+      });
+    }
   });
 }
 
@@ -52,6 +57,18 @@ if (prayerBtn && prayerMsg) {
   });
 }
 
+// ==================== VERSÍCULOS DESPLEGABLES EN LOS PASOS ====================
+document.querySelectorAll('.step').forEach(step => {
+  step.addEventListener('click', (e) => {
+    // Evitar que el clic en el versículo cierre el padre accidentalmente
+    e.stopPropagation();
+    const verseDiv = step.querySelector('.step-verse');
+    if (verseDiv) {
+      verseDiv.classList.toggle('hidden');
+    }
+  });
+});
+
 // ==================== BOTONES DE RECURSOS ====================
 const podcastBtn = document.getElementById('podcastBtn');
 const studiesBtn = document.getElementById('studiesBtn');
@@ -70,7 +87,7 @@ if (leadersBtn) {
 // ==================== FORMULARIO DE CONTACTO (WhatsApp + Email) ====================
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
-const whatsappNumber = "50557514440"; // Tu número sin el +
+const whatsappNumber = "50557514440"; // Número sin el +
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -88,11 +105,9 @@ if (contactForm) {
       return;
     }
 
-    // Mostrar mensaje de envío
     formFeedback.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> Procesando...`;
     formFeedback.style.color = "#f4c542";
 
-    // Crear mensaje para WhatsApp
     const textoWhatsApp = `*Nuevo mensaje del sitio web IDCLATAM*%0A%0A` +
       `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
       `*Email:* ${encodeURIComponent(email)}%0A` +
@@ -100,18 +115,13 @@ if (contactForm) {
       `*Mensaje:* ${encodeURIComponent(mensaje)}%0A%0A` +
       `Responder a: ${encodeURIComponent(email)}`;
 
-    // Abrir WhatsApp (se abre en nueva pestaña)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${textoWhatsApp}`;
     window.open(whatsappUrl, '_blank');
 
-    // Mostrar éxito
     formFeedback.innerHTML = `<i class="fas fa-check-circle"></i> ¡Gracias ${nombre}! Se ha abierto WhatsApp para enviar tu mensaje.`;
     formFeedback.style.color = "#28a745";
-    
-    // Limpiar formulario
     contactForm.reset();
     
-    // Limpiar mensaje después de 5 segundos
     setTimeout(() => {
       if (formFeedback) {
         formFeedback.innerHTML = "";
@@ -120,7 +130,7 @@ if (contactForm) {
   });
 }
 
-// ==================== DIRECTORIO DE IGLESIAS (/idc/) ====================
+// ==================== DIRECTORIO DE IGLESIAS ====================
 const churchesCatalog = [
   {
     name: "Iglesia de Cristo en Sutiaba, Nicaragua",
@@ -160,7 +170,7 @@ const churchesCatalog = [
   }
 ];
 
-// ==================== DIRECTORIO DE HERMANOS (/hn/) ====================
+// ==================== DIRECTORIO DE HERMANOS ====================
 const brothersCatalog = [
   {
     name: "Juan Pineda",
@@ -194,7 +204,6 @@ const brothersCatalog = [
   }
 ];
 
-// Función para escapar HTML (seguridad)
 function escapeHtml(str) {
   if (!str) return '';
   return str
@@ -205,7 +214,6 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
-// Función para renderizar resultados
 function renderResults(containerId, dataArray, filterText, type) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -241,10 +249,8 @@ function renderResults(containerId, dataArray, filterText, type) {
 // Buscador de iglesias
 const churchSearch = document.getElementById('churchSearch');
 const churchResults = document.getElementById('churchResults');
-
 if (churchSearch && churchResults) {
   churchResults.innerHTML = '<div class="info-message">✝️ Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</div>';
-  
   churchSearch.addEventListener('input', (e) => {
     renderResults('churchResults', churchesCatalog, e.target.value, 'church');
   });
@@ -253,36 +259,17 @@ if (churchSearch && churchResults) {
 // Buscador de hermanos
 const brotherSearch = document.getElementById('brotherSearch');
 const brotherResults = document.getElementById('brotherResults');
-
 if (brotherSearch && brotherResults) {
   brotherResults.innerHTML = '<div class="info-message">🙏 Escribe el nombre de un hermano para encontrar su perfil.</div>';
-  
   brotherSearch.addEventListener('input', (e) => {
     renderResults('brotherResults', brothersCatalog, e.target.value, 'brother');
   });
 }
 
-// ==================== BOTÓN SUBIR ====================
+// ==================== BOTÓN SUBIR (SCROLL TOP) ====================
 const scrollBtn = document.getElementById('scrollTopBtn');
-
 if (scrollBtn) {
   scrollBtn.style.display = "none";
-  scrollBtn.style.position = "fixed";
-  scrollBtn.style.bottom = "20px";
-  scrollBtn.style.right = "20px";
-  scrollBtn.style.backgroundColor = "#f4c542";
-  scrollBtn.style.width = "45px";
-  scrollBtn.style.height = "45px";
-  scrollBtn.style.borderRadius = "50%";
-  scrollBtn.style.display = "flex";
-  scrollBtn.style.alignItems = "center";
-  scrollBtn.style.justifyContent = "center";
-  scrollBtn.style.color = "#1a1a2e";
-  scrollBtn.style.textDecoration = "none";
-  scrollBtn.style.zIndex = "999";
-  scrollBtn.style.transition = "all 0.3s";
-  scrollBtn.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
-  
   window.addEventListener('scroll', () => {
     if (window.scrollY > 600) {
       scrollBtn.style.display = "flex";
@@ -291,17 +278,26 @@ if (scrollBtn) {
       scrollBtn.style.display = "none";
     }
   });
+  scrollBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
-// ==================== CERRAR MENÚ AL HACER CLICK EN ENLACE ====================
-document.querySelectorAll('.nav-link').forEach(link => {
+// ==================== NAVEGACIÓN SUAVE Y CIERRE DE MENÚ ====================
+document.querySelectorAll('.nav-link, .submenu a').forEach(link => {
   link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+    // Solo aplicar a enlaces internos que comiencen con #
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    // Cerrar menú móvil si está abierto
     if (navbar && navbar.classList.contains('active')) {
       navbar.classList.remove('active');
       const toggleIcon = mobileToggle?.querySelector('i');
@@ -309,6 +305,10 @@ document.querySelectorAll('.nav-link').forEach(link => {
         toggleIcon.classList.remove('fa-times');
         toggleIcon.classList.add('fa-bars');
       }
+      // También cerrar submenús abiertos
+      document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+        item.classList.remove('active-submenu');
+      });
     }
   });
 });
