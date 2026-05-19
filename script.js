@@ -139,35 +139,11 @@ const churchesCatalog = [
     url: "sutiaba.html"
   },
   {
-    name: "Iglesia de Cristo en Ciudad de México",
-    location: "Ciudad de México, México",
-    description: "Congregación centenaria, activa en misiones urbanas.",
-    url: "/idc/mexico-cdmx.html"
+  name: "Iglesia de Cristo en Vedado, La Habana",
+  location: "Vedado, La Habana, Cuba",
+  description: "Congregación en el corazón de Vedado con énfasis en evangelismo, discipulado y servicio comunitario en Cuba.",
+  url: "idc/Vedado/La-Habana-Cuba.html"
   },
-  {
-    name: "Iglesia de Cristo en Buenos Aires",
-    location: "Buenos Aires, Argentina",
-    description: "Radio cristiana y podcasts. Discipulado para toda la familia.",
-    url: "/idc/buenos-aires.html"
-  },
-  {
-    name: "Iglesia de Cristo en Managua",
-    location: "Managua, Nicaragua",
-    description: "Trabajo social y evangelismo en la capital nicaragüense.",
-    url: "/idc/managua.html"
-  },
-  {
-    name: "Iglesia de Cristo en San José",
-    location: "San José, Costa Rica",
-    description: "Ministerio de jóvenes y familias.",
-    url: "/idc/san-jose.html"
-  },
-  {
-    name: "Iglesia de Cristo en Bogotá",
-    location: "Bogotá, Colombia",
-    description: "Programas de discipulado y misiones.",
-    url: "/idc/bogota.html"
-  }
 ];
 
 // ==================== DIRECTORIO DE HERMANOS ====================
