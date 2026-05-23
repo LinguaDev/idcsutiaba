@@ -152,32 +152,8 @@ const brothersCatalog = [
     name: "Juan Pineda",
     location: "Nicaragua",
     description: "Predicador y maestro de la Palabra. Conferencias y estudios bíblicos.",
-    url: "/hn/juan-pineda.html"
+    url: "Juan-Pineda.html"
   },
-  {
-    name: "María González",
-    location: "Colombia",
-    description: "Escritora cristiana, autora de devocionales diarios.",
-    url: "/hn/maria-gonzalez.html"
-  },
-  {
-    name: "Carlos Méndez",
-    location: "Argentina",
-    description: "Músico y compositor de alabanza. Recursos para adoración.",
-    url: "/hn/carlos-mendez.html"
-  },
-  {
-    name: "David Reyes",
-    location: "México",
-    description: "Evangelista y conferencista internacional.",
-    url: "/hn/david-reyes.html"
-  },
-  {
-    name: "Ruth Martínez",
-    location: "El Salvador",
-    description: "Ministerio de mujeres y consejería familiar.",
-    url: "/hn/ruth-martinez.html"
-  }
 ];
 
 function escapeHtml(str) {
