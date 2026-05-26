@@ -6,7 +6,6 @@
   <title>IDCLATAM | Iglesia de Cristo Latinoamérica</title>
   <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos y buscador de iglesias y hermanos.">
   <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos, IDCLATAM">
-  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
@@ -24,18 +23,14 @@
       </button>
       <nav class="navbar" id="navbar">
         <ul class="nav-menu">
-          <!-- Inicio (sin submenú por ahora) -->
           <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <!-- Quiénes Somos (sin submenú por ahora) -->
           <li><a href="#quienes-somos" class="nav-link">Quiénes Somos</a></li>
-          <!-- Evangelismo (sin submenú por ahora) -->
           <li><a href="#evangelismo" class="nav-link">Evangelismo</a></li>
-          <!-- Discipulado (sin submenú por ahora) -->
           <li><a href="#discipulado" class="nav-link">Discipulado</a></li>
           
-          <!-- RECURSOS con submenú -->
+          <!-- RECURSOS con submenú - href neutro -->
           <li class="menu-item-has-children">
-            <a href="#recursos" class="nav-link">Recursos</a>
+            <a href="javascript:void(0)" class="nav-link">Recursos</a>
             <ul class="submenu">
               <li><a href="https://biblefluent.org/" target="_blank" rel="noopener noreferrer">BibleFluent - Aprende idiomas con la Biblia</a></li>
               <li><a href="https://pinedaamador.org/src/ukbi_library.html" target="_blank" rel="noopener noreferrer">Estudios bíblicos y ministerio</a></li>
@@ -44,12 +39,11 @@
             </ul>
           </li>
           
-          <!-- Iglesias (sin submenú por ahora) -->
           <li><a href="#iglesias" class="nav-link">Iglesias</a></li>
           
-          <!-- Escritores Cristianos (antes "Hermanos") con submenú de autores -->
+          <!-- Escritores Cristianos con submenú - href neutro -->
           <li class="menu-item-has-children">
-            <a href="#hermanos" class="nav-link">Escritores Cristianos</a>
+            <a href="javascript:void(0)" class="nav-link">Escritores Cristianos</a>
             <ul class="submenu">
               <li><a href="#hermanos">Ver todos los escritores</a></li>
               <li><a href="Juan-Pineda.html">Juan Pineda</a></li>
@@ -60,7 +54,6 @@
             </ul>
           </li>
           
-          <!-- Contacto (sin submenú por ahora) -->
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
       </nav>
@@ -110,82 +103,76 @@
     </section>
 
     <!-- EVANGELISMO -->
-<section id="evangelismo" class="section bg-light">
-  <div class="container">
-    <div class="section-header">
-      <h3><i class="fas fa-cross"></i> El Evangelio para Latinoamérica</h3>
-      <p>Un mensaje de esperanza que trasciende fronteras y culturas.</p>
-    </div>
-    <div class="evangelism-content">
-      <article class="gospel-card">
-        <h4>✝️ El plan de salvación</h4>
-        <p>Dios te ama y tiene un propósito eterno. Jesucristo murió por tus pecados y resucitó para darte vida nueva.</p>
-        <div class="gospel-steps">
-          <!-- Paso 1: Oír -->
-          <div class="step" data-step="1">
-            <span class="step-num">1</span> Oír el evangelio (Romanos 10:17)
-            <div class="step-verse hidden">
-              <strong>Romanos 10:17 (RVR1960):</strong> “Así que la fe es por el oír, y el oír, por la palabra de Dios.”
+    <section id="evangelismo" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-cross"></i> El Evangelio para Latinoamérica</h3>
+          <p>Un mensaje de esperanza que trasciende fronteras y culturas.</p>
+        </div>
+        <div class="evangelism-content">
+          <article class="gospel-card">
+            <h4>✝️ El plan de salvación</h4>
+            <p>Dios te ama y tiene un propósito eterno. Jesucristo murió por tus pecados y resucitó para darte vida nueva.</p>
+            <div class="gospel-steps">
+              <div class="step" data-step="1">
+                <span class="step-num">1</span> Oír el evangelio (Romanos 10:17)
+                <div class="step-verse hidden">
+                  <strong>Romanos 10:17 (RVR1960):</strong> “Así que la fe es por el oír, y el oír, por la palabra de Dios.”
+                </div>
+              </div>
+              <div class="step" data-step="2">
+                <span class="step-num">2</span> Creer en Jesús (Juan 8:24)
+                <div class="step-verse hidden">
+                  <strong>Juan 8:24 (RVR1960):</strong> “Por eso os dije que moriréis en vuestros pecados; porque si no creéis que yo soy, en vuestros pecados moriréis.”
+                </div>
+              </div>
+              <div class="step" data-step="3">
+                <span class="step-num">3</span> Arrepentirse (Hechos 17:30)
+                <div class="step-verse hidden">
+                  <strong>Hechos 17:30 (RVR1960):</strong> “Pero Dios, habiendo pasado por alto los tiempos de esta ignorancia, ahora manda a todos los hombres en todo lugar, que se arrepientan.”
+                </div>
+              </div>
+              <div class="step" data-step="4">
+                <span class="step-num">4</span> Confesar a Cristo (Romanos 10:9-10)
+                <div class="step-verse hidden">
+                  <strong>Romanos 10:9-10 (RVR1960):</strong> “Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo. Porque con el corazón se cree para justicia, pero con la boca se confiesa para salvación.”
+                </div>
+              </div>
+              <div class="step" data-step="5">
+                <span class="step-num">5</span> Ser bautizado para perdón de pecados (Hechos 2:38)
+                <div class="step-verse hidden">
+                  <strong>Hechos 2:38 (RVR1960):</strong> “Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados, y recibiréis el don del Espíritu Santo.”
+                </div>
+              </div>
+              <div class="step" data-step="6">
+                <span class="step-num">6</span> Vivir fielmente (Apocalipsis 2:10)
+                <div class="step-verse hidden">
+                  <strong>Apocalipsis 2:10 (RVR1960):</strong> “No temas en nada lo que vas a padecer. He aquí, el diablo echará a algunos de vosotros en la cárcel, para que seáis probados, y tendréis tribulación por diez días. Sé fiel hasta la muerte, y yo te daré la corona de la vida.”
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- Paso 2: Creer -->
-          <div class="step" data-step="2">
-            <span class="step-num">2</span> Creer en Jesús (Juan 8:24)
-            <div class="step-verse hidden">
-              <strong>Juan 8:24 (RVR1960):</strong> “Por eso os dije que moriréis en vuestros pecados; porque si no creéis que yo soy, en vuestros pecados moriréis.”
+            <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i> Oración de fe</button>
+            <div id="prayerMessage" class="prayer-message hidden">
+              <i class="fas fa-dove"></i> 
+              <strong>Oración de fe según el evangelio de Cristo</strong><br><br>
+              “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
+              Creo que Jesús es tu Hijo, que murió en la cruz por mis pecados y que resucitó al tercer día (Romanos 10:9).<br><br>
+              Me arrepiento de mis pecados y decido cambiar mi vida para seguir tus caminos (Hechos 17:30).<br><br>
+              Confieso a Jesucristo como mi Señor y Salvador (Romanos 10:10).<br><br>
+              Deseo ser bautizado en agua para perdón de mis pecados y recibir el don del Espíritu Santo, tal como ordenaste en Hechos 2:38.<br><br>
+              Ayúdame a ser fiel hasta el fin y a compartir tu amor con otros. En el nombre de Jesucristo, amén.”
             </div>
-          </div>
-          <!-- Paso 3: Arrepentirse -->
-          <div class="step" data-step="3">
-            <span class="step-num">3</span> Arrepentirse (Hechos 17:30)
-            <div class="step-verse hidden">
-              <strong>Hechos 17:30 (RVR1960):</strong> “Pero Dios, habiendo pasado por alto los tiempos de esta ignorancia, ahora manda a todos los hombres en todo lugar, que se arrepientan.”
-            </div>
-          </div>
-          <!-- Paso 4: Confesar a Cristo -->
-          <div class="step" data-step="4">
-            <span class="step-num">4</span> Confesar a Cristo (Romanos 10:9-10)
-            <div class="step-verse hidden">
-              <strong>Romanos 10:9-10 (RVR1960):</strong> “Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo. Porque con el corazón se cree para justicia, pero con la boca se confiesa para salvación.”
-            </div>
-          </div>
-          <!-- Paso 5: Bautizarse para perdón de pecados -->
-          <div class="step" data-step="5">
-            <span class="step-num">5</span> Ser bautizado para perdón de pecados (Hechos 2:38)
-            <div class="step-verse hidden">
-              <strong>Hechos 2:38 (RVR1960):</strong> “Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados, y recibiréis el don del Espíritu Santo.”
-            </div>
-          </div>
-          <!-- Paso 6: Vivir fielmente -->
-          <div class="step" data-step="6">
-            <span class="step-num">6</span> Vivir fielmente (Apocalipsis 2:10)
-            <div class="step-verse hidden">
-              <strong>Apocalipsis 2:10 (RVR1960):</strong> “No temas en nada lo que vas a padecer. He aquí, el diablo echará a algunos de vosotros en la cárcel, para que seáis probados, y tendréis tribulación por diez días. Sé fiel hasta la muerte, y yo te daré la corona de la vida.”
-            </div>
+          </article>
+          <div class="testimony-card">
+            <i class="fas fa-quote-left"></i>
+            <p>"En la Iglesia de Cristo encontré la verdad que cambió mi vida. Ahora soy parte de esta gran familia latinoamericana."</p>
+            <span>— Hermano Juan, Nicaragua</span>
           </div>
         </div>
-        <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i> Oración de fe</button>
-        <div id="prayerMessage" class="prayer-message hidden">
-          <i class="fas fa-dove"></i> 
-          <strong>Oración de fe según el evangelio de Cristo</strong><br><br>
-          “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
-          Creo que Jesús es tu Hijo, que murió en la cruz por mis pecados y que resucitó al tercer día (Romanos 10:9).<br><br>
-          Me arrepiento de mis pecados y decido cambiar mi vida para seguir tus caminos (Hechos 17:30).<br><br>
-          Confieso a Jesucristo como mi Señor y Salvador (Romanos 10:10).<br><br>
-          Deseo ser bautizado en agua para perdón de mis pecados y recibir el don del Espíritu Santo, tal como ordenaste en Hechos 2:38.<br><br>
-          Ayúdame a ser fiel hasta el fin y a compartir tu amor con otros. En el nombre de Jesucristo, amén.”
-        </div>
-      </article>
-      <div class="testimony-card">
-        <i class="fas fa-quote-left"></i>
-        <p>"En la Iglesia de Cristo encontré la verdad que cambió mi vida. Ahora soy parte de esta gran familia latinoamericana."</p>
-        <span>— Hermano Juan, Nicaragua</span>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-    <!-- DISCIPULADO (con enlaces reales según comentarios) -->
+    <!-- DISCIPULADO -->
     <section id="discipulado" class="section">
       <div class="container">
         <div class="section-header">
@@ -195,7 +182,6 @@
         <div class="discipulado-grid">
           <div class="discipulo-card">
             <i class="fas fa-users"></i>
-            <!-- solo clases grabadas en youtube nada de inscripciones -->
             <h4>Escuela de Discipulado Online</h4>
             <p>Accede a clases virtuales grabadas sobre fundamentos de la fe, apologética y vida cristiana.</p>
             <a href="https://www.youtube.com/@ibit/playlists" target="_blank" class="card-link">Ver clases grabadas <i class="fas fa-arrow-right"></i></a>
@@ -208,7 +194,6 @@
           </div>
           <div class="discipulo-card">
             <i class="fas fa-video"></i>
-            <!-- aqui invitarlos a unirse al grupo de whatsapp de idclatam -->
             <h4>Devocionales Diarios</h4>
             <p>Videos cortos y reflexiones para cada día, enviadas a tu whatsapp</p>
             <a href="https://whatsapp.com/channel/0029Vb84pH52f3EN3jZKeG07" target="_blank" class="card-link">Unirme al canal de WhatsApp <i class="fas fa-arrow-right"></i></a>
@@ -217,40 +202,37 @@
       </div>
     </section>
 
+    <!-- RECURSOS sección -->
     <section id="recursos" class="section bg-light">
-  <div class="container">
-    <div class="section-header">
-      <h3><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</h3>
-      <p>Materiales gratuitos: sermones, estudios bíblicos, cursos de formación de líderes.</p>
-    </div>
-    <div class="resources-grid">
-      
-      <div class="resource-item">
-        <i class="fas fa-podcast"></i>
-        <h4>Podcast "Fe sin Fronteras"</h4>
-        <p>Episodios semanales sobre doctrina, familia, desarrollo personal y ministerio...</p>
-        <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh?si=96ea241e64b847e3" target="_blank" rel="noopener noreferrer" class="btn-outline-small" id="#" style="text-decoration: none; display: inline-block;">Escuchar ahora</a>
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</h3>
+          <p>Materiales gratuitos: sermones, estudios bíblicos, cursos de formación de líderes.</p>
+        </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <i class="fas fa-podcast"></i>
+            <h4>Podcast "Fe sin Fronteras"</h4>
+            <p>Episodios semanales sobre doctrina, familia, desarrollo personal y ministerio...</p>
+            <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh?si=96ea241e64b847e3" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">Escuchar ahora</a>
+          </div>
+          <div class="resource-item">
+            <i class="fas fa-file-pdf"></i>
+            <h4>Biblioteca de Estudios</h4>
+            <p>Recursos en pdf para descargar y aprovechar en tu estudio personal o de iglesia.</p>
+            <a href="https://pinedaamador.org/src/ukbi_library.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">Acceder a la biblioteca</a>
+          </div>
+          <div class="resource-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h4>Capacitación de Líderes</h4>
+            <p>Cursos gratuitos para ancianos, diáconos y maestros de Escuela Dominical.</p>
+            <a href="https://biblefluent.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">Más información</a>
+          </div>
+        </div>
       </div>
-      
-      <div class="resource-item">
-        <i class="fas fa-file-pdf"></i>
-        <h4>Biblioteca de Estudios</h4>
-        <p>Recursos en pdf para descargar y aprovechar en tu estudio personal o de iglesia.</p>
-        <a href="https://pinedaamador.org/src/ukbi_library.html" target="_blank" rel="noopener noreferrer" class="btn-outline-small" id="#" style="text-decoration: none; display: inline-block;">Acceder a la biblioteca</a>
-      </div>
-      
-      <div class="resource-item">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <h4>Capacitación de Líderes</h4>
-        <p>Cursos gratuitos para ancianos, diáconos y maestros de Escuela Dominical.</p>
-        <a href="https://biblefluent.org/" target="_blank" rel="noopener noreferrer" class="btn-outline-small" id="#" style="text-decoration: none; display: inline-block;">Más información</a>
-      </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-    <!-- BUSCADOR DE IGLESIAS (/idc/) -->
+    <!-- BUSCADOR IGLESIAS -->
     <section id="iglesias" class="section">
       <div class="container">
         <div class="section-header">
@@ -270,7 +252,7 @@
       </div>
     </section>
 
-    <!-- BUSCADOR DE HERMANOS (/hn/) -->
+    <!-- BUSCADOR HERMANOS -->
     <section id="hermanos" class="section bg-light">
       <div class="container">
         <div class="section-header">
@@ -290,7 +272,7 @@
       </div>
     </section>
 
-    <!-- CONTACTO Y NEWSLETTER -->
+    <!-- CONTACTO -->
     <section id="contacto" class="section bg-dark">
       <div class="container contacto-flex">
         <div class="contact-info">
@@ -313,25 +295,19 @@
             <input type="hidden" name="_subject" value="Nuevo mensaje desde tu sitio web">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="box">
-            
             <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
             <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
-            
             <select id="pais" name="pais" required>
               <option value="">Selecciona tu país</option>
-              <!-- Lista resumida pero completa como en el original (se ha abreviado aquí por claridad, pero mantén la lista larga en tu implementación final) -->
               <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option>
               <option>Costa Rica</option><option>Cuba</option><option>Ecuador</option><option>El Salvador</option><option>Guatemala</option>
               <option>Haití</option><option>Honduras</option><option>México</option><option>Nicaragua</option><option>Panamá</option>
               <option>Paraguay</option><option>Perú</option><option>República Dominicana</option><option>Uruguay</option><option>Venezuela</option>
             </select>
-            
             <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu mensaje (oración, discipulado, interés en una iglesia local...)" required></textarea>
-            
             <button type="submit" class="btn btn-primary full-width">
               <i class="fas fa-paper-plane"></i> Enviar mensaje
             </button>
-            
             <p id="formFeedback" class="form-feedback"></p>
           </form>
         </div>
@@ -348,6 +324,54 @@
 
   <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
 
+  <!-- Tu archivo script.js original (sin modificar) -->
   <script src="script.js"></script>
+  
+  <!-- Script adicional para arreglar el toggle de submenús en móvil sin modificar tu JS original -->
+  <script>
+    (function() {
+      // Función para manejar el toggle en móvil
+      function fixMobileSubmenu() {
+        // Solo aplicar en móvil (ancho <= 768px)
+        if (window.innerWidth > 768) return;
+        
+        const menuParents = document.querySelectorAll('.menu-item-has-children');
+        menuParents.forEach(parent => {
+          const link = parent.querySelector('.nav-link');
+          if (!link) return;
+          
+          // Eliminar cualquier event listener previo (para evitar duplicados, usamos una nueva función)
+          // Pero no podemos eliminar los existentes fácilmente; en su lugar, añadimos uno nuevo que se ejecutará después.
+          // Para evitar conflictos, añadimos un listener que previene el comportamiento por defecto y togglea la clase.
+          link.addEventListener('click', function(e) {
+            // Solo actuar si el menú hamburguesa está activo (abierto)
+            const navbar = document.getElementById('navbar');
+            if (navbar && navbar.classList.contains('active')) {
+              e.preventDefault();
+              e.stopPropagation();
+              // Toggle de la clase active-submenu en el padre
+              parent.classList.toggle('active-submenu');
+            }
+          });
+        });
+      }
+      
+      // Ejecutar al cargar y también cuando se abra el menú por si los elementos son dinámicos
+      document.addEventListener('DOMContentLoaded', fixMobileSubmenu);
+      
+      // También volver a aplicar cuando se abra el menú hamburguesa (por si el usuario abre después de redimensionar)
+      const mobileToggle = document.getElementById('mobileToggle');
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+          setTimeout(fixMobileSubmenu, 100);
+        });
+      }
+      
+      // Al redimensionar, reaplicar
+      window.addEventListener('resize', function() {
+        setTimeout(fixMobileSubmenu, 100);
+      });
+    })();
+  </script>
 </body>
 </html>

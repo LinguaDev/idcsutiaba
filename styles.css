@@ -97,13 +97,14 @@ h3 {
   font-weight: 600;
   transition: color 0.2s;
   font-size: 0.95rem;
+  cursor: pointer;
 }
 
 .nav-link:hover {
   color: #e67e22;
 }
 
-/* Submenús */
+/* Submenús en desktop (hover) */
 .menu-item-has-children {
   position: relative;
 }
@@ -129,6 +130,19 @@ h3 {
   visibility: visible;
 }
 
+/* Flecha indicadora en desktop */
+.menu-item-has-children > .nav-link::after {
+  content: "▼";
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.menu-item-has-children:hover > .nav-link::after {
+  transform: rotate(180deg);
+}
+
 .submenu li a {
   display: block;
   padding: 0.6rem 1.2rem;
@@ -143,7 +157,7 @@ h3 {
   color: #0d2c2a;
 }
 
-/* Submenú de segundo nivel (si lo hubiera) */
+/* Submenú de segundo nivel */
 .submenu .menu-item-has-children .submenu {
   top: 0;
   left: 100%;
@@ -169,6 +183,7 @@ h3 {
   .mobile-toggle {
     display: block;
   }
+
   .navbar {
     position: fixed;
     top: 0;
@@ -183,30 +198,71 @@ h3 {
     box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
   }
+
   .navbar.active {
     left: 0;
   }
+
   .nav-menu {
     flex-direction: column;
     gap: 1rem;
   }
-  .menu-item-has-children .submenu {
+
+  /* Reset para móvil */
+  .menu-item-has-children {
+    position: static;
+  }
+
+  .submenu {
     position: static;
     opacity: 1;
     visibility: visible;
-    display: none;
+    display: none;  /* Oculto por defecto */
     background: #1a4a44;
     margin-top: 0.5rem;
     margin-left: 1rem;
     box-shadow: none;
     border-radius: 8px;
+    padding: 0.5rem 0;
   }
+
+  /* Mostrar submenú cuando el elemento padre tiene la clase 'active-submenu' */
   .menu-item-has-children.active-submenu > .submenu {
     display: block;
   }
-  .submenu li a {
+
+  .submenu a {
+    display: block;
+    padding: 0.6rem 1rem;
     font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+  }
+
+  /* Flecha indicadora en móvil (gira al abrir) */
+  .menu-item-has-children > .nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-item-has-children > .nav-link::after {
+    content: "▼";
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+    margin-left: auto;
+  }
+
+  .menu-item-has-children.active-submenu > .nav-link::after {
+    transform: rotate(180deg);
+  }
+
+  /* Eliminar hover en móvil */
+  .menu-item-has-children:hover .submenu {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 0.6rem 0;
+    display: block;
   }
 }
 
@@ -404,7 +460,7 @@ h3 {
   border-bottom-color: #d35400;
 }
 
-/* ==================== EVANGELISMO (PASOS CON VERSÍCULOS DESPLEGABLES) ==================== */
+/* ==================== EVANGELISMO ==================== */
 .evangelism-content {
   display: grid;
   grid-template-columns: 1fr 1fr;

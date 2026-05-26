@@ -1,36 +1,93 @@
-// ==================== MENÚ HAMBURGUESA Y SUBMENÚS EN MÓVIL ====================
-const mobileToggle = document.getElementById('mobileToggle');
-const navbar = document.getElementById('navbar');
+// ==================== MENÚ HAMBURGUESA Y SUBMENÚS MÓVIL ====================
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navbar = document.getElementById('navbar');
 
-if (mobileToggle && navbar) {
-  // Abrir/cerrar menú principal
-  mobileToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    const icon = mobileToggle.querySelector('i');
-    if (navbar.classList.contains('active')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+  // Abrir/cerrar menú lateral
+  if (mobileToggle && navbar) {
+    mobileToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navbar.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      if (navbar.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        // Al cerrar el menú, cerrar todos los submenús abiertos
+        document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+          item.classList.remove('active-submenu');
+        });
+      }
+    });
+  }
+
+  // Función para manejar clics en elementos con submenú (solo en móvil)
+  function setupMobileSubmenus() {
+    const menuParents = document.querySelectorAll('.menu-item-has-children');
+    menuParents.forEach(parent => {
+      const link = parent.querySelector('a.nav-link');
+      if (link) {
+        // Eliminar listener anterior para evitar duplicados
+        link.removeEventListener('click', handleSubmenuClick);
+        link.addEventListener('click', handleSubmenuClick);
+      }
+    });
+  }
+
+  function handleSubmenuClick(e) {
+    // Solo actuar en móvil (ancho <= 768px)
+    if (window.innerWidth <= 768) {
+      e.preventDefault();  // Evita que el enlace navegue a #recursos o #hermanos
+      const parentLi = this.closest('.menu-item-has-children');
+      if (parentLi) {
+        // Cerrar otros submenús abiertos
+        document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+          if (item !== parentLi) {
+            item.classList.remove('active-submenu');
+          }
+        });
+        // Toggle del actual
+        parentLi.classList.toggle('active-submenu');
+      }
     }
-  });
+  }
 
-  // Manejo de submenús en móvil (toggle)
-  const menuItemsWithChildren = document.querySelectorAll('.menu-item-has-children');
-  menuItemsWithChildren.forEach(item => {
-    const link = item.querySelector('a.nav-link');
-    if (link) {
-      link.addEventListener('click', (e) => {
-        // Solo en móvil (ancho < 768px) y si el menú está activo
-        if (window.innerWidth <= 768 && navbar.classList.contains('active')) {
-          e.preventDefault();
-          item.classList.toggle('active-submenu');
-        }
+  // Inicializar y también al redimensionar (por si cambia de móvil a desktop)
+  setupMobileSubmenus();
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      // En desktop, aseguramos que no queden submenús abiertos por clase
+      document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+        item.classList.remove('active-submenu');
       });
+    } else {
+      setupMobileSubmenus();
     }
   });
-}
+
+  // Cerrar menú al hacer clic en un enlace interno (no los que tienen submenú)
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      // Si es un enlace a una sección (#) y no es padre con submenú (o estamos en desktop)
+      if (href && href.startsWith('#') && href !== '#') {
+        // Permitir la navegación suave, pero cerrar menú si está abierto
+        if (navbar.classList.contains('active')) {
+          navbar.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+          // Cerrar submenús
+          document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+            item.classList.remove('active-submenu');
+          });
+        }
+      }
+    });
+  });
+});
 
 // ==================== VERSÍCULO ALEATORIO ====================
 const verses = [
@@ -60,7 +117,6 @@ if (prayerBtn && prayerMsg) {
 // ==================== VERSÍCULOS DESPLEGABLES EN LOS PASOS ====================
 document.querySelectorAll('.step').forEach(step => {
   step.addEventListener('click', (e) => {
-    // Evitar que el clic en el versículo cierre el padre accidentalmente
     e.stopPropagation();
     const verseDiv = step.querySelector('.step-verse');
     if (verseDiv) {
@@ -69,15 +125,10 @@ document.querySelectorAll('.step').forEach(step => {
   });
 });
 
-// ==================== BOTONES DE RECURSOS ====================
-const podcastBtn = document.getElementById('podcastBtn');
-const studiesBtn = document.getElementById('studiesBtn');
-const leadersBtn = document.getElementById('leadersBtn');
-
-// ==================== FORMULARIO DE CONTACTO (WhatsApp + Email) ====================
+// ==================== FORMULARIO DE CONTACTO (WhatsApp) ====================
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
-const whatsappNumber = "50557514440"; // Número sin el +
+const whatsappNumber = "50557514440";
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -91,7 +142,6 @@ if (contactForm) {
     if (!nombre || !email || !pais || !mensaje) {
       formFeedback.textContent = "⚠️ Por favor completa todos los campos.";
       formFeedback.style.color = "#dc3545";
-      formFeedback.style.fontSize = "0.9rem";
       return;
     }
 
@@ -113,9 +163,7 @@ if (contactForm) {
     contactForm.reset();
     
     setTimeout(() => {
-      if (formFeedback) {
-        formFeedback.innerHTML = "";
-      }
+      if (formFeedback) formFeedback.innerHTML = "";
     }, 6000);
   });
 }
@@ -129,10 +177,10 @@ const churchesCatalog = [
     url: "sutiaba.html"
   },
   {
-  name: "Iglesia de Cristo en Vedado, La Habana",
-  location: "Vedado, La Habana, Cuba",
-  description: "Congregación en el corazón de Vedado con énfasis en evangelismo, discipulado y servicio comunitario en Cuba.",
-  url: "idc/Vedado/La-Habana-Cuba.html"
+    name: "Iglesia de Cristo en Vedado, La Habana",
+    location: "Vedado, La Habana, Cuba",
+    description: "Congregación en el corazón de Vedado con énfasis en evangelismo, discipulado y servicio comunitario en Cuba.",
+    url: "idc/Vedado/La-Habana-Cuba.html"
   },
 ];
 
@@ -226,31 +274,17 @@ if (scrollBtn) {
   });
 }
 
-// ==================== NAVEGACIÓN SUAVE Y CIERRE DE MENÚ ====================
-document.querySelectorAll('.nav-link, .submenu a').forEach(link => {
+// ==================== NAVEGACIÓN SUAVE PARA ENLACES INTERNOS ====================
+document.querySelectorAll('a[href^="#"]:not(.nav-link[href="javascript:void(0)"])').forEach(link => {
   link.addEventListener('click', function(e) {
-    // Solo aplicar a enlaces internos que comiencen con #
     const href = this.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
+    if (href && href !== '#') {
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
+        e.preventDefault();
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
-    }
-    // Cerrar menú móvil si está abierto
-    if (navbar && navbar.classList.contains('active')) {
-      navbar.classList.remove('active');
-      const toggleIcon = mobileToggle?.querySelector('i');
-      if (toggleIcon) {
-        toggleIcon.classList.remove('fa-times');
-        toggleIcon.classList.add('fa-bars');
-      }
-      // También cerrar submenús abiertos
-      document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
-        item.classList.remove('active-submenu');
-      });
     }
   });
 });
