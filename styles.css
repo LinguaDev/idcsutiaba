@@ -37,7 +37,7 @@ h3 {
 
 /* ==================== HEADER ==================== */
 .header {
-  background: #0d2c2a;
+  background: #0a2c2e;  /* verde profundo */
   color: white;
   position: sticky;
   top: 0;
@@ -62,7 +62,7 @@ h3 {
 
 .logo i {
   font-size: 2rem;
-  color: #e67e22;
+  color: #f4b642;  /* dorado */
 }
 
 .logo h1 {
@@ -73,11 +73,11 @@ h3 {
 
 .logo-sub {
   font-size: 0.7rem;
-  background: rgba(230, 126, 34, 0.2);
+  background: rgba(244, 182, 66, 0.2);
   padding: 0.2rem 0.6rem;
   border-radius: 40px;
   font-weight: 500;
-  color: #e67e22;
+  color: #f4b642;
 }
 
 /* ==================== NAVEGACIÓN PRINCIPAL (DESKTOP) ==================== */
@@ -101,7 +101,7 @@ h3 {
 }
 
 .nav-link:hover {
-  color: #e67e22;
+  color: #f4b642;
 }
 
 /* Submenús en desktop (hover) */
@@ -113,7 +113,7 @@ h3 {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #0d2c2a;
+  background: #0a2c2e;
   min-width: 220px;
   list-style: none;
   padding: 0.5rem 0;
@@ -153,8 +153,8 @@ h3 {
 }
 
 .submenu li a:hover {
-  background: #e67e22;
-  color: #0d2c2a;
+  background: #f4b642;
+  color: #0a2c2e;
 }
 
 /* Submenú de segundo nivel */
@@ -191,7 +191,7 @@ h3 {
     width: 85%;
     max-width: 320px;
     height: 100vh;
-    background: #0d2c2a;
+    background: #0a2c2e;
     transition: left 0.3s ease;
     padding: 1.5rem;
     z-index: 1001;
@@ -255,11 +255,6 @@ h3 {
     transform: rotate(180deg);
   }
 
-  /* Eliminar hover en móvil */
-  .menu-item-has-children:hover .submenu {
-    display: none;
-  }
-
   .nav-link {
     padding: 0.6rem 0;
     display: block;
@@ -282,7 +277,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(13, 44, 42, 0.9), rgba(13, 44, 42, 0.7));
+  background: linear-gradient(135deg, rgba(10, 44, 46, 0.85), rgba(10, 44, 46, 0.6));
 }
 
 .hero-content {
@@ -294,14 +289,14 @@ h3 {
 }
 
 .verse-day {
-  background: #e67e22;
+  background: #f4b642;
   display: inline-block;
   padding: 0.4rem 1.2rem;
   border-radius: 50px;
   font-weight: 700;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
-  color: #0d2c2a;
+  color: #0a2c2e;
   transition: transform 0.2s;
 }
 
@@ -315,7 +310,7 @@ h3 {
 }
 
 .hero h2 strong {
-  color: #e67e22;
+  color: #f4b642;
 }
 
 .hero p {
@@ -344,25 +339,25 @@ h3 {
 }
 
 .btn-primary {
-  background: #e67e22;
-  color: #0d2c2a;
+  background: #f4b642;
+  color: #0a2c2e;
 }
 
 .btn-primary:hover {
-  background: #d35400;
+  background: #e0a12e;
   transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(230, 126, 34, 0.3);
+  box-shadow: 0 5px 12px rgba(244, 182, 66, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid #e67e22;
-  color: #e67e22;
+  border: 2px solid #f4b642;
+  color: #f4b642;
 }
 
 .btn-secondary:hover {
-  background: #e67e22;
-  color: #0d2c2a;
+  background: #f4b642;
+  color: #0a2c2e;
   transform: translateY(-2px);
 }
 
@@ -376,7 +371,7 @@ h3 {
 }
 
 .bg-dark {
-  background: #0d2c2a;
+  background: #0a2c2e;
   color: white;
 }
 
@@ -398,13 +393,13 @@ h3 {
   display: block;
   width: 60px;
   height: 3px;
-  background: #e67e22;
+  background: #f4b642;
   margin: 0.5rem auto 0;
   border-radius: 3px;
 }
 
 .bg-dark .section-header h3::after {
-  background: #e67e22;
+  background: #f4b642;
 }
 
 .section-header p {
@@ -436,7 +431,7 @@ h3 {
 
 .card i, .discipulo-card i, .resource-item i {
   font-size: 2.2rem;
-  color: #e67e22;
+  color: #f4b642;
   margin-bottom: 1rem;
 }
 
@@ -448,16 +443,16 @@ h3 {
   display: inline-block;
   margin-top: 1rem;
   font-weight: 600;
-  color: #e67e22;
+  color: #f4b642;
   text-decoration: none;
-  border-bottom: 2px solid #e67e22;
+  border-bottom: 2px solid #f4b642;
   padding-bottom: 2px;
   transition: 0.2s;
 }
 
 .card-link:hover, .btn-course:hover {
-  color: #d35400;
-  border-bottom-color: #d35400;
+  color: #d4a030;
+  border-bottom-color: #d4a030;
 }
 
 /* ==================== EVANGELISMO ==================== */
@@ -494,26 +489,26 @@ h3 {
 }
 
 .step:hover {
-  background: #e67e22;
-  color: white;
+  background: #f4b642;
+  color: #0a2c2e;
   transform: translateX(5px);
 }
 
 .step:hover .step-num {
   background: white;
-  color: #e67e22;
+  color: #f4b642;
 }
 
 .step-num {
   width: 28px;
   height: 28px;
-  background: #e67e22;
+  background: #f4b642;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #0d2c2a;
+  color: #0a2c2e;
 }
 
 .step-verse {
@@ -521,7 +516,7 @@ h3 {
   margin-top: 0.5rem;
   padding: 0.8rem;
   background: #fef5e8;
-  border-left: 4px solid #e67e22;
+  border-left: 4px solid #f4b642;
   border-radius: 8px;
   font-size: 0.85rem;
   color: #2c3e2f;
@@ -544,7 +539,7 @@ h3 {
 }
 
 .btn-prayer {
-  background: #0d2c2a;
+  background: #0a2c2e;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -556,7 +551,7 @@ h3 {
 }
 
 .btn-prayer:hover {
-  background: #e67e22;
+  background: #f4b642;
   transform: scale(1.02);
 }
 
@@ -583,7 +578,7 @@ h3 {
 
 .testimony-card i {
   font-size: 2rem;
-  color: #e67e22;
+  color: #f4b642;
   margin-bottom: 1rem;
 }
 
@@ -614,8 +609,8 @@ h3 {
 
 .search-input:focus {
   outline: none;
-  border-color: #e67e22;
-  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+  border-color: #f4b642;
+  box-shadow: 0 0 0 3px rgba(244, 182, 66, 0.2);
 }
 
 .results-list {
@@ -662,7 +657,7 @@ h3 {
 
 .social-icons a {
   color: white;
-  background: rgba(230, 126, 34, 0.2);
+  background: rgba(244, 182, 66, 0.2);
   width: 36px;
   height: 36px;
   display: inline-flex;
@@ -674,7 +669,7 @@ h3 {
 }
 
 .social-icons a:hover {
-  background: #e67e22;
+  background: #f4b642;
   transform: translateY(-3px);
 }
 
@@ -708,7 +703,7 @@ h3 {
 
 /* ==================== FOOTER ==================== */
 .footer {
-  background: #0d2c2a;
+  background: #0a2c2e;
   color: #ccc;
   text-align: center;
   padding: 2rem 0;
@@ -723,8 +718,8 @@ h3 {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #e67e22;
-  color: white;
+  background: #f4b642;
+  color: #0a2c2e;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -746,7 +741,7 @@ h3 {
 }
 
 .scroll-top:hover {
-  background: #d35400;
+  background: #e0a12e;
   transform: scale(1.05);
 }
 

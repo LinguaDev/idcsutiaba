@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const mobileToggle = document.getElementById('mobileToggle');
   const navbar = document.getElementById('navbar');
+  const body = document.body;
 
   // Abrir/cerrar menú lateral
   if (mobileToggle && navbar) {
@@ -12,10 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (navbar.classList.contains('active')) {
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
+        body.style.overflow = 'hidden';
       } else {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
-        // Al cerrar el menú, cerrar todos los submenús abiertos
+        body.style.overflow = '';
+        // Cerrar todos los submenús al cerrar el menú principal
         document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
           item.classList.remove('active-submenu');
         });
@@ -24,38 +27,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Función para manejar clics en elementos con submenú (solo en móvil)
+  let submenuHandlerActive = false;
+
+  function handleSubmenuClick(e) {
+    // Solo actuar en móvil (ancho <= 768px)
+    if (window.innerWidth <= 768) {
+      e.preventDefault();  // Evita la navegación del enlace (javascript:void(0))
+      const parentLi = this.closest('.menu-item-has-children');
+      if (parentLi) {
+        // Cerrar otros submenús abiertos (excepto el actual)
+        document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
+          if (item !== parentLi) {
+            item.classList.remove('active-submenu');
+          }
+        });
+        // Toggle del submenú actual
+        parentLi.classList.toggle('active-submenu');
+      }
+    }
+  }
+
   function setupMobileSubmenus() {
     const menuParents = document.querySelectorAll('.menu-item-has-children');
     menuParents.forEach(parent => {
       const link = parent.querySelector('a.nav-link');
       if (link) {
-        // Eliminar listener anterior para evitar duplicados
+        // Evitar duplicación de event listeners
         link.removeEventListener('click', handleSubmenuClick);
         link.addEventListener('click', handleSubmenuClick);
       }
     });
   }
 
-  function handleSubmenuClick(e) {
-    // Solo actuar en móvil (ancho <= 768px)
-    if (window.innerWidth <= 768) {
-      e.preventDefault();  // Evita que el enlace navegue a #recursos o #hermanos
-      const parentLi = this.closest('.menu-item-has-children');
-      if (parentLi) {
-        // Cerrar otros submenús abiertos
-        document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
-          if (item !== parentLi) {
-            item.classList.remove('active-submenu');
-          }
-        });
-        // Toggle del actual
-        parentLi.classList.toggle('active-submenu');
-      }
-    }
-  }
-
-  // Inicializar y también al redimensionar (por si cambia de móvil a desktop)
+  // Inicializar
   setupMobileSubmenus();
+
+  // Reconfigurar al redimensionar (por si cambia de móvil a desktop)
   window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
       // En desktop, aseguramos que no queden submenús abiertos por clase
@@ -67,23 +74,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Cerrar menú al hacer clic en un enlace interno (no los que tienen submenú)
+  // Cerrar menú al hacer clic en un enlace interno de tipo ancla (no los que tienen submenú)
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      // Si es un enlace a una sección (#) y no es padre con submenú (o estamos en desktop)
+      // Solo para enlaces que apunten a un ID dentro de la página (#algo) y que no tengan submenú asociado (o en desktop)
       if (href && href.startsWith('#') && href !== '#') {
-        // Permitir la navegación suave, pero cerrar menú si está abierto
-        if (navbar.classList.contains('active')) {
+        // Si el menú está abierto en móvil, lo cerramos
+        if (window.innerWidth <= 768 && navbar.classList.contains('active')) {
           navbar.classList.remove('active');
-          const icon = mobileToggle.querySelector('i');
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-          // Cerrar submenús
+          if (mobileToggle) {
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+          body.style.overflow = '';
+          // Cerrar submenús abiertos
           document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
             item.classList.remove('active-submenu');
           });
         }
+        // Permitir navegación suave
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (href === 'javascript:void(0)') {
+        // No hacer nada, ya se maneja en el evento de submenú
       }
     });
   });
@@ -146,7 +165,7 @@ if (contactForm) {
     }
 
     formFeedback.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> Procesando...`;
-    formFeedback.style.color = "#f4c542";
+    formFeedback.style.color = "#f4b642";
 
     const textoWhatsApp = `*Nuevo mensaje del sitio web IDCLATAM*%0A%0A` +
       `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
@@ -274,7 +293,7 @@ if (scrollBtn) {
   });
 }
 
-// ==================== NAVEGACIÓN SUAVE PARA ENLACES INTERNOS ====================
+// ==================== NAVEGACIÓN SUAVE PARA ENLACES INTERNOS (sin submenú) ====================
 document.querySelectorAll('a[href^="#"]:not(.nav-link[href="javascript:void(0)"])').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');

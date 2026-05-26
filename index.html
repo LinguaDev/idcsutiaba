@@ -326,52 +326,5 @@
 
   <!-- Tu archivo script.js original (sin modificar) -->
   <script src="script.js"></script>
-  
-  <!-- Script adicional para arreglar el toggle de submenús en móvil sin modificar tu JS original -->
-  <script>
-    (function() {
-      // Función para manejar el toggle en móvil
-      function fixMobileSubmenu() {
-        // Solo aplicar en móvil (ancho <= 768px)
-        if (window.innerWidth > 768) return;
-        
-        const menuParents = document.querySelectorAll('.menu-item-has-children');
-        menuParents.forEach(parent => {
-          const link = parent.querySelector('.nav-link');
-          if (!link) return;
-          
-          // Eliminar cualquier event listener previo (para evitar duplicados, usamos una nueva función)
-          // Pero no podemos eliminar los existentes fácilmente; en su lugar, añadimos uno nuevo que se ejecutará después.
-          // Para evitar conflictos, añadimos un listener que previene el comportamiento por defecto y togglea la clase.
-          link.addEventListener('click', function(e) {
-            // Solo actuar si el menú hamburguesa está activo (abierto)
-            const navbar = document.getElementById('navbar');
-            if (navbar && navbar.classList.contains('active')) {
-              e.preventDefault();
-              e.stopPropagation();
-              // Toggle de la clase active-submenu en el padre
-              parent.classList.toggle('active-submenu');
-            }
-          });
-        });
-      }
-      
-      // Ejecutar al cargar y también cuando se abra el menú por si los elementos son dinámicos
-      document.addEventListener('DOMContentLoaded', fixMobileSubmenu);
-      
-      // También volver a aplicar cuando se abra el menú hamburguesa (por si el usuario abre después de redimensionar)
-      const mobileToggle = document.getElementById('mobileToggle');
-      if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
-          setTimeout(fixMobileSubmenu, 100);
-        });
-      }
-      
-      // Al redimensionar, reaplicar
-      window.addEventListener('resize', function() {
-        setTimeout(fixMobileSubmenu, 100);
-      });
-    })();
-  </script>
 </body>
 </html>
