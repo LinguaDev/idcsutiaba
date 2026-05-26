@@ -74,16 +74,6 @@ const podcastBtn = document.getElementById('podcastBtn');
 const studiesBtn = document.getElementById('studiesBtn');
 const leadersBtn = document.getElementById('leadersBtn');
 
-if (podcastBtn) {
-  podcastBtn.addEventListener('click', () => alert("🎙️ Pronto tendrás acceso a nuestros episodios. Te avisaremos por correo."));
-}
-if (studiesBtn) {
-  studiesBtn.addEventListener('click', () => alert("📚 Biblioteca de estudios disponible próximamente. Déjanos tu email en contacto."));
-}
-if (leadersBtn) {
-  leadersBtn.addEventListener('click', () => alert("👥 Capacitación para líderes: te enviaremos información al correo registrado."));
-}
-
 // ==================== FORMULARIO DE CONTACTO (WhatsApp + Email) ====================
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
@@ -202,7 +192,7 @@ function renderResults(containerId, dataArray, filterText, type) {
 const churchSearch = document.getElementById('churchSearch');
 const churchResults = document.getElementById('churchResults');
 if (churchSearch && churchResults) {
-  churchResults.innerHTML = '<div class="info-message">✝️ Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</div>';
+  churchResults.innerHTML = '<div class="info-message">Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</div>';
   churchSearch.addEventListener('input', (e) => {
     renderResults('churchResults', churchesCatalog, e.target.value, 'church');
   });
@@ -212,7 +202,7 @@ if (churchSearch && churchResults) {
 const brotherSearch = document.getElementById('brotherSearch');
 const brotherResults = document.getElementById('brotherResults');
 if (brotherSearch && brotherResults) {
-  brotherResults.innerHTML = '<div class="info-message">🙏 Escribe el nombre de un hermano para encontrar su perfil.</div>';
+  brotherResults.innerHTML = '<div class="info-message">Escribe el nombre de un hermano para encontrar su perfil.</div>';
   brotherSearch.addEventListener('input', (e) => {
     renderResults('brotherResults', brothersCatalog, e.target.value, 'brother');
   });
