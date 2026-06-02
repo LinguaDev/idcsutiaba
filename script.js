@@ -201,6 +201,12 @@ const churchesCatalog = [
     description: "Congregación en el corazón de Vedado con énfasis en evangelismo, discipulado y servicio comunitario en Cuba.",
     url: "idc/Vedado/La-Habana-Cuba.html"
   },
+  {
+  name: "Iglesia de Cristo en Pomacanchi, Cusco",
+  location: "Pomacanchi, Cusco, Perú",
+  description: "Congregación en el sur del Perú, con énfasis en evangelismo, discipulado y servicio comunitario. Transmite contenido en redes y tiene un sitio web propio.",
+  url: "idc/peru/cusco/pomacanchi.html"
+}
 ];
 
 // ==================== DIRECTORIO DE HERMANOS ====================
