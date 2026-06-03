@@ -3,11 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Iglesia de Cristo en Vedado | La Habana, Cuba</title>
-  <meta name="description" content="Iglesia de Cristo en Vedado, La Habana, Cuba. Un lugar de adoración, discipulado y evangelismo.">
+  
+  <!-- SEO Básico -->
+  <title>Iglesia de Cristo en Vedado | La Habana, Cuba - Fe y Discipulado</title>
+  <meta name="description" content="Iglesia de Cristo en Vedado, La Habana, Cuba. Un lugar de adoración, discipulado bíblico y evangelismo. Conoce a Jesús, crece en tu fe y sé parte de nuestra familia. Recursos bíblicos gratuitos.">
+  <meta name="keywords" content="Iglesia de Cristo en Vedado, iglesia cristiana, La Habana Cuba, discipulado, evangelismo, recursos bíblicos, IDCLATAM, BibleFluent, Pineda Amador">
+  <meta name="author" content="Iglesia de Cristo en Vedado - IDCLATAM">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Spanish">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://idclatam.org/idc/Vedado/La-Habana-Cuba.html">
+  <meta property="og:title" content="Iglesia de Cristo en Vedado | La Habana, Cuba">
+  <meta property="og:description" content="Iglesia de Cristo en Vedado, La Habana. Un lugar de adoración, discipulado y evangelismo. Recursos bíblicos gratuitos.">
+  <meta property="og:image" content="https://idclatam.org/img/og-vedado.jpg">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="IDCLATAM - Iglesia de Cristo en Vedado">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Iglesia de Cristo en Vedado | La Habana, Cuba">
+  <meta name="twitter:description" content="Un lugar para adorar, crecer en discipulado y compartir el amor de Dios en La Habana.">
+  <meta name="twitter:image" content="https://idclatam.org/img/twitter-vedado.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://idclatam.org/idc/Vedado/La-Habana-Cuba.html">
+  <link rel="alternate" hreflang="es" href="https://idclatam.org/idc/Vedado/La-Habana-Cuba.html">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../../src/church.css">
+  
+  <!-- JSON-LD para Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ChristianChurch",
+    "name": "Iglesia de Cristo en Vedado",
+    "description": "Iglesia de Cristo en Vedado, La Habana, Cuba. Un lugar de adoración, discipulado y evangelismo.",
+    "url": "https://idclatam.org/idc/Vedado/La-Habana-Cuba.html",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 11 e/ 12 y 14, Vedado",
+      "addressLocality": "La Habana",
+      "addressCountry": "Cuba"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "IDCLATAM",
+      "url": "https://idclatam.org"
+    }
+  }
+  </script>
   
   <style>
     /* Hero - imagen local + respaldo */
@@ -104,9 +153,78 @@
       text-decoration: underline;
     }
     
+    .multimedia-section {
+      padding: 2rem 0;
+      background: linear-gradient(135deg, #faf7f2, #fefcf8);
+    }
+    .multimedia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .canal-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .canal-card i {
+      font-size: 3rem;
+      color: #ff0000;
+      margin-bottom: 0.5rem;
+    }
+    .btn-youtube {
+      display: inline-block;
+      background: #ff0000;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+      transition: 0.2s;
+    }
+    .btn-youtube:hover {
+      background: #cc0000;
+      transform: scale(1.02);
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    .donacion-sutil {
+      text-align: center;
+      padding: 1rem;
+      background: #fef5e8;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    .donacion-sutil a {
+      color: #e67e22;
+      font-weight: 600;
+    }
+    
     @media (max-width: 768px) {
       .hermanos-grid, .predicadores-grid {
         grid-template-columns: 1fr;
+      }
+      .multimedia-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
   </style>
@@ -132,12 +250,17 @@
           <li><a href="#hermanos" class="nav-link">Hermanos</a></li>
           <li><a href="#predicadores" class="nav-link">Predicadores</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          <!-- Enlaces adicionales en el menú -->
+          <li><a href="https://idclatam.org" class="nav-link" target="_blank">IDCLATAM</a></li>
+          <li><a href="https://biblefluent.org" class="nav-link" target="_blank">BibleFluent</a></li>
+          <li><a href="https://pinedaamador.org" class="nav-link" target="_blank">Pineda Amador</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -151,6 +274,33 @@
       </div>
     </section>
 
+    <!-- SECCIÓN MULTIMEDIA -->
+    <section class="multimedia-section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-video"></i> Contenido Multimedia</h3>
+          <p>Síguenos en YouTube y mira nuestros mensajes destacados</p>
+        </div>
+        <div class="multimedia-grid">
+          <div class="canal-card">
+            <i class="fab fa-youtube"></i>
+            <h4>Visita nuestro canal</h4>
+            <p>Encuentra predicaciones, estudios y alabanzas de nuestra congregación en Vedado.</p>
+            <a href="https://www.youtube.com/@eter3125" target="_blank" rel="noopener noreferrer" class="btn-youtube">Suscríbete al canal →</a>
+          </div>
+          <div class="canal-card">
+            <i class="fas fa-play-circle"></i>
+            <h4>Video destacado</h4>
+            <p>Mensaje especial de edificación para tu vida espiritual.</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/sngfhTynAJI" title="Video destacado Iglesia de Cristo en Vedado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
     <section id="nosotros" class="section">
       <div class="container">
         <div class="section-header">
@@ -165,6 +315,7 @@
       </div>
     </section>
 
+    <!-- EVANGELISMO -->
     <section id="evangelismo" class="section bg-light">
       <div class="container">
         <div class="section-header">
@@ -192,6 +343,7 @@
       </div>
     </section>
 
+    <!-- DISCIPULADO -->
     <section id="discipulado" class="section">
       <div class="container">
         <div class="section-header"><h3><i class="fas fa-chalkboard-user"></i> Discipulado: Crece en tu Fe</h3><p>Nuestra meta es ayudarte a seguir a Cristo cada día.</p></div>
@@ -231,16 +383,29 @@
       </div>
     </section>
 
+    <!-- SECCIÓN RECURSOS -->
     <section id="recursos" class="section">
       <div class="container">
         <div class="section-header"><h3><i class="fas fa-dove"></i> Recursos para tu Crecimiento</h3><p>Conéctate con nuestra comunidad en línea.</p></div>
         <div class="recursos-sociales">
           <div class="recurso-social-card"><i class="fab fa-facebook"></i><h4>Programa "La Palabra nos une"</h4><p>Compartimos estudios bíblicos, sermones y edificación diaria.</p><a href="https://www.facebook.com/groups/759136410144300/" target="_blank" rel="noopener noreferrer" class="facebook-link">Visitar grupo →</a></div>
           <div class="recurso-social-card"><i class="fas fa-praying-hands"></i><h4>Peticiones de Oración</h4><p>Un espacio para compartir tus necesidades y orar unos por otros.</p><a href="https://www.facebook.com/groups/1093674819382984/" target="_blank" rel="noopener noreferrer" class="facebook-link">Compartir petición →</a></div>
+          <div class="recurso-social-card"><i class="fas fa-globe"></i><h4>IDCLATAM.org</h4><p>Portal oficial de la Iglesia de Cristo en Latinoamérica. Directorio de iglesias, hermanos y recursos.</p><a href="https://idclatam.org" target="_blank" class="facebook-link">Visitar portal →</a></div>
+          <div class="recurso-social-card"><i class="fas fa-language"></i><h4>BibleFluent.org</h4><p>Aprende idiomas bíblicos (griego, hebreo) y modernos a través de la Biblia. Curso gratuito.</p><a href="https://biblefluent.org" target="_blank" class="facebook-link">Explorar cursos →</a></div>
+          <div class="recurso-social-card"><i class="fas fa-book"></i><h4>Pineda Amador Ministry</h4><p>Recursos bíblicos completos en inglés (próximamente en español). Sermones, estudios y más.</p><a href="https://pinedaamador.org" target="_blank" class="facebook-link">Visitar sitio →</a></div>
+        </div>
+        <!-- Invitación sutil a donaciones -->
+        <div class="donacion-sutil">
+          <i class="fas fa-hand-holding-heart"></i> Si deseas apoyar este ministerio digital y ayudar a mantener estos recursos gratuitos, puedes hacer una ofrenda voluntaria vía <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener noreferrer">PayPal</a>. ¡Gracias por tu generosidad!
+        </div>
+        <!-- Invitación a iglesias -->
+        <div class="donacion-sutil" style="margin-top: 0.5rem; background: #e8f0fe;">
+          <i class="fas fa-church"></i> ¿Tu iglesia necesita un sitio web gratuito? Contáctanos en <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a> para más información.
         </div>
       </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contacto" class="section bg-dark">
       <div class="container contacto-flex">
         <div class="contact-info">
@@ -273,6 +438,12 @@
   <footer class="footer">
     <div class="container footer-content">
       <p>&copy; 2026 Iglesia de Cristo en Vedado — Compartiendo esperanza en Cuba.</p>
+      <p class="footer-links" style="margin-top: 0.5rem;">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a> | 
+        <a href="https://biblefluent.org" target="_blank">BibleFluent.org</a> | 
+        <a href="https://pinedaamador.org" target="_blank">PinedaAmador.org</a> |
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Apoya este ministerio</a>
+      </p>
     </div>
   </footer>
 
