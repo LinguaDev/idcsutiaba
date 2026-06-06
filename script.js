@@ -211,7 +211,7 @@ const churchesCatalog = [
     name: "Iglesia de Cristo en Colonia Israel Sur, Tegucigalpa",
     location: "Tegucigalpa, Honduras",
     description: "Congregación en Tegucigalpa con énfasis en evangelismo, discipulado y servicio comunitario.",
-    url: "idc/Honduras/Tegucigalpa/Israel-Sur.html"
+    url: "idc/Honduras/Tegucigalpa/Colonia-Israel-Sur.html"
   }
 ];
 
