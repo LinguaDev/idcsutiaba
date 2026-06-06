@@ -206,7 +206,13 @@ const churchesCatalog = [
   location: "Pomacanchi, Cusco, Perú",
   description: "Congregación en el sur del Perú, con énfasis en evangelismo, discipulado y servicio comunitario. Transmite contenido en redes y tiene un sitio web propio.",
   url: "idc/peru/cusco/pomacanchi.html"
-}
+},
+{
+    name: "Iglesia de Cristo en Colonia Israel Sur, Tegucigalpa",
+    location: "Tegucigalpa, Honduras",
+    description: "Congregación en Tegucigalpa con énfasis en evangelismo, discipulado y servicio comunitario.",
+    url: "idc/Honduras/Tegucigalpa/Israel-Sur.html"
+  }
 ];
 
 // ==================== DIRECTORIO DE HERMANOS ====================
