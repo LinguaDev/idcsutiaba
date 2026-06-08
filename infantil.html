@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Básico -->
+  <title>Las Ovejitas del Rey | Ministerio Infantil - Ana Amador</title>
+  <meta name="description" content="Ministerio Infantil Las Ovejitas del Rey, dirigido por la hermana Ana Amador. Recursos bíblicos para niños: lecciones, canciones, actividades, PDFs y videos. Material gratuito para la enseñanza cristiana infantil.">
+  <meta name="keywords" content="ministerio infantil, ovejitas del rey, niños cristianos, escuela dominical, recursos para niños, Ana Amador, Iglesia de Cristo">
+  <meta name="author" content="Ana Amador - IDCLATAM">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://idclatam.org/ovejitas-del-rey.html">
+  <meta property="og:title" content="Las Ovejitas del Rey | Ministerio Infantil">
+  <meta property="og:description" content="Recursos bíblicos gratuitos para niños. Lecciones, canciones, actividades y material descargable.">
+  <meta property="og:image" content="https://idclatam.org/img/ovejitas-og.jpg">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Las Ovejitas del Rey | Ministerio Infantil">
+  <meta name="twitter:description" content="Enseñando a los niños el amor de Jesús">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://idclatam.org/ovejitas-del-rey.html">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Estilos específicos para el ministerio infantil */
+    .hero-ovejitas {
+      background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-ovejitas::before {
+      content: "🐑";
+      font-size: 8rem;
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .hero-ovejitas h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-ovejitas p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .video-short {
+      max-width: 400px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .video-short iframe {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      display: block;
+    }
+    .about-ana {
+      background: #f8f9fa;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .about-ana img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f4a261;
+    }
+    .recursos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .recurso-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e2d5bc;
+      transition: transform 0.2s;
+    }
+    .recurso-card:hover {
+      transform: translateY(-5px);
+    }
+    .recurso-card i {
+      font-size: 2.5rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+    .btn-recurso {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      background: #f4a261;
+      color: white;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .btn-recurso:hover {
+      background: #e08e3a;
+    }
+    /* Galería de imágenes */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .galeria-item {
+      background: #e9ecef;
+      border-radius: 1rem;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #999;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+    .galeria-item:hover {
+      border-color: #f4a261;
+      transform: scale(1.02);
+    }
+    .lecciones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .leccion-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+    .leccion-card:hover {
+      transform: translateY(-3px);
+    }
+    .leccion-img {
+      height: 120px;
+      background: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .leccion-info {
+      padding: 1rem;
+    }
+    .btn-leccion {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #f4a261;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .video-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .video-thumb {
+      background: #1a1a2e;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+    .video-info {
+      padding: 1rem;
+    }
+    @media (max-width: 768px) {
+      .about-ana {
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-ovejitas h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-sheep"></i>
+        <h1>Las Ovejitas del Rey</h1>
+        <span class="logo-sub">Ministerio Infantil</span>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">IDCLATAM</a></li>
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#recursos" class="nav-link">Recursos</a></li>
+          <li><a href="#lecciones" class="nav-link">Lecciones</a></li>
+          <li><a href="#videos" class="nav-link">Videos</a></li>
+          <li><a href="#galeria" class="nav-link">Galería</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero-ovejitas">
+      <div class="container">
+        <h1>🐑 Las Ovejitas del Rey</h1>
+        <p>Enseñando a los niños el amor de Jesús a través de la Biblia, canciones y actividades</p>
+      </div>
+    </section>
+
+    <!-- VIDEO SHORT REPRESENTATIVO -->
+    <div class="container video-short">
+      <iframe src="https://www.youtube.com/embed/khczHxQMf2w" title="Las Ovejitas del Rey - Ministerio Infantil" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- QUIÉN ES ANA AMADOR -->
+    <div class="container">
+      <div class="about-ana">
+        <img src="ana-amador.jpg" alt="Hermana Ana Amador" onerror="this.src='https://placehold.co/150x150/f4a261/white?text=Ana'">
+        <div>
+          <h3><i class="fas fa-heart" style="color:#f4a261;"></i> Conoce a la hermana Ana Amador</h3>
+          <p>Ana es la coordinadora del ministerio infantil "Las Ovejitas del Rey" en la Iglesia de Cristo en Sutiaba, Nicaragua. Con más de 15 años de experiencia, ha dedicado su vida a enseñar la Palabra de Dios a los niños con creatividad, amor y dedicación. Su pasión es que cada niño conozca a Jesús como su Buen Pastor.</p>
+          <p><strong>“Dejen que los niños vengan a mí, y no se lo impidan, porque el reino de los cielos es de quienes son como ellos”</strong> — Mateo 19:14</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECURSOS DESCARGABLES -->
+    <section id="recursos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-toolbox"></i> Recursos para descargar</h3>
+          <p>Material gratuito para usar en casa, escuela dominical o reuniones infantiles</p>
+        </div>
+        <div class="recursos-grid">
+          <div class="recurso-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Guía de Lecciones</h3>
+            <p>12 lecciones bíblicas para niños con actividades, dibujos y versículos.</p>
+            <a href="#" class="btn-recurso" id="downloadGuideBtn">Descargar PDF (próximamente)</a>
+          </div>
+          <div class="recurso-card">
+            <i class="fas fa-paintbrush"></i>
+            <h3>Cuaderno de Actividades</h3>
+            <p>Sopas de letras, colorear, laberintos y ejercicios bíblicos.</p>
+            <a href="#" class="btn-recurso" id="downloadActivitiesBtn">Descargar PDF (próximamente)</a>
+          </div>
+          <div class="recurso-card">
+            <i class="fas fa-music"></i>
+            <h3>Cancionero Infantil</h3>
+            <p>Letras y acordes de canciones cristianas para niños.</p>
+            <a href="#" class="btn-recurso" id="downloadSongsBtn">Descargar PDF (próximamente)</a>
+          </div>
+          <div class="recurso-card">
+            <i class="fas fa-chalkboard-user"></i>
+            <h3>Guía para Maestros</h3>
+            <p>Consejos y recursos para enseñar a niños en la iglesia.</p>
+            <a href="#" class="btn-recurso" id="downloadTeachersBtn">Descargar PDF (próximamente)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LECCIONES DESTACADAS -->
+    <section id="lecciones" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-book-bible"></i> Lecciones destacadas</h3>
+          <p>Historias bíblicas para enseñar a los niños el amor de Dios</p>
+        </div>
+        <div class="lecciones-grid">
+          <div class="leccion-card">
+            <div class="leccion-img">🌍</div>
+            <div class="leccion-info">
+              <h4>La creación del mundo</h4>
+              <p>Génesis 1 - Dios hizo todo en 7 días. Actividad: dibujar lo creado cada día.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+          <div class="leccion-card">
+            <div class="leccion-img">🕊️</div>
+            <div class="leccion-info">
+              <h4>Noé y el arca</h4>
+              <p>Génesis 6-9 - Obediencia y confianza en Dios. Manualidad: arcoíris de papel.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+          <div class="leccion-card">
+            <div class="leccion-img">🐟</div>
+            <div class="leccion-info">
+              <h4>Jonás y el gran pez</h4>
+              <p>Jonás 1-4 - Dios perdona y da segundas oportunidades.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+          <div class="leccion-card">
+            <div class="leccion-img">❤️</div>
+            <div class="leccion-info">
+              <h4>Jesús ama a los niños</h4>
+              <p>Mateo 19:13-15 - Jesús siempre está feliz de recibir a los niños.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+          <div class="leccion-card">
+            <div class="leccion-img">🐑</div>
+            <div class="leccion-info">
+              <h4>El Buen Pastor</h4>
+              <p>Juan 10:11-15 - Jesús cuida de sus ovejitas. Manualidad: oveja de algodón.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+          <div class="leccion-card">
+            <div class="leccion-img">🏠</div>
+            <div class="leccion-info">
+              <h4>Daniel y los leones</h4>
+              <p>Daniel 6 - Dios protege a los que confían en Él.</p>
+              <a href="#" class="btn-leccion">Ver lección completa →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS DEL MINISTERIO -->
+    <section id="videos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-video"></i> Videos del Ministerio</h3>
+          <p>Lecciones en video, canciones y actividades para los niños</p>
+        </div>
+        <div class="videos-grid">
+          <div class="video-card">
+            <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+            <div class="video-info">
+              <h4>Canción: Las Ovejitas del Rey</h4>
+              <p>Video musical del ministerio</p>
+              <a href="#" class="btn-leccion">Ver video →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+            <div class="video-info">
+              <h4>Lección: El Buen Pastor</h4>
+              <p>Enseñanza para niños sobre el cuidado de Jesús</p>
+              <a href="#" class="btn-leccion">Ver video →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+            <div class="video-info">
+              <h4>Manualidad: Oveja de algodón</h4>
+              <p>Aprende a hacer una ovejita con materiales sencillos</p>
+              <a href="#" class="btn-leccion">Ver video →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+            <div class="video-info">
+              <h4>Canción: Jesús me ama</h4>
+              <p>Videoclip infantil con letra</p>
+              <a href="#" class="btn-leccion">Ver video →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE IMÁGENES -->
+    <section id="galeria" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-images"></i> Galería de actividades</h3>
+          <p>Momentos especiales de nuestros niños en la iglesia</p>
+        </div>
+        <div class="galeria-grid" id="galeriaGrid">
+          <div class="galeria-item">📸</div>
+          <div class="galeria-item">🎨</div>
+          <div class="galeria-item">🐑</div>
+          <div class="galeria-item">❤️</div>
+          <div class="galeria-item">📖</div>
+          <div class="galeria-item">🎵</div>
+        </div>
+        <p style="text-align: center; color: #666;"><i class="fas fa-cloud-upload-alt"></i> Próximamente más imágenes de nuestras actividades</p>
+      </div>
+    </section>
+
+    <!-- INVITACIÓN A DONACIONES -->
+    <section class="section">
+      <div class="container">
+        <div class="donacion-sutil" style="text-align: center; padding: 1.5rem; background: #fef5e8; border-radius: 1rem;">
+          <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: #f4a261;"></i>
+          <h3 style="margin: 0.5rem 0;">Ayúdanos a seguir enseñando a los niños</h3>
+          <p>Todo el material es gratuito. Si deseas apoyar este ministerio infantil, puedes hacer una ofrenda voluntaria vía PayPal.</p>
+          <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">Donar ahora <i class="fab fa-paypal"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section bg-dark">
+      <div class="container contacto-flex">
+        <div class="contact-info">
+          <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
+          <p>¿Necesitas recursos adicionales o quieres más información sobre el ministerio infantil?</p>
+          <ul class="contact-details">
+            <li><i class="fas fa-envelope"></i> juancanales5019@gmail.com</li>
+            <li><i class="fab fa-whatsapp"></i> +505 5751 4440</li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h4>Envíanos un mensaje</h4>
+          <form action="https://formsubmit.co/juancanales5019@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Mensaje desde Ministerio Infantil Las Ovejitas del Rey">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo" required>
+            <textarea name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte? (recursos, lecciones, oración...)" required></textarea>
+            <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>🐑 Las Ovejitas del Rey | Ministerio Infantil - Iglesia de Cristo en Sutiaba</p>
+      <p><small>“Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él” (Proverbios 22:6)</small></p>
+      <p class="footer-links" style="margin-top: 0.5rem;">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a> | 
+        <a href="https://biblefluent.org" target="_blank">BibleFluent.org</a> |
+        <a href="https://pinedaamador.org" target="_blank">PinedaAmador.org</a>
+      </p>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    // Menú hamburguesa
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbar = document.getElementById('navbar');
+    if (mobileToggle && navbar) {
+      mobileToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navbar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Mensaje de próximamente para los botones de descarga
+    const downloadBtns = ['downloadGuideBtn', 'downloadActivitiesBtn', 'downloadSongsBtn', 'downloadTeachersBtn'];
+    downloadBtns.forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('📚 Este recurso estará disponible próximamente. ¡Sigue visitando la página!');
+        });
+      }
+    });
+
+    // Scroll top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

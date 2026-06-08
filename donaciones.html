@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Básico -->
+  <title>Apoya el Ministerio IDCLATAM | Iglesia de Cristo Latinoamérica</title>
+  <meta name="description" content="Apoya a IDCLATAM: un ministerio integral que ofrece directorio de iglesias, ministerio infantil, ministerio de damas, predicación, recursos bíblicos y sitios web gratuitos para congregaciones en Latinoamérica.">
+  <meta name="keywords" content="donaciones, apoyar ministerio, IDCLATAM, Iglesia de Cristo, ministerio infantil, ministerio de damas, sitios web gratuitos">
+  <meta name="author" content="IDCLATAM - Iglesia de Cristo Latinoamérica">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://idclatam.org/donaciones.html">
+  <meta property="og:title" content="Apoya IDCLATAM | Ministerio Integral para la Iglesia de Cristo">
+  <meta property="og:description" content="Contribuye al crecimiento de la Iglesia de Cristo en Latinoamérica a través de donaciones voluntarias.">
+  <meta property="og:image" content="https://idclatam.org/img/donaciones-og.jpg">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apoya IDCLATAM">
+  <meta name="twitter:description" content="Donaciones para el ministerio digital">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://idclatam.org/donaciones.html">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ==================== RESET & GLOBAL ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==================== HEADER ==================== */
+    .header {
+      background: #1e3a5f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #f4a261;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .navbar {
+      transition: 0.3s;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #f4a261;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero-donaciones {
+      background: linear-gradient(135deg, #1e3a5f, #0d2c2a);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      position: relative;
+    }
+    .hero-donaciones h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-donaciones p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* ==================== VERSÍCULO ==================== */
+    .verse-section {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+    .verse-text {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #2c5282;
+    }
+    .verse-ref {
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    /* ==================== SECCIONES ==================== */
+    .section {
+      padding: 3rem 0;
+    }
+    .bg-light {
+      background: #f1f5f9;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-header h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e3a5f;
+      position: relative;
+      display: inline-block;
+    }
+    .section-header h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #f4a261;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+    .section-header p {
+      color: #475569;
+      margin-top: 0.5rem;
+    }
+
+    /* ==================== MINISTERIOS (grid) ==================== */
+    .ministerios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .ministerio-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s;
+    }
+    .ministerio-card:hover {
+      transform: translateY(-5px);
+    }
+    .ministerio-card i {
+      font-size: 2rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+    .ministerio-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #1e3a5f;
+    }
+    .ministerio-card p {
+      color: #475569;
+      font-size: 0.9rem;
+    }
+
+    /* ==================== LOGROS (iglesias atendidas) ==================== */
+    .logros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .logros-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s;
+    }
+    .logros-card:hover {
+      transform: translateY(-3px);
+    }
+    .logros-card i {
+      font-size: 2rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+    .logros-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #1e3a5f;
+    }
+    .logros-card p {
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+    .logro-link {
+      color: #f4a261;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .logro-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==================== DONACIONES (tarjetas) ==================== */
+    .donation-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .donation-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s;
+    }
+    .donation-card:hover {
+      transform: translateY(-5px);
+    }
+    .donation-card i {
+      font-size: 2.5rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+    .donation-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #1e3a5f;
+    }
+    .donation-card p {
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+    .btn-donar {
+      display: inline-block;
+      background: #f4a261;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .btn-donar:hover {
+      background: #e08e3a;
+      transform: scale(1.02);
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .footer a {
+      color: #f4a261;
+      text-decoration: none;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    /* ==================== SCROLL TOP ==================== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #f4a261;
+      color: #1e3a5f;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 99;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .scroll-top.visible {
+      opacity: 1;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .hero-donaciones h1 {
+        font-size: 1.6rem;
+      }
+      .section-header h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #1e3a5f;
+        transition: 0.3s;
+        padding: 2rem;
+        z-index: 999;
+      }
+      .navbar.active {
+        left: 0;
+      }
+      .nav-menu {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .ministerios-grid, .logros-grid, .donation-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-church"></i>
+        <h1>IDCLATAM</h1>
+        <span class="logo-sub">Iglesia de Cristo Latinoamérica</span>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="https://idclatam.org" class="nav-link">Inicio</a></li>
+          <li><a href="donaciones.html" class="nav-link">Donaciones</a></li>
+          <li><a href="https://idclatam.org/about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="https://biblefluent.org" target="_blank" class="nav-link">BibleFluent</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-donaciones">
+      <div class="container">
+        <h1>Apoya el ministerio IDCLATAM</h1>
+        <p>Tu contribución voluntaria nos ayuda a servir a la Iglesia de Cristo en Latinoamérica a través de múltiples frentes</p>
+      </div>
+    </section>
+
+    <!-- Versículo motivacional -->
+    <div class="verse-section">
+      <div class="container">
+        <p class="verse-text">“Dad, y se os dará; medida buena, apretada, remecida y rebosante darán en vuestro regazo”</p>
+        <p class="verse-ref">— Lucas 6:38</p>
+      </div>
+    </div>
+
+    <!-- Ministerios que abarca IDCLATAM -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3>Más que un directorio: un ministerio integral</h3>
+          <p>IDCLATAM no solo conecta iglesias, sino que impulsa múltiples áreas de servicio</p>
+        </div>
+        <div class="ministerios-grid">
+          <div class="ministerio-card">
+            <i class="fas fa-church"></i>
+            <h4>Directorio de Iglesias</h4>
+            <p>Registro gratuito de congregaciones de Cristo en toda Latinoamérica, facilitando que los hermanos encuentren una iglesia fiel a la Escritura.</p>
+          </div>
+          <div class="ministerio-card">
+            <i class="fas fa-child"></i>
+            <h4>Ministerio Infantil "Las Ovejitas del Rey"</h4>
+            <p>Liderado por la hermana Ana Amador, ofrece lecciones, canciones, actividades y recursos PDF para la enseñanza bíblica de los niños.</p>
+          </div>
+          <div class="ministerio-card">
+            <i class="fas fa-female"></i>
+            <h4>Ministerio de Damas</h4>
+            <p>Espacio de edificación, oración y apoyo para las hermanas, con estudios bíblicos y encuentros de fortalecimiento espiritual.</p>
+          </div>
+          <div class="ministerio-card">
+            <i class="fas fa-microphone-alt"></i>
+            <h4>Ministerio de Predicación</h4>
+            <p>Apoyo a predicadores y maestros para compartir el evangelio, con recursos y difusión de sus sermones y estudios.</p>
+          </div>
+          <div class="ministerio-card">
+            <i class="fas fa-code"></i>
+            <h4>Sitios Web Gratuitos</h4>
+            <p>Creamos páginas web completas y responsivas para iglesias que aún no tienen presencia en línea, sin costo alguno.</p>
+          </div>
+          <div class="ministerio-card">
+            <i class="fas fa-book-bible"></i>
+            <h4>Recursos Bíblicos</h4>
+            <p>Biblioteca digital con estudios, sermones, planes de lectura y materiales descargables gratuitos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Iglesias que ya han sido beneficiadas -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h3>Iglesias que ya tienen su sitio web</h3>
+          <p>Recientemente hemos creado páginas web gratuitas para estas congregaciones</p>
+        </div>
+        <div class="logros-grid">
+          <div class="logros-card">
+            <i class="fas fa-church"></i>
+            <h4>Iglesia de Cristo en Vedado, La Habana, Cuba</h4>
+            <p>Ya cuentan con su página web dentro de IDCLATAM, donde comparten sus horarios, contactos y recursos.</p>
+            <a href="https://idclatam.org/idc/Vedado/La-Habana-Cuba.html" target="_blank" class="logro-link">Visitar sitio →</a>
+          </div>
+          <div class="logros-card">
+            <i class="fas fa-church"></i>
+            <h4>Iglesia de Cristo en Colonia Israel Sur, Tegucigalpa, Honduras</h4>
+            <p>Ahora tienen presencia en línea con información de sus servicios, contacto y dirección.</p>
+            <a href="https://idclatam.org/idc/Honduras/Tegucigalpa/Colonia-Israel-Sur.html" target="_blank" class="logro-link">Visitar sitio →</a>
+          </div>
+          <div class="logros-card">
+            <i class="fas fa-church"></i>
+            <h4>Iglesia de Cristo en Sutiaba, Nicaragua</h4>
+            <p>Nuestra iglesia local, ejemplo del impacto de tener presencia digital para la comunidad.</p>
+            <a href="https://idclatam.org/sutiaba.html" target="_blank" class="logro-link">Visitar sitio →</a>
+          </div>
+          <div class="logros-card">
+            <i class="fas fa-bullseye"></i>
+            <h4>Nuestra meta</h4>
+            <p>Queremos poco a poco llegar a muchos más hermanos creadores de contenido, ministerios e iglesias para darles un espacio gratuito en IDCLATAM. Tú puedes ser parte de esta visión.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opciones de donación -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3>Formas de apoyar</h3>
+          <p>Tu ofrenda voluntaria hace posible este ministerio</p>
+        </div>
+        <div class="donation-cards">
+          <div class="donation-card">
+            <i class="fab fa-paypal"></i>
+            <h3>Donación vía PayPal</h3>
+            <p>Monto voluntario, lo que el Señor ponga en tu corazón</p>
+            <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="btn-donar">Donar con PayPal</a>
+          </div>
+          <div class="donation-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Contacto directo</h3>
+            <p>Si prefieres donar por transferencia, Western Union u otro medio, contáctame directamente</p>
+            <a href="https://wa.me/50557514440?text=Hola%20hermano%20Juan%2C%20quiero%20apoyar%20el%20ministerio%20IDCLATAM" target="_blank" class="btn-donar">Contactar por WhatsApp</a>
+          </div>
+          <div class="donation-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Correo electrónico</h3>
+            <p>Escríbeme para cualquier consulta sobre el ministerio o cómo colaborar</p>
+            <a href="mailto:juancanales5019@gmail.com?subject=Apoyo%20al%20ministerio%20IDCLATAM" class="btn-donar">Enviar correo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 IDCLATAM — Iglesia de Cristo Latinoamérica. Uniendo a la hermandad.</p>
+      <p><small>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación...” (Romanos 1:16)</small></p>
+      <div class="footer-links">
+        <a href="https://idclatam.org">IDCLATAM.org</a>
+        <a href="https://biblefluent.org" target="_blank">BibleFluent.org</a>
+        <a href="https://pinedaamador.org" target="_blank">PinedaAmador.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    // Menú hamburguesa
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbar = document.getElementById('navbar');
+    if (mobileToggle && navbar) {
+      mobileToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navbar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Scroll top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
