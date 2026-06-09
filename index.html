@@ -4,57 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- SEO Básico -->
   <title>IDCLATAM | Iglesia de Cristo Latinoamérica - Uniendo a la hermandad en Cristo</title>
   <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos, directorio de iglesias y hermanos. Sitios web gratuitos para congregaciones.">
   <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos bíblicos, IDCLATAM, iglesias cristianas, directorio cristiano">
   <meta name="author" content="IDCLATAM - Iglesia de Cristo Latinoamérica">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="Spanish">
-  <meta name="revisit-after" content="7 days">
   
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://idclatam.org/">
   <meta property="og:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica">
   <meta property="og:description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Encuentra iglesias, recursos, discipulado y más.">
   <meta property="og:image" content="https://idclatam.org/img/og-image.jpg">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="IDCLATAM">
   
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica">
-  <meta name="twitter:description" content="Uniendo a la Iglesia de Cristo en toda Latinoamérica">
-  <meta name="twitter:image" content="https://idclatam.org/img/twitter-image.jpg">
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://idclatam.org/">
-  
-  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- JSON-LD para Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IDCLATAM",
-    "url": "https://idclatam.org",
-    "logo": "https://idclatam.org/img/logo.png",
-    "description": "Portal oficial de la Iglesia de Cristo en Latinoamérica",
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61589698336913",
-      "https://www.youtube.com/@IdCAmericaLatina",
-      "https://www.tiktok.com/@idclatam.org"
-    ]
-  }
-  </script>
   
   <style>
-    /* Estilos originales (respetados) + añadidos para acordeón */
+    /* Estilos base */
     * {
       margin: 0;
       padding: 0;
@@ -107,10 +78,18 @@
     }
     .mobile-toggle {
       display: none;
-      background: none;
+      background: #c6a43b;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
+      color: #1f3b2c;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .mobile-toggle:hover {
+      background: #1f3b2c;
+      color: white;
     }
     .navbar ul {
       display: flex;
@@ -137,29 +116,81 @@
       padding: 0.5rem 0;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      z-index: 101;
+    }
+    .menu-item-has-children {
+      position: relative;
     }
     .menu-item-has-children:hover .submenu {
       display: block;
     }
-    @media (max-width: 880px) {
-      .mobile-toggle { display: block; }
+    
+    /* RESPONSIVE: el menú hamburguesa se muestra en tablets y móviles */
+    @media (max-width: 1024px) {
+      .mobile-toggle {
+        display: block;
+      }
       .navbar {
         position: fixed;
-        top: 70px;
+        top: 80px;
         left: -100%;
-        width: 80%;
-        height: 100vh;
+        width: 85%;
+        max-width: 320px;
+        height: calc(100vh - 80px);
         background: white;
-        transition: 0.3s;
-        z-index: 99;
-        padding: 2rem;
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+        padding: 2rem 1.5rem;
         box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+        overflow-y: auto;
       }
-      .navbar.active { left: 0; }
-      .navbar ul { flex-direction: column; gap: 1rem; }
-      .submenu { position: static; display: none; box-shadow: none; padding-left: 1rem; }
-      .menu-item-has-children.active .submenu { display: block; }
+      .navbar.active {
+        left: 0;
+      }
+      .navbar ul {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .menu-item-has-children {
+        position: static;
+      }
+      .submenu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        padding-left: 1.2rem;
+        background: #f9f6ef;
+        margin-top: 0.5rem;
+        border-radius: 12px;
+      }
+      .menu-item-has-children.active .submenu {
+        display: block;
+      }
+      .menu-item-has-children > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .menu-item-has-children > a::after {
+        content: "\f078";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+        transition: transform 0.2s;
+      }
+      .menu-item-has-children.active > a::after {
+        transform: rotate(180deg);
+      }
     }
+    
+    /* Para desktop, el menú normal se ve completo */
+    @media (min-width: 1025px) {
+      .navbar {
+        display: block !important;
+      }
+    }
+    
     .hero {
       background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
       padding: 3rem 0;
@@ -211,13 +242,13 @@
       background: #1f3b2c;
       color: white;
     }
-    .cards-grid, .discipulado-grid, .resources-grid {
+    .cards-grid, .resources-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-    .card, .discipulo-card, .resource-item {
+    .card, .resource-item {
       background: white;
       border-radius: 24px;
       padding: 1.5rem;
@@ -358,7 +389,7 @@
           </li>
           
           <li><a href="#contacto" class="nav-link accordion-trigger" data-target="contacto">Contacto</a></li>
-          <li><a href="donaciones.html" target="_blank" class="nav-link donate-link">Donaciones - Apoya nuestro ministerio</a></li>
+          <li><a href="donaciones.html" target="_blank" class="nav-link donate-link">Dona y apoya nuestro ministerio</a></li>
           <li><a href="donate.html" target="_blank" class="nav-link donate-link">Support Our Ministry</a></li>
         </ul>
       </nav>
@@ -366,11 +397,10 @@
   </header>
 
   <main>
-    <!-- HERO con VIDEO (reemplaza versículo) -->
+    <!-- HERO con VIDEO -->
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <!-- Video de invitación (ocupando el lugar del versículo) -->
         <div class="video-container">
           <iframe src="https://www.youtube.com/embed/hG5nu460urA" title="Invitación a la hermandad - Iglesia de Cristo Latinoamérica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -384,7 +414,7 @@
     </section>
 
     <div class="container" style="margin-bottom: 2rem;">
-      <!-- ACORDEÓN 1: Resumen de recursos y objetivos (reemplaza a "Promovemos la unidad") -->
+      <!-- ACORDEÓN 1: Resumen de recursos y objetivos -->
       <div class="accordion-item" id="resumen">
         <div class="accordion-header">
           <span><i class="fas fa-bullseye"></i> Nuestra misión y recursos</span>
@@ -400,12 +430,12 @@
               <li><i class="fas fa-handshake"></i> Invitación abierta a pastores, maestros y hermanos a sumarse al ministerio.</li>
             </ul>
             <p>Conoce más sobre nuestra historia, doctrina y valores en la página <strong>¿Quiénes Somos?</strong></p>
-            <a href="about.html" class="btn-primary" style="display: inline-block; margin-top: 0.5rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Ir a about.html <i class="fas fa-arrow-right"></i></a>
+            <a href="about.html" class="btn-primary" style="display: inline-block; margin-top: 0.5rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Conoce más <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
 
-      <!-- ACORDEÓN 2: RECURSOS GRATUITOS Y DONACIONES (sección original) -->
+      <!-- ACORDEÓN 2: RECURSOS GRATUITOS -->
       <div class="accordion-item" id="recursos">
         <div class="accordion-header">
           <span><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</span>
@@ -443,7 +473,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 3: UNIVERSIDAD CRISTIANA (NUEVA, ARRIBA) -->
+      <!-- ACORDEÓN 3: UNIVERSIDAD CRISTIANA -->
       <div class="accordion-item" id="universidad">
         <div class="accordion-header">
           <span><i class="fas fa-university"></i> Universidad Cristiana de Latinoamérica</span>
@@ -471,7 +501,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 4: EVANGELISMO (plan de salvación) -->
+      <!-- ACORDEÓN 4: EVANGELISMO -->
       <div class="accordion-item" id="evangelismo">
         <div class="accordion-header">
           <span><i class="fas fa-cross"></i> El Evangelio para ti</span>
@@ -600,7 +630,7 @@
       <!-- ACORDEÓN 7: BUSCADOR HERMANOS -->
       <div class="accordion-item" id="hermanos">
         <div class="accordion-header">
-          <span><i class="fas fa-users"></i> Buscar Hermanos en Cristo</span>
+          <span><i class="fas fa-users"></i> Buscar Escritores Cristianos</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
@@ -695,7 +725,6 @@
       });
     });
 
-    // Función para abrir acordeón desde enlaces
     function openAccordion(sectionId) {
       const target = document.getElementById(sectionId);
       if (target) {
@@ -727,7 +756,44 @@
       navbar.classList.toggle('active');
     });
 
-    // Buscadores (datos simulados, igual que original)
+    // Submenús en móvil: toggle al hacer clic
+    const menuItems = document.querySelectorAll('.menu-item-has-children');
+    function handleMobileSubmenus() {
+      if (window.innerWidth <= 1024) {
+        menuItems.forEach(item => {
+          const link = item.querySelector('> a');
+          if (link && !link.hasAttribute('data-listener')) {
+            link.setAttribute('data-listener', 'true');
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              item.classList.toggle('active');
+            });
+          }
+        });
+      } else {
+        menuItems.forEach(item => {
+          const link = item.querySelector('> a');
+          if (link) {
+            link.removeAttribute('data-listener');
+            // Reemplazar con evento clon para evitar duplicados (simplificamos)
+            const newLink = link.cloneNode(true);
+            link.parentNode.replaceChild(newLink, link);
+            // restaurar el evento hover natural, no necesita clic
+          }
+        });
+      }
+    }
+    handleMobileSubmenus();
+    window.addEventListener('resize', handleMobileSubmenus);
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (navbar.classList.contains('active') && !navbar.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navbar.classList.remove('active');
+      }
+    });
+
+    // Buscadores
     const churchData = [
       { name:"Iglesia de Cristo en Sutiaba", city:"Sutiaba, Nicaragua" },
       { name:"Iglesia de Cristo en Managua", city:"Managua, Nicaragua" },
@@ -753,7 +819,7 @@
       });
     }
 
-    // Botón de oración y pasos del evangelio (para mostrar versículos)
+    // Pasos del evangelio
     const steps = document.querySelectorAll('.step');
     steps.forEach(step => {
       step.addEventListener('click', () => {
