@@ -108,24 +108,8 @@
       border-radius: 30px;
       color: #1f3b2c;
     }
-    .submenu {
-      position: absolute;
-      background: white;
-      display: none;
-      list-style: none;
-      padding: 0.5rem 0;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      z-index: 101;
-    }
-    .menu-item-has-children {
-      position: relative;
-    }
-    .menu-item-has-children:hover .submenu {
-      display: block;
-    }
     
-    /* RESPONSIVE: el menú hamburguesa se muestra en tablets y móviles */
+    /* RESPONSIVE: menú hamburguesa */
     @media (max-width: 1024px) {
       .mobile-toggle {
         display: block;
@@ -150,44 +134,6 @@
       .navbar ul {
         flex-direction: column;
         gap: 1.2rem;
-      }
-      .menu-item-has-children {
-        position: static;
-      }
-      .submenu {
-        position: static;
-        display: none;
-        box-shadow: none;
-        padding-left: 1.2rem;
-        background: #f9f6ef;
-        margin-top: 0.5rem;
-        border-radius: 12px;
-      }
-      .menu-item-has-children.active .submenu {
-        display: block;
-      }
-      .menu-item-has-children > a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .menu-item-has-children > a::after {
-        content: "\f078";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 0.8rem;
-        margin-left: 0.5rem;
-        transition: transform 0.2s;
-      }
-      .menu-item-has-children.active > a::after {
-        transform: rotate(180deg);
-      }
-    }
-    
-    /* Para desktop, el menú normal se ve completo */
-    @media (min-width: 1025px) {
-      .navbar {
-        display: block !important;
       }
     }
     
@@ -367,26 +313,14 @@
           <li><a href="infantil.html" class="nav-link">Ministerio Infantil</a></li>
           <li><a href="https://biblefluent.org/" class="nav-link">Idiomas Bíblicos</a></li>
           
-          <li class="menu-item-has-children">
-            <a href="javascript:void(0)" class="nav-link">Recursos</a>
-            <ul class="submenu">
-              <li><a href="https://biblefluent.org/" target="_blank">BibleFluent - Aprende idiomas con la Biblia</a></li>
-              <li><a href="https://www.cbpoc.net/" target="_blank">Estudios bíblicos y ministerio</a></li>
-              <li><a href="https://ministeriodealabanza.net/" target="_blank">Ministerio de Alabanza</a></li>
-              <li><a href="https://www.editoriallapaz.org/" target="_blank">Editorial La Paz</a></li>
-            </ul>
-          </li>
+          <!-- Recursos ahora es enlace directo al acordeón de recursos -->
+          <li><a href="#recursos" class="nav-link accordion-trigger" data-target="recursos">Recursos</a></li>
           
           <li><a href="#sitios-web-gratuitos" class="nav-link accordion-trigger" data-target="sitios-web-gratuitos">Sitios Web Gratuitos</a></li>
           <li><a href="#iglesias" class="nav-link accordion-trigger" data-target="iglesias">Iglesias</a></li>
           
-          <li class="menu-item-has-children">
-            <a href="javascript:void(0)" class="nav-link">Escritores Cristianos</a>
-            <ul class="submenu">
-              <li><a href="#hermanos" class="accordion-trigger" data-target="hermanos">Ver todos los escritores</a></li>
-              <li><a href="Juan-Pineda.html">Juan Pineda</a></li>
-            </ul>
-          </li>
+          <!-- Escritores Cristianos ahora es enlace directo al acordeón de escritores -->
+          <li><a href="#hermanos" class="nav-link accordion-trigger" data-target="hermanos">Escritores Cristianos</a></li>
           
           <li><a href="#contacto" class="nav-link accordion-trigger" data-target="contacto">Contacto</a></li>
           <li><a href="donaciones.html" target="_blank" class="nav-link donate-link">Dona y apoya nuestro ministerio</a></li>
@@ -435,7 +369,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 2: RECURSOS GRATUITOS -->
+      <!-- ACORDEÓN 2: RECURSOS GRATUITOS (id="recursos") -->
       <div class="accordion-item" id="recursos">
         <div class="accordion-header">
           <span><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</span>
@@ -627,7 +561,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 7: BUSCADOR HERMANOS -->
+      <!-- ACORDEÓN 7: BUSCADOR ESCRITORES CRISTIANOS (id="hermanos") -->
       <div class="accordion-item" id="hermanos">
         <div class="accordion-header">
           <span><i class="fas fa-users"></i> Buscar Escritores Cristianos</span>
@@ -640,10 +574,10 @@
               <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda...">
             </div>
             <div id="brotherResults" class="results-list">
-              <div class="info-message">Escribe para buscar hermanos...</div>
+              <div class="info-message">Escribe para buscar escritores cristianos...</div>
             </div>
             <div class="note-local">
-              <p><i class="fas fa-info-circle"></i> ¿Eres un hermano y deseas compartir tu contenido? <a href="#contacto" class="accordion-trigger" data-target="contacto">Contáctanos</a>.</p>
+              <p><i class="fas fa-info-circle"></i> ¿Eres un escritor cristiano y deseas compartir tu contenido? <a href="#contacto" class="accordion-trigger" data-target="contacto">Contáctanos</a>.</p>
             </div>
           </div>
         </div>
@@ -756,36 +690,6 @@
       navbar.classList.toggle('active');
     });
 
-    // Submenús en móvil: toggle al hacer clic
-    const menuItems = document.querySelectorAll('.menu-item-has-children');
-    function handleMobileSubmenus() {
-      if (window.innerWidth <= 1024) {
-        menuItems.forEach(item => {
-          const link = item.querySelector('> a');
-          if (link && !link.hasAttribute('data-listener')) {
-            link.setAttribute('data-listener', 'true');
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              item.classList.toggle('active');
-            });
-          }
-        });
-      } else {
-        menuItems.forEach(item => {
-          const link = item.querySelector('> a');
-          if (link) {
-            link.removeAttribute('data-listener');
-            // Reemplazar con evento clon para evitar duplicados (simplificamos)
-            const newLink = link.cloneNode(true);
-            link.parentNode.replaceChild(newLink, link);
-            // restaurar el evento hover natural, no necesita clic
-          }
-        });
-      }
-    }
-    handleMobileSubmenus();
-    window.addEventListener('resize', handleMobileSubmenus);
-
     // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
       if (navbar.classList.contains('active') && !navbar.contains(e.target) && !mobileToggle.contains(e.target)) {
@@ -815,7 +719,7 @@
       brotherInput.addEventListener('input', () => {
         const val = brotherInput.value.toLowerCase();
         const results = brotherData.filter(b => b.name.toLowerCase().includes(val));
-        document.getElementById('brotherResults').innerHTML = results.map(b => `<div class="result-item">${b.name} - ${b.desc}</div>`).join('') || '<div>No se encontraron hermanos</div>';
+        document.getElementById('brotherResults').innerHTML = results.map(b => `<div class="result-item">${b.name} - ${b.desc}</div>`).join('') || '<div>No se encontraron escritores</div>';
       });
     }
 
