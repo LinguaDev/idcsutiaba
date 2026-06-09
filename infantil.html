@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- SEO Básico -->
   <title>Las Ovejitas del Rey | Ministerio Infantil - Ana Amador</title>
   <meta name="description" content="Ministerio Infantil Las Ovejitas del Rey, dirigido por la hermana Ana Amador. Recursos bíblicos para niños: lecciones, canciones, actividades, PDFs y videos. Material gratuito para la enseñanza cristiana infantil.">
   <meta name="keywords" content="ministerio infantil, ovejitas del rey, niños cristianos, escuela dominical, recursos para niños, Ana Amador, Iglesia de Cristo">
   <meta name="author" content="Ana Amador - IDCLATAM">
   <meta name="robots" content="index, follow">
   
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://idclatam.org/ovejitas-del-rey.html">
   <meta property="og:title" content="Las Ovejitas del Rey | Ministerio Infantil">
@@ -19,12 +17,9 @@
   <meta property="og:image" content="https://idclatam.org/img/ovejitas-og.jpg">
   <meta property="og:locale" content="es_ES">
   
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Las Ovejitas del Rey | Ministerio Infantil">
-  <meta name="twitter:description" content="Enseñando a los niños el amor de Jesús">
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://idclatam.org/ovejitas-del-rey.html">
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,18 +36,12 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-ovejitas::before {
-      content: "🐑";
-      font-size: 8rem;
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      opacity: 0.1;
-      pointer-events: none;
-    }
     .hero-ovejitas h1 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
+    }
+    .hero-ovejitas h1 i {
+      margin-right: 0.5rem;
     }
     .hero-ovejitas p {
       font-size: 1.1rem;
@@ -124,7 +113,6 @@
     .btn-recurso:hover {
       background: #e08e3a;
     }
-    /* Galería de imágenes */
     .galeria-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -138,11 +126,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #999;
       cursor: pointer;
       transition: 0.2s;
       border: 2px solid transparent;
+    }
+    .galeria-item i {
+      font-size: 2.5rem;
+      color: #b0b0b0;
     }
     .galeria-item:hover {
       border-color: #f4a261;
@@ -170,7 +162,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+    .leccion-img i {
+      font-size: 2.5rem;
+      color: #f4a261;
     }
     .leccion-info {
       padding: 1rem;
@@ -205,6 +201,35 @@
     }
     .video-info {
       padding: 1rem;
+    }
+    .contacto-whatsapp {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .contacto-whatsapp h4 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #1f3b2c;
+    }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      transition: 0.2s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
     }
     @media (max-width: 768px) {
       .about-ana {
@@ -247,7 +272,7 @@
     <!-- HERO -->
     <section id="inicio" class="hero-ovejitas">
       <div class="container">
-        <h1>🐑 Las Ovejitas del Rey</h1>
+        <h1><i class="fas fa-sheep"></i> Las Ovejitas del Rey</h1>
         <p>Enseñando a los niños el amor de Jesús a través de la Biblia, canciones y actividades</p>
       </div>
     </section>
@@ -314,7 +339,7 @@
         </div>
         <div class="lecciones-grid">
           <div class="leccion-card">
-            <div class="leccion-img">🌍</div>
+            <div class="leccion-img"><i class="fas fa-globe-americas"></i></div>
             <div class="leccion-info">
               <h4>La creación del mundo</h4>
               <p>Génesis 1 - Dios hizo todo en 7 días. Actividad: dibujar lo creado cada día.</p>
@@ -322,7 +347,7 @@
             </div>
           </div>
           <div class="leccion-card">
-            <div class="leccion-img">🕊️</div>
+            <div class="leccion-img"><i class="fas fa-dove"></i></div>
             <div class="leccion-info">
               <h4>Noé y el arca</h4>
               <p>Génesis 6-9 - Obediencia y confianza en Dios. Manualidad: arcoíris de papel.</p>
@@ -330,7 +355,7 @@
             </div>
           </div>
           <div class="leccion-card">
-            <div class="leccion-img">🐟</div>
+            <div class="leccion-img"><i class="fas fa-fish"></i></div>
             <div class="leccion-info">
               <h4>Jonás y el gran pez</h4>
               <p>Jonás 1-4 - Dios perdona y da segundas oportunidades.</p>
@@ -338,7 +363,7 @@
             </div>
           </div>
           <div class="leccion-card">
-            <div class="leccion-img">❤️</div>
+            <div class="leccion-img"><i class="fas fa-heart"></i></div>
             <div class="leccion-info">
               <h4>Jesús ama a los niños</h4>
               <p>Mateo 19:13-15 - Jesús siempre está feliz de recibir a los niños.</p>
@@ -346,7 +371,7 @@
             </div>
           </div>
           <div class="leccion-card">
-            <div class="leccion-img">🐑</div>
+            <div class="leccion-img"><i class="fas fa-sheep"></i></div>
             <div class="leccion-info">
               <h4>El Buen Pastor</h4>
               <p>Juan 10:11-15 - Jesús cuida de sus ovejitas. Manualidad: oveja de algodón.</p>
@@ -354,7 +379,7 @@
             </div>
           </div>
           <div class="leccion-card">
-            <div class="leccion-img">🏠</div>
+            <div class="leccion-img"><i class="fas fa-lion"></i></div>
             <div class="leccion-info">
               <h4>Daniel y los leones</h4>
               <p>Daniel 6 - Dios protege a los que confían en Él.</p>
@@ -417,12 +442,12 @@
           <p>Momentos especiales de nuestros niños en la iglesia</p>
         </div>
         <div class="galeria-grid" id="galeriaGrid">
-          <div class="galeria-item">📸</div>
-          <div class="galeria-item">🎨</div>
-          <div class="galeria-item">🐑</div>
-          <div class="galeria-item">❤️</div>
-          <div class="galeria-item">📖</div>
-          <div class="galeria-item">🎵</div>
+          <div class="galeria-item"><i class="fas fa-camera"></i></div>
+          <div class="galeria-item"><i class="fas fa-paintbrush"></i></div>
+          <div class="galeria-item"><i class="fas fa-sheep"></i></div>
+          <div class="galeria-item"><i class="fas fa-heart"></i></div>
+          <div class="galeria-item"><i class="fas fa-book-bible"></i></div>
+          <div class="galeria-item"><i class="fas fa-music"></i></div>
         </div>
         <p style="text-align: center; color: #666;"><i class="fas fa-cloud-upload-alt"></i> Próximamente más imágenes de nuestras actividades</p>
       </div>
@@ -440,31 +465,18 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO VÍA WHATSAPP (sin email) -->
     <section id="contacto" class="section bg-dark">
-      <div class="container contacto-flex">
-        <div class="contact-info">
-          <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
-          <p>¿Necesitas recursos adicionales o quieres más información sobre el ministerio infantil?</p>
-          <ul class="contact-details">
-            <li><i class="fas fa-envelope"></i> juancanales5019@gmail.com</li>
-            <li><i class="fab fa-whatsapp"></i> +505 5751 4440</li>
-          </ul>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="contact-form">
-          <h4>Envíanos un mensaje</h4>
-          <form action="https://formsubmit.co/juancanales5019@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Mensaje desde Ministerio Infantil Las Ovejitas del Rey">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu correo" required>
-            <textarea name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte? (recursos, lecciones, oración...)" required></textarea>
-            <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+      <div class="container">
+        <div class="contacto-whatsapp">
+          <h4><i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp</h4>
+          <p>¿Necesitas recursos adicionales, tienes preguntas o quieres más información sobre el ministerio infantil? Contáctanos directamente por WhatsApp, estaremos felices de ayudarte.</p>
+          <form id="whatsappContactForm">
+            <input type="text" id="nombreWhatsapp" placeholder="Tu nombre" required>
+            <textarea id="mensajeWhatsapp" rows="4" placeholder="¿En qué podemos ayudarte? (recursos, lecciones, oración, o simplemente un saludo...)" required></textarea>
+            <button type="submit" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp</button>
           </form>
+          <p class="small-note" style="margin-top: 1rem; font-size: 0.8rem; text-align: center;">Todos los mensajes se enviarán al número oficial del ministerio: <strong>+505 5751 4440</strong></p>
         </div>
       </div>
     </section>
@@ -472,7 +484,7 @@
 
   <footer class="footer">
     <div class="container footer-content">
-      <p>🐑 Las Ovejitas del Rey | Ministerio Infantil - Iglesia de Cristo en Sutiaba</p>
+      <p><i class="fas fa-sheep"></i> Las Ovejitas del Rey | Ministerio Infantil - Iglesia de Cristo en Sutiaba</p>
       <p><small>“Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él” (Proverbios 22:6)</small></p>
       <p class="footer-links" style="margin-top: 0.5rem;">
         <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a> | 
@@ -519,7 +531,7 @@
       if (btn) {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          alert('📚 Este recurso estará disponible próximamente. ¡Sigue visitando la página!');
+          alert('Este recurso estará disponible próximamente. ¡Sigue visitando la página!');
         });
       }
     });
@@ -533,10 +545,30 @@
         scrollBtn.classList.remove('visible');
       }
     });
-    scrollBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Formulario de contacto por WhatsApp
+    const whatsappForm = document.getElementById('whatsappContactForm');
+    if (whatsappForm) {
+      whatsappForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombreWhatsapp').value.trim();
+        const mensaje = document.getElementById('mensajeWhatsapp').value.trim();
+        if (!nombre || !mensaje) {
+          alert('Por favor completa todos los campos antes de enviar.');
+          return;
+        }
+        const textoWhatsapp = `Hola, soy ${nombre}. ${mensaje}`;
+        const url = `https://wa.me/50557514440?text=${encodeURIComponent(textoWhatsapp)}`;
+        window.open(url, '_blank');
+        whatsappForm.reset();
+      });
+    }
   </script>
 </body>
 </html>
