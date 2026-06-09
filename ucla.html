@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>UCLAT | Universidad Cristiana de Latinoamérica - Un sueño para la Iglesia</title>
+  <meta name="description" content="Proyecto universitario cristiano: formación bíblica y secular gratuita, donada por maestros de todo el mundo.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo i {
+      font-size: 2rem;
+      color: #c6a43b;
+    }
+    .logo h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-sub {
+      font-size: 0.7rem;
+      background: #e7e4d8;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+    }
+    .back-link a {
+      text-decoration: none;
+      color: #1f3b2c;
+      font-weight: 600;
+      background: #f0e7d6;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .back-link a:hover {
+      background: #c6a43b;
+      color: white;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1f3b2c 0%, #2a5a42 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    .hero-badge {
+      background: #c6a43b;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f3b2c;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+    .btn-primary {
+      background: #c6a43b;
+      color: #1f3b2c;
+    }
+    .btn-outline {
+      border: 2px solid #c6a43b;
+      color: #c6a43b;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: #c6a43b;
+      color: #1f3b2c;
+    }
+    .section {
+      padding: 4rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h3 {
+      font-size: 2rem;
+      color: #1f3b2c;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      color: #5b6e5f;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .grid-courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .course-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .course-img {
+      background: #e9e0cf;
+      padding: 2rem;
+      text-align: center;
+      font-size: 3rem;
+      color: #c6a43b;
+    }
+    .course-info {
+      padding: 1.5rem;
+    }
+    .course-info h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .course-info p {
+      color: #4a5a4e;
+      margin-bottom: 1rem;
+    }
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #c6a43b;
+      font-weight: 600;
+    }
+    .donation-box {
+      background: #f5efe3;
+      border-radius: 32px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .donation-box i {
+      font-size: 3rem;
+      color: #c6a43b;
+      margin-bottom: 1rem;
+    }
+    .form-donacion {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-donacion input, .form-donacion textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 30px;
+      border: 1px solid #ddd;
+    }
+    .footer {
+      background: #111c16;
+      color: #cdd9cf;
+      text-align: center;
+      padding: 2rem;
+    }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .whatsapp-btn i {
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 2rem; }
+      .section-header h3 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-university"></i>
+        <h1>UCLAT</h1>
+        <span class="logo-sub">Proyecto en construcción</span>
+      </div>
+      <div class="back-link">
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Volver a IDCLATAM</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero explicativo -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge"><i class="fas fa-seedling"></i> Un legado para esta generación</div>
+        <h2>Universidad Cristiana de Latinoamérica</h2>
+        <p>Un ministerio de la Iglesia de Cristo. Conocimiento bíblico y secular, gratuito y colaborativo, al alcance de todos. Pronto, una plataforma de aprendizaje para la formación de líderes.</p>
+        <a href="#donar-material" class="btn btn-primary"><i class="fas fa-hand-holding-heart"></i> Dona tu material académico</a>
+        <a href="#catalogo" class="btn btn-outline"><i class="fas fa-chalkboard"></i> Explora las áreas de estudio</a>
+      </div>
+    </section>
+
+    <!-- Visión y llamado -->
+    <div class="container">
+      <div class="section">
+        <div class="section-header">
+          <h3><i class="fas fa-dove"></i> El sueño que Dios plantó</h3>
+          <p>“Quiero que este sea el legado que Dios me permita dejar: una universidad donde el conocimiento bíblico y secular se unan para restaurar vidas, sin barreras económicas.”</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+          <div style="flex:1; min-width: 200px; background: white; border-radius: 24px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-globe-americas" style="font-size: 2rem; color:#c6a43b;"></i>
+            <h4 style="margin: 0.5rem 0;">Para toda Latinoamérica</h4>
+            <p>Acceso gratuito desde cualquier lugar, con materiales en español y portugués.</p>
+          </div>
+          <div style="flex:1; min-width: 200px; background: white; border-radius: 24px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-handshake" style="font-size: 2rem; color:#c6a43b;"></i>
+            <h4 style="margin: 0.5rem 0;">Colaboración global</h4>
+            <p>Universidades y maestros cristianos donan libros, videoclases y cursos.</p>
+          </div>
+          <div style="flex:1; min-width: 200px; background: white; border-radius: 24px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-chart-line" style="font-size: 2rem; color:#c6a43b;"></i>
+            <h4 style="margin: 0.5rem 0;">Futuro con seguimiento</h4>
+            <p>Progreso personal, certificados y comunidad. Hoy comenzamos con este catálogo promesa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATÁLOGO DE CURSOS / ÁREAS - estilo plataforma de cursos -->
+    <section id="catalogo" style="background: #f5efe3;">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-book-open"></i> Áreas de conocimiento (próximamente)</h3>
+          <p>Material donado por hermanos de todo el mundo. Cada tarjeta representa un conjunto de recursos que crecerá con tu ayuda.</p>
+        </div>
+        <div class="grid-courses">
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-bible"></i></div>
+            <div class="course-info">
+              <h4>Teología Bíblica</h4>
+              <p>Hermenéutica, Antiguo y Nuevo Testamento, Teología sistemática, Griego y Hebreo.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 12+ lecciones</span><span><i class="fas fa-book"></i> 8 libros donados</span></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-praying-hands"></i></div>
+            <div class="course-info">
+              <h4>Psicología Pastoral</h4>
+              <p>Consejería cristiana, salud mental, fundamentos seculares integrados a la fe.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 6+ lecciones</span><span><i class="fas fa-book"></i> 5 libros</span></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-church"></i></div>
+            <div class="course-info">
+              <h4>Administración eclesiástica</h4>
+              <p>Liderazgo, finanzas para iglesias, gestión de ministerios, comunicación estratégica.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 10 lecciones</span><span><i class="fas fa-book"></i> 4 libros</span></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-music"></i></div>
+            <div class="course-info">
+              <h4>Música y Adoración</h4>
+              <p>Teoría musical, himnología, dirección coral, producción audiovisual para ministerios.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 8 lecciones</span><span><i class="fas fa-book"></i> 3 partitarios</span></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-globe-americas"></i></div>
+            <div class="course-info">
+              <h4>Misiones integrales</h4>
+              <p>Antropología cultural, desarrollo comunitario, estrategias misioneras, proyectos sociales.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 7 lecciones</span><span><i class="fas fa-book"></i> 6 recursos</span></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-img"><i class="fas fa-history"></i></div>
+            <div class="course-info">
+              <h4>Historia de la Iglesia</h4>
+              <p>Historia del cristianismo, Restauración, Movimiento de Stone-Campbell, padres de la fe.</p>
+              <div class="course-meta"><span><i class="fas fa-video"></i> 5 lecciones</span><span><i class="fas fa-book"></i> 10 libros</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <p><i class="fas fa-seedling"></i> Este catálogo crecerá con tus donaciones. Cada libro, cada video, cada clase será organizada por asignatura.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DONAR MATERIAL (vía WhatsApp) -->
+    <div class="container" id="donar-material">
+      <div class="donation-box">
+        <i class="fab fa-whatsapp"></i>
+        <h3>Comparte tu material académico por WhatsApp</h3>
+        <p>Maestros, pastores, profesionales cristianos: donen sus libros digitales, videos de clases, presentaciones, exámenes o cursos completos. Toda contribución será organizada y puesta a disposición de la Iglesia.</p>
+        <form id="donationForm" class="form-donacion">
+          <input type="text" id="donante" placeholder="Nombre / Iglesia o universidad" required>
+          <input type="text" id="ciudad" placeholder="País / Ciudad" required>
+          <textarea rows="3" id="descripcionMaterial" placeholder="Describe el material: ¿Libro digital? ¿Videolecciones? ¿Curso completo? Indica asignatura y licencia (recomendamos Creative Commons o dominio público)." required></textarea>
+          <button type="submit" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Enviar ofrenda por WhatsApp</button>
+        </form>
+        <p class="small-note" style="margin-top: 1rem; font-size:0.8rem;"><i class="fas fa-info-circle"></i> Al donar aceptas que el material sea distribuido libremente para la formación de la Iglesia de Cristo en Latinoamérica. Se abrirá WhatsApp para que confirmes el envío.</p>
+      </div>
+    </div>
+
+    <!-- ALIANZAS FUTURAS Y BACKEND -->
+    <section style="background: #1f3b2c; color: white;">
+      <div class="container" style="text-align: center; padding: 3rem 0;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+          <div style="flex:1; min-width: 200px;">
+            <i class="fas fa-handshake" style="font-size: 3rem; color:#c6a43b;"></i>
+            <h3 style="margin: 1rem 0;">Hermanamiento con universidades de EE.UU.</h3>
+            <p>Soñamos con alianzas con Harding, Lipscomb, Abilene Christian, etc., para dobles titulaciones e intercambio académico.</p>
+          </div>
+          <div style="flex:1; min-width: 200px;">
+            <i class="fas fa-laptop-code" style="font-size: 3rem; color:#c6a43b;"></i>
+            <h3 style="margin: 1rem 0;">Seguimiento de aprendizaje</h3>
+            <p>Próximamente: cuentas de usuario, progreso personal, exámenes autoevaluados y certificados digitales.</p>
+          </div>
+          <div style="flex:1; min-width: 200px;">
+            <i class="fas fa-church" style="font-size: 3rem; color:#c6a43b;"></i>
+            <h3 style="margin: 1rem 0;">Campus físico</h3>
+            <p>Un lugar donde la hermandad latinoamericana se encuentre, estudie y adore. Esto es un sueño en oración.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO VOLUNTARIOS VÍA WHATSAPP -->
+    <div class="container" style="margin: 3rem auto;">
+      <div class="section-header">
+        <h3><i class="fas fa-users"></i> Únete al equipo fundador</h3>
+        <p>¿Quieres ser voluntario organizador, traductor, desarrollador o contactar universidades? Escríbenos por WhatsApp.</p>
+      </div>
+      <div style="background: white; border-radius: 32px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 700px; margin: 0 auto;">
+        <form id="volunteerForm">
+          <input type="text" id="volNombre" placeholder="Nombre completo" required>
+          <input type="text" id="volPais" placeholder="País" required>
+          <textarea rows="3" id="volMensaje" placeholder="¿Cómo te gustaría ayudar? (organización de material, desarrollo, contactos con universidades, etc.)" required></textarea>
+          <button type="submit" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</button>
+        </form>
+        <p class="small-note" style="margin-top: 1rem; font-size:0.8rem;"><i class="fab fa-whatsapp"></i> Todos los mensajes se enviarán al número oficial del ministerio: <strong>+505 5751 4440</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><i class="fas fa-university"></i> UCLAT - Universidad Cristiana de Latinoamérica</p>
+      <p>Un ministerio de la Iglesia de Cristo · Conocimiento gratuito para todos</p>
+      <p style="margin-top: 0.5rem;">&copy; 2026 · Proyecto en construcción | WhatsApp: <strong>+505 5751 4440</strong></p>
+      <p><a href="index.html" style="color:#c6a43b; text-decoration:none;">Volver al portal IDCLATAM</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para enviar datos por WhatsApp (número fijo +50557514440)
+    function sendToWhatsApp(nombre, detalles, tipo) {
+      let mensaje = `*${tipo}*%0A`;
+      mensaje += `Nombre: ${encodeURIComponent(nombre)}%0A`;
+      if (detalles.includes('País')) {
+        mensaje += detalles;
+      } else {
+        mensaje += `Detalles: ${encodeURIComponent(detalles)}%0A`;
+      }
+      mensaje += `%0AEnviado desde la página UCLAT.`;
+      const url = `https://wa.me/50557514440?text=${mensaje}`;
+      window.open(url, '_blank');
+    }
+
+    // Formulario de donación de material
+    const donationForm = document.getElementById('donationForm');
+    if (donationForm) {
+      donationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('donante').value.trim();
+        const ciudad = document.getElementById('ciudad').value.trim();
+        const desc = document.getElementById('descripcionMaterial').value.trim();
+        if (!nombre || !ciudad || !desc) {
+          alert("Por favor completa todos los campos.");
+          return;
+        }
+        const detalles = `País/Ciudad: ${encodeURIComponent(ciudad)}%0ADescripción del material: ${encodeURIComponent(desc)}`;
+        sendToWhatsApp(nombre, detalles, "Donación de material académico");
+        donationForm.reset();
+      });
+    }
+
+    // Formulario de voluntariado
+    const volForm = document.getElementById('volunteerForm');
+    if (volForm) {
+      volForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('volNombre').value.trim();
+        const pais = document.getElementById('volPais').value.trim();
+        const mensaje = document.getElementById('volMensaje').value.trim();
+        if (!nombre || !pais || !mensaje) {
+          alert("Completa todos los campos.");
+          return;
+        }
+        const detalles = `País: ${encodeURIComponent(pais)}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+        sendToWhatsApp(nombre, detalles, "Voluntariado UCLAT");
+        volForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>

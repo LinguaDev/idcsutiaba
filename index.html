@@ -52,6 +52,271 @@
     ]
   }
   </script>
+  
+  <style>
+    /* Estilos originales (respetados) + añadidos para acordeón */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo i {
+      font-size: 2rem;
+      color: #c6a43b;
+    }
+    .logo h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-sub {
+      font-size: 0.7rem;
+      background: #e7e4d8;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: #2c3a2f;
+      font-weight: 600;
+    }
+    .donate-link {
+      background: #c6a43b;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      color: #1f3b2c;
+    }
+    .submenu {
+      position: absolute;
+      background: white;
+      display: none;
+      list-style: none;
+      padding: 0.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .menu-item-has-children:hover .submenu {
+      display: block;
+    }
+    @media (max-width: 880px) {
+      .mobile-toggle { display: block; }
+      .navbar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        transition: 0.3s;
+        z-index: 99;
+        padding: 2rem;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+      }
+      .navbar.active { left: 0; }
+      .navbar ul { flex-direction: column; gap: 1rem; }
+      .submenu { position: static; display: none; box-shadow: none; padding-left: 1rem; }
+      .menu-item-has-children.active .submenu { display: block; }
+    }
+    .hero {
+      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      margin: 1.5rem auto;
+      max-width: 800px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      margin: 0.5rem;
+    }
+    .btn-primary {
+      background: #1f3b2c;
+      color: white;
+    }
+    .btn-secondary {
+      background: #c6a43b;
+      color: #1f3b2c;
+    }
+    .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid #e0d6c6;
+    }
+    .bg-light {
+      background: #f5efe3;
+    }
+    .bg-dark {
+      background: #1f3b2c;
+      color: white;
+    }
+    .cards-grid, .discipulado-grid, .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card, .discipulo-card, .resource-item {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .search-container {
+      position: relative;
+      margin: 1rem 0;
+    }
+    .search-input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      border-radius: 50px;
+      border: 1px solid #ddd;
+    }
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
+    .contacto-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .contact-info, .contact-form {
+      flex: 1;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #c6a43b;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .footer {
+      background: #111c16;
+      color: #cdd9cf;
+      text-align: center;
+      padding: 2rem;
+    }
+    /* Acordeón */
+    .accordion-item {
+      margin-bottom: 1rem;
+      border-radius: 20px;
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .accordion-header {
+      background: #fff;
+      padding: 1.2rem 1.8rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+      border-bottom: 1px solid #f0e7d6;
+    }
+    .accordion-header:hover {
+      background: #faf7f0;
+    }
+    .accordion-header i:first-child {
+      margin-right: 0.8rem;
+      color: #c6a43b;
+    }
+    .accordion-header .toggle-icon {
+      transition: transform 0.3s;
+    }
+    .accordion-header.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #fff;
+    }
+    .accordion-content.show {
+      max-height: 2000px;
+      transition: max-height 0.6s ease-in;
+    }
+    .accordion-inner {
+      padding: 1.5rem 1.8rem;
+    }
+    .hidden { display: none; }
+    .gospel-steps .step { margin-bottom: 0.5rem; cursor: pointer; }
+    .step-verse { margin-top: 0.3rem; padding-left: 1rem; font-size: 0.9rem; color: #5b6e5f; }
+  </style>
 </head>
 <body>
   <header class="header" id="header">
@@ -71,330 +336,339 @@
           <li><a href="infantil.html" class="nav-link">Ministerio Infantil</a></li>
           <li><a href="https://biblefluent.org/" class="nav-link">Idiomas Bíblicos</a></li>
           
-          <!-- RECURSOS con submenú -->
           <li class="menu-item-has-children">
             <a href="javascript:void(0)" class="nav-link">Recursos</a>
             <ul class="submenu">
-              <li><a href="https://biblefluent.org/" target="_blank" rel="noopener noreferrer">BibleFluent - Aprende idiomas con la Biblia</a></li>
-              <li><a href="https://www.cbpoc.net/" target="_blank" rel="noopener noreferrer">Estudios bíblicos y ministerio</a></li>
-              <li><a href="https://ministeriodealabanza.net/" target="_blank" rel="noopener noreferrer">Ministerio de Alabanza</a></li>
-              <li><a href="https://www.editoriallapaz.org/" target="_blank" rel="noopener noreferrer">Editorial La Paz - Recursos de evangelismo</a></li>
+              <li><a href="https://biblefluent.org/" target="_blank">BibleFluent - Aprende idiomas con la Biblia</a></li>
+              <li><a href="https://www.cbpoc.net/" target="_blank">Estudios bíblicos y ministerio</a></li>
+              <li><a href="https://ministeriodealabanza.net/" target="_blank">Ministerio de Alabanza</a></li>
+              <li><a href="https://www.editoriallapaz.org/" target="_blank">Editorial La Paz</a></li>
             </ul>
           </li>
           
-          <li><a href="#sitios-web-gratuitos" class="nav-link">Sitios Web Gratuitos</a></li>
-          <li><a href="#iglesias" class="nav-link">Iglesias</a></li>
+          <li><a href="#sitios-web-gratuitos" class="nav-link accordion-trigger" data-target="sitios-web-gratuitos">Sitios Web Gratuitos</a></li>
+          <li><a href="#iglesias" class="nav-link accordion-trigger" data-target="iglesias">Iglesias</a></li>
           
-          <!-- Escritores Cristianos con submenú -->
           <li class="menu-item-has-children">
             <a href="javascript:void(0)" class="nav-link">Escritores Cristianos</a>
             <ul class="submenu">
-              <li><a href="#hermanos">Ver todos los escritores</a></li>
+              <li><a href="#hermanos" class="accordion-trigger" data-target="hermanos">Ver todos los escritores</a></li>
               <li><a href="Juan-Pineda.html">Juan Pineda</a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
             </ul>
           </li>
           
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="donaciones.html" target="_blank" rel="noopener noreferrer" class="nav-link donate-link">Donaciones - Apoya nuestro ministerio</a></li>
-          <li><a href="donate.html" target="_blank" rel="noopener noreferrer" class="nav-link donate-link">Support Our Ministry</a></li>
+          <li><a href="#contacto" class="nav-link accordion-trigger" data-target="contacto">Contacto</a></li>
+          <li><a href="donaciones.html" target="_blank" class="nav-link donate-link">Donaciones - Apoya nuestro ministerio</a></li>
+          <li><a href="donate.html" target="_blank" class="nav-link donate-link">Support Our Ministry</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO con VIDEO (reemplaza versículo) -->
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="verse-day" id="verseOfDay"><i class="fas fa-bible"></i> Cargando versículo...</span>
+        <!-- Video de invitación (ocupando el lugar del versículo) -->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/hG5nu460urA" title="Invitación a la hermandad - Iglesia de Cristo Latinoamérica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <h2><strong>Iglesia de Cristo</strong> en toda Latinoamérica</h2>
         <p>Un movimiento de fe, esperanza y amor. Predicamos a Jesucristo, hacemos discípulos y conectamos a la hermandad a lo largo del continente.</p>
         <div class="hero-buttons">
-          <a href="#evangelismo" class="btn btn-primary"><i class="fas fa-heart"></i> Conoce el Evangelio</a>
-          <a href="#iglesias" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> Encuentra una iglesia</a>
+          <a href="#evangelismo" class="btn btn-primary accordion-trigger" data-target="evangelismo"><i class="fas fa-heart"></i> Conoce el Evangelio</a>
+          <a href="#iglesias" class="btn btn-secondary accordion-trigger" data-target="iglesias"><i class="fas fa-map-marker-alt"></i> Encuentra una iglesia</a>
         </div>
       </div>
     </section>
 
-    <!-- QUIÉNES SOMOS -->
-    <section id="quienes-somos" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-globe-americas"></i> Promovemos la unidad de la Iglesia de Cristo en Latinoamérica</h3>
-          <p>Somos una red de iglesias locales que comparten la misma fe, la misma doctrina bíblica y el mismo llamado: hacer discípulos en todas las naciones.</p>
+    <div class="container" style="margin-bottom: 2rem;">
+      <!-- ACORDEÓN 1: Resumen de recursos y objetivos (reemplaza a "Promovemos la unidad") -->
+      <div class="accordion-item" id="resumen">
+        <div class="accordion-header">
+          <span><i class="fas fa-bullseye"></i> Nuestra misión y recursos</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="cards-grid">
-          <div class="card">
-            <i class="fas fa-hand-holding-heart"></i>
-            <h4>Compartimos un solo Señor</h4>
-            <p>Compartimos un solo Señor, una sola fe, un bautismo (Efesios 4:5).</p>
-          </div>
-          <div class="card">
-            <i class="fas fa-bible"></i>
-            <h4>Compartimos la misma Escritura</h4>
-            <p>La Biblia es nuestra única regla de fe y práctica, predicando a Cristo crucificado y resucitado.</p>
-          </div>
-          <div class="card">
-            <i class="fas fa-church"></i>
-            <h4>Autonomía y cooperación</h4>
-            <p>Cada iglesia local es autónoma, pero colaboramos en misiones, discipulado y evangelismo continental.</p>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p><strong>IDCLATAM</strong> es un ministerio digital de la Iglesia de Cristo que busca conectar, equipar y movilizar a la hermandad en toda Latinoamérica. Ofrecemos:</p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+              <li><i class="fas fa-book-open"></i> Recursos bíblicos y teológicos gratuitos (estudios, podcasts, biblioteca).</li>
+              <li><i class="fas fa-globe"></i> Sitios web gratuitos para congregaciones locales.</li>
+              <li><i class="fas fa-university"></i> Universidad Cristiana de Latinoamérica (UCLAT) – formación bíblica y secular colaborativa.</li>
+              <li><i class="fas fa-handshake"></i> Invitación abierta a pastores, maestros y hermanos a sumarse al ministerio.</li>
+            </ul>
+            <p>Conoce más sobre nuestra historia, doctrina y valores en la página <strong>¿Quiénes Somos?</strong></p>
+            <a href="about.html" class="btn-primary" style="display: inline-block; margin-top: 0.5rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Ir a about.html <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- EVANGELISMO -->
-    <section id="evangelismo" class="section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-cross"></i> El Evangelio para ti, una buena noticia para ti</h3>
-          <p>Un mensaje de esperanza que trasciende fronteras y culturas.</p>
+      <!-- ACORDEÓN 2: RECURSOS GRATUITOS Y DONACIONES (sección original) -->
+      <div class="accordion-item" id="recursos">
+        <div class="accordion-header">
+          <span><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="evangelism-content">
-          <article class="gospel-card">
-            <h4>El plan de salvación</h4>
-            <p>Dios te ama y tiene un propósito eterno. Jesucristo murió, fue sepultado y resucitó para darte vida nueva.</p>
-            <div class="gospel-steps">
-              <div class="step" data-step="1">
-                <span class="step-num">1</span> Oír el evangelio (Romanos 10:17)
-                <div class="step-verse hidden">
-                  <strong>Romanos 10:17:</strong> “Así que la fe es por el oír, y el oír, por la palabra de Dios.”
-                </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="resources-grid">
+              <div class="resource-item">
+                <i class="fas fa-podcast"></i>
+                <h4>Podcast "Fe sin Fronteras"</h4>
+                <p>Episodios semanales sobre doctrina, familia, desarrollo personal y ministerio...</p>
+                <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh?si=96ea241e64b847e3" target="_blank" class="resource-link">Escuchar ahora</a>
               </div>
-              <div class="step" data-step="2">
-                <span class="step-num">2</span> Creer en Jesús (Juan 8:24)
-                <div class="step-verse hidden">
-                  <strong>Juan 8:24:</strong> “Por eso os dije que moriréis en vuestros pecados; porque si no creéis que yo soy, en vuestros pecados moriréis.”
-                </div>
+              <div class="resource-item">
+                <i class="fas fa-file-pdf"></i>
+                <h4>Biblioteca de Estudios</h4>
+                <p>Recursos en pdf para descargar y aprovechar en tu estudio personal o de iglesia.</p>
+                <a href="https://www.cbpoc.net/" target="_blank" class="resource-link">Acceder a la biblioteca</a>
               </div>
-              <div class="step" data-step="3">
-                <span class="step-num">3</span> Arrepentirse (Hechos 17:30)
-                <div class="step-verse hidden">
-                  <strong>Hechos 17:30:</strong> “Pero Dios, habiendo pasado por alto los tiempos de esta ignorancia, ahora manda a todos los hombres en todo lugar, que se arrepientan.”
-                </div>
+              <div class="resource-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h4>Capacitación de Líderes</h4>
+                <p>Cursos gratuitos para ancianos, diáconos y maestros.</p>
+                <a href="https://biblefluent.org/" target="_blank" class="resource-link">Más información</a>
               </div>
-              <div class="step" data-step="4">
-                <span class="step-num">4</span> Confesar a Cristo (Romanos 10:9-10)
-                <div class="step-verse hidden">
-                  <strong>Romanos 10:9-10:</strong> “Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo. Porque con el corazón se cree para justicia, pero con la boca se confiesa para salvación.”
-                </div>
-              </div>
-              <div class="step" data-step="5">
-                <span class="step-num">5</span> Ser bautizado para perdón de pecados (Hechos 2:38)
-                <div class="step-verse hidden">
-                  <strong>Hechos 2:38:</strong> “Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados, y recibiréis el don del Espíritu Santo.”
-                </div>
-              </div>
-              <div class="step" data-step="6">
-                <span class="step-num">6</span> Vivir fielmente (Apocalipsis 2:10)
-                <div class="step-verse hidden">
-                  <strong>Apocalipsis 2:10:</strong> “No temas en nada lo que vas a padecer. He aquí, el diablo echará a algunos de vosotros en la cárcel, para que seáis probados, y tendréis tribulación por diez días. Sé fiel hasta la muerte, y yo te daré la corona de la vida.”
-                </div>
+              <div class="resource-item">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>Donaciones Voluntarias</h4>
+                <p>Todo este trabajo es voluntario. Puedes contribuir vía PayPal para ayudar a mantener y expandir este ministerio digital.</p>
+                <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="resource-link donate-btn">Donar vía PayPal →</a>
               </div>
             </div>
-            <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i>Te invito a orar</button>
-            <div id="prayerMessage" class="prayer-message hidden">
-              <i class="fas fa-dove"></i> 
-              <strong>Esta oracion te acerca un poco más a Dios, seras salvo enel momento del bautismo</strong><br><br>
-              “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
-              Creo que Jesús es tu Hijo, que murió en la cruz por mis pecados y que resucitó al tercer día (Romanos 10:9).<br><br>
-              Me arrepiento de mis pecados y decido cambiar mi vida para seguir tus caminos (Hechos 17:30).<br><br>
-              Confieso a Jesucristo como mi Señor y Salvador (Romanos 10:10).<br><br>
-              Deseo ser bautizado en agua para perdón de mis pecados y recibir el don del Espíritu Santo, tal como ordenaste en Hechos 2:38.<br><br>
-              Ayúdame a ser fiel hasta el fin y a compartir tu amor con otros. En el nombre de Jesucristo, amén.”
+          </div>
+        </div>
+      </div>
+
+      <!-- ACORDEÓN 3: UNIVERSIDAD CRISTIANA (NUEVA, ARRIBA) -->
+      <div class="accordion-item" id="universidad">
+        <div class="accordion-header">
+          <span><i class="fas fa-university"></i> Universidad Cristiana de Latinoamérica</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
+              <div class="card">
+                <i class="fas fa-bible"></i>
+                <h4>Formando líderes para la Iglesia</h4>
+                <p>Conocimiento teológico, pastoral, administrativo y herramientas seculares al servicio del Reino. Gratuito y abierto.</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h4>Colaboración global</h4>
+                <p>Maestros y universidades cristianas donan libros, videoclases y cursos. Todo organizado por carreras y asignaturas.</p>
+                <a href="ucla.html" class="btn-primary" style="display:inline-block; margin-top:1rem; background:#1f3b2c; padding:0.5rem 1rem; border-radius:40px; color:white; text-decoration:none;">Conocer proyecto <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
-          </article>
-          <div class="testimony-card">
-            <i class="fas fa-quote-left"></i>
-            <p>"En la Iglesia de Cristo encontré la verdad que cambió mi vida. Ahora soy parte de esta gran familia latinoamericana."</p>
-            <span>— Hermano Juan, Nicaragua</span>
+            <div style="text-align:center; margin-top:1rem;">
+              <a href="ucla.html" class="btn btn-primary">Visitar la Universidad Cristiana</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- DISCIPULADO -->
-    <section id="discipulado" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-chalkboard-user"></i> Discipulado</h3>
-          <p>Ofrecemos materiales, cursos y acompañamiento para fortalecer tu caminar con Cristo.</p>
+      <!-- ACORDEÓN 4: EVANGELISMO (plan de salvación) -->
+      <div class="accordion-item" id="evangelismo">
+        <div class="accordion-header">
+          <span><i class="fas fa-cross"></i> El Evangelio para ti</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="discipulado-grid">
-          <div class="discipulo-card">
-            <i class="fas fa-users"></i>
-            <h4>Escuela de Discipulado Online</h4>
-            <p>Accede a clases virtuales grabadas sobre fundamentos de la fe, apologética y vida cristiana.</p>
-            <a href="https://www.youtube.com/@ibit/playlists" target="_blank" class="card-link">Ver clases grabadas <i class="fas fa-arrow-right"></i></a>
-          </div>
-          <div class="discipulo-card">
-            <i class="fas fa-chalkboard"></i>
-            <h4>Plan de Lectura Bíblica</h4>
-            <p>Recorre la Biblia en un año con nuestro plan especial</p>
-            <a href="src/IDCLATAM.ORG PLAN DE LECTURA DE LA BIBLIA EN UN AÑO.pdf" download class="card-link">Descargar plan (PDF) <i class="fas fa-arrow-right"></i></a>
-          </div>
-          <div class="discipulo-card">
-            <i class="fas fa-video"></i>
-            <h4>Devocionales Diarios</h4>
-            <p>Videos cortos y reflexiones para cada día, enviadas a tu whatsapp</p>
-            <a href="https://whatsapp.com/channel/0029Vb84pH52f3EN3jZKeG07" target="_blank" class="card-link">Unirme al canal de WhatsApp <i class="fas fa-arrow-right"></i></a>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="evangelism-content" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <article class="gospel-card" style="flex:2">
+                <h4>El plan de salvación</h4>
+                <p>Dios te ama y tiene un propósito eterno. Jesucristo murió, fue sepultado y resucitó para darte vida nueva.</p>
+                <div class="gospel-steps">
+                  <div class="step" data-step="1">
+                    <span class="step-num">1</span> Oír el evangelio (Romanos 10:17)
+                    <div class="step-verse hidden">
+                      <strong>Romanos 10:17:</strong> “Así que la fe es por el oír, y el oír, por la palabra de Dios.”
+                    </div>
+                  </div>
+                  <div class="step" data-step="2">
+                    <span class="step-num">2</span> Creer en Jesús (Juan 8:24)
+                    <div class="step-verse hidden">
+                      <strong>Juan 8:24:</strong> “Por eso os dije que moriréis en vuestros pecados; porque si no creéis que yo soy, en vuestros pecados moriréis.”
+                    </div>
+                  </div>
+                  <div class="step" data-step="3">
+                    <span class="step-num">3</span> Arrepentirse (Hechos 17:30)
+                    <div class="step-verse hidden">
+                      <strong>Hechos 17:30:</strong> “Pero Dios, habiendo pasado por alto los tiempos de esta ignorancia, ahora manda a todos los hombres en todo lugar, que se arrepientan.”
+                    </div>
+                  </div>
+                  <div class="step" data-step="4">
+                    <span class="step-num">4</span> Confesar a Cristo (Romanos 10:9-10)
+                    <div class="step-verse hidden">
+                      <strong>Romanos 10:9-10:</strong> “Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo. Porque con el corazón se cree para justicia, pero con la boca se confiesa para salvación.”
+                    </div>
+                  </div>
+                  <div class="step" data-step="5">
+                    <span class="step-num">5</span> Ser bautizado para perdón de pecados (Hechos 2:38)
+                    <div class="step-verse hidden">
+                      <strong>Hechos 2:38:</strong> “Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados, y recibiréis el don del Espíritu Santo.”
+                    </div>
+                  </div>
+                  <div class="step" data-step="6">
+                    <span class="step-num">6</span> Vivir fielmente (Apocalipsis 2:10)
+                    <div class="step-verse hidden">
+                      <strong>Apocalipsis 2:10:</strong> “No temas en nada lo que vas a padecer. He aquí, el diablo echará a algunos de vosotros en la cárcel, para que seáis probados, y tendréis tribulación por diez días. Sé fiel hasta la muerte, y yo te daré la corona de la vida.”
+                    </div>
+                  </div>
+                </div>
+                <button id="prayerBtn" class="btn-prayer" style="margin-top:1rem; background:#1f3b2c; color:white;"><i class="fas fa-praying-hands"></i> Te invito a orar</button>
+                <div id="prayerMessage" class="prayer-message hidden" style="margin-top:1rem; background:#e9e0cf; padding:1rem; border-radius:20px;">
+                  <i class="fas fa-dove"></i> 
+                  <strong>Esta oracion te acerca un poco más a Dios, seras salvo en el momento del bautismo</strong><br><br>
+                  “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
+                  Creo que Jesús es tu Hijo, que murió en la cruz por mis pecados y que resucitó al tercer día (Romanos 10:9).<br><br>
+                  Me arrepiento de mis pecados y decido cambiar mi vida para seguir tus caminos (Hechos 17:30).<br><br>
+                  Confieso a Jesucristo como mi Señor y Salvador (Romanos 10:10).<br><br>
+                  Deseo ser bautizado en agua para perdón de mis pecados y recibir el don del Espíritu Santo, tal como ordenaste en Hechos 2:38.<br><br>
+                  Ayúdame a ser fiel hasta el fin y a compartir tu amor con otros. En el nombre de Jesucristo, amén.”
+                </div>
+              </article>
+              <div class="testimony-card" style="flex:1; background: #e7e4d8; padding:1.5rem; border-radius: 24px;">
+                <i class="fas fa-quote-left"></i>
+                <p>"En la Iglesia de Cristo encontré la verdad que cambió mi vida. Ahora soy parte de esta gran familia latinoamericana."</p>
+                <span>— Hermano Juan, Nicaragua</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SECCIÓN: SITIOS WEB GRATUITOS PARA IGLESIAS (CORREGIDA) -->
-    <section id="sitios-web-gratuitos" class="section servicios-gratuitos">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-globe"></i> Sitios Web Completamente Gratuitos</h3>
-          <p>Tu iglesia puede tener presencia en línea sin ningún costo</p>
+      <!-- ACORDEÓN 5: SITIOS WEB GRATUITOS -->
+      <div class="accordion-item" id="sitios-web-gratuitos">
+        <div class="accordion-header">
+          <span><i class="fas fa-globe"></i> Sitios Web Completamente Gratuitos</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="cards-grid">
-          <div class="card">
-            <i class="fas fa-code"></i>
-            <h4>Sin costo alguno</h4>
-            <p>Ofrecemos páginas web completas y responsivas para iglesias de Cristo de forma <strong>totalmente gratuita</strong>. No cobramos por el diseño, el hosting ni el mantenimiento.</p>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="cards-grid">
+              <div class="card">
+                <i class="fas fa-code"></i>
+                <h4>Sin costo alguno</h4>
+                <p>Ofrecemos páginas web completas y responsivas para iglesias de Cristo de forma <strong>totalmente gratuita</strong>. No cobramos por el diseño, el hosting ni el mantenimiento.</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-globe"></i>
+                <h4>Subdominio incluido</h4>
+                <p>Tu iglesia recibirá una dirección como <strong>idclatam.org/tu-iglesia</strong>. No necesitas pagar por dominio, nosotros te lo proporcionamos sin costo.</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-headset"></i>
+                <h4>¿Quieres un dominio propio?</h4>
+                <p>Si deseas un dominio como <strong>tuiglesia.org</strong>, puedes adquirirlo por tu cuenta (aproximadamente $10-15 USD/año). Nosotros lo configuramos sin costo adicional. Es completamente opcional.</p>
+              </div>
+            </div>
+            <div class="cta-center">
+              <a href="#contacto" class="btn-primary accordion-trigger" data-target="contacto" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Solicitar sitio gratuito <i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
-          <div class="card">
-            <i class="fas fa-globe"></i>
-            <h4>Subdominio incluido</h4>
-            <p>Tu iglesia recibirá una dirección como <strong>idclatam.org/tu-iglesia</strong>. No necesitas pagar por dominio, nosotros te lo proporcionamos sin costo.</p>
-          </div>
-          <div class="card">
-            <i class="fas fa-headset"></i>
-            <h4>¿Quieres un dominio propio?</h4>
-            <p>Si deseas un dominio como <strong>tuiglesia.org</strong>, puedes adquirirlo por tu cuenta (aproximadamente $10-15 USD/año). Nosotros lo configuramos sin costo adicional. Es completamente opcional.</p>
-          </div>
-        </div>
-        <div class="cta-center">
-          <a href="#contacto" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem;">Solicitar sitio gratuito <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
-    </section>
 
-    <!-- SECCIÓN: RECURSOS GRATUITOS Y DONACIONES -->
-    <section id="recursos" class="section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</h3>
-          <p>Materiales gratuitos: sermones, estudios bíblicos, cursos de formación de líderes.</p>
+      <!-- ACORDEÓN 6: BUSCADOR IGLESIAS -->
+      <div class="accordion-item" id="iglesias">
+        <div class="accordion-header">
+          <span><i class="fas fa-map-marked-alt"></i> Buscar Iglesias de Cristo</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="resources-grid">
-          <div class="resource-item">
-            <i class="fas fa-podcast"></i>
-            <h4>Podcast "Fe sin Fronteras"</h4>
-            <p>Episodios semanales sobre doctrina, familia, desarrollo personal y ministerio...</p>
-            <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh?si=96ea241e64b847e3" target="_blank" rel="noopener noreferrer" class="resource-link">Escuchar ahora</a>
-          </div>
-          <div class="resource-item">
-            <i class="fas fa-file-pdf"></i>
-            <h4>Biblioteca de Estudios</h4>
-            <p>Recursos en pdf para descargar y aprovechar en tu estudio personal o de iglesia.</p>
-            <a href="https://www.cbpoc.net/" target="_blank" rel="noopener noreferrer" class="resource-link">Acceder a la biblioteca</a>
-          </div>
-          <div class="resource-item">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h4>Capacitación de Líderes</h4>
-            <p>Cursos gratuitos para ancianos, diáconos y maestros.</p>
-            <a href="https://biblefluent.org/" target="_blank" rel="noopener noreferrer" class="resource-link">Más información</a>
-          </div>
-          <div class="resource-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <h4>Donaciones Voluntarias</h4>
-            <p>Todo este trabajo es voluntario. Puedes contribuir vía PayPal para ayudar a mantener y expandir este ministerio digital.</p>
-            <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener noreferrer" class="resource-link donate-btn">Donar vía PayPal →</a>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="search-container">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: Sutiaba, Nicaragua, Perú..">
+            </div>
+            <div id="churchResults" class="results-list">
+              <div class="info-message">Escribe para buscar iglesias...</div>
+            </div>
+            <div class="note-local">
+              <p><i class="fas fa-info-circle"></i> ¿Eres parte de una Iglesia de Cristo y quieres aparecer en este directorio? <a href="#contacto" class="accordion-trigger" data-target="contacto">Contáctanos</a>.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- BUSCADOR IGLESIAS -->
-    <section id="iglesias" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-map-marked-alt"></i> Buscar Iglesias de Cristo</h3>
-          <p>Escribe el nombre de una ciudad, país o iglesia para encontrar su página.</p>
+      <!-- ACORDEÓN 7: BUSCADOR HERMANOS -->
+      <div class="accordion-item" id="hermanos">
+        <div class="accordion-header">
+          <span><i class="fas fa-users"></i> Buscar Hermanos en Cristo</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: Sutiaba, Nicaragua, Perú..">
-        </div>
-        <div id="churchResults" class="results-list">
-          <div class="info-message">Escribe para buscar iglesias...</div>
-        </div>
-        <div class="note-local">
-          <p><i class="fas fa-info-circle"></i> ¿Eres parte de una Iglesia de Cristo y quieres aparecer en este directorio? <a href="#contacto">Contáctanos</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BUSCADOR HERMANOS -->
-    <section id="hermanos" class="section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-users"></i> Buscar Hermanos en Cristo</h3>
-          <p>Encuentra estudios, sermones y recursos creados por predicadores y maestros de la Iglesia de Cristo en Latinoamérica.</p>
-        </div>
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda...">
-        </div>
-        <div id="brotherResults" class="results-list">
-          <div class="info-message">Escribe para buscar hermanos...</div>
-        </div>
-        <div class="note-local">
-          <p><i class="fas fa-info-circle"></i> ¿Eres un hermano y deseas compartir tu contenido? <a href="#contacto">Contáctanos</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="section bg-dark">
-      <div class="container contacto-flex">
-        <div class="contact-info">
-          <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
-          <p>Para oración, discipulado, solicitar un sitio web gratuito para tu iglesia, o cualquier consulta.</p>
-          <ul class="contact-details">
-            <li><i class="fas fa-envelope"></i> juancanales5019@gmail.com</li>
-            <li><i class="fab fa-whatsapp"></i> +505 5751 4440</li>
-            <li><i class="fab fa-facebook"></i> /iglesiadecristoenlatinoamerica</li>
-          </ul>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@idclatam.org" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="search-container">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda...">
+            </div>
+            <div id="brotherResults" class="results-list">
+              <div class="info-message">Escribe para buscar hermanos...</div>
+            </div>
+            <div class="note-local">
+              <p><i class="fas fa-info-circle"></i> ¿Eres un hermano y deseas compartir tu contenido? <a href="#contacto" class="accordion-trigger" data-target="contacto">Contáctanos</a>.</p>
+            </div>
           </div>
         </div>
-        <div class="contact-form">
-          <h4>Solicita tu sitio web gratuito</h4>
-          <form id="contactForm" action="https://formsubmit.co/juancanales5019@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web IDCLATAM">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
-            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
-            <select id="pais" name="pais" required>
-              <option value="">Selecciona tu país</option>
-              <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option>
-              <option>Costa Rica</option><option>Cuba</option><option>Ecuador</option><option>El Salvador</option><option>Guatemala</option>
-              <option>Haití</option><option>Honduras</option><option>México</option><option>Nicaragua</option><option>Panamá</option>
-              <option>Paraguay</option><option>Perú</option><option>República Dominicana</option><option>Uruguay</option><option>Venezuela</option>
-            </select>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu mensaje (oración, discipulado, solicitud de sitio web gratuito para tu iglesia...)" required></textarea>
-            <button type="submit" class="btn btn-primary full-width">
-              <i class="fas fa-paper-plane"></i> Enviar mensaje
-            </button>
-            <p id="formFeedback" class="form-feedback"></p>
-          </form>
+      </div>
+
+      <!-- ACORDEÓN 8: CONTACTO -->
+      <div class="accordion-item" id="contacto">
+        <div class="accordion-header">
+          <span><i class="fas fa-address-card"></i> Contáctanos</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="contacto-flex">
+              <div class="contact-info">
+                <h3><i class="fas fa-address-card"></i> Contáctanos</h3>
+                <p>Para oración, discipulado, solicitar un sitio web gratuito para tu iglesia, o cualquier consulta.</p>
+                <ul class="contact-details" style="list-style:none; margin-top:1rem;">
+                  <li><i class="fas fa-envelope"></i> juancanales5019@gmail.com</li>
+                  <li><i class="fab fa-whatsapp"></i> +505 5751 4440</li>
+                  <li><i class="fab fa-facebook"></i> /iglesiadecristoenlatinoamerica</li>
+                </ul>
+                <div class="social-icons">
+                  <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+                  <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+              </div>
+              <div class="contact-form">
+                <h4>Solicita tu sitio web gratuito</h4>
+                <form id="contactForm" action="https://formsubmit.co/juancanales5019@gmail.com" method="POST">
+                  <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web IDCLATAM">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="box">
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                  <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                  <select id="pais" name="pais" required>
+                    <option value="">Selecciona tu país</option>
+                    <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option>
+                    <option>Costa Rica</option><option>Cuba</option><option>Ecuador</option><option>El Salvador</option><option>Guatemala</option>
+                    <option>Haití</option><option>Honduras</option><option>México</option><option>Nicaragua</option><option>Panamá</option>
+                    <option>Paraguay</option><option>Perú</option><option>República Dominicana</option><option>Uruguay</option><option>Venezuela</option>
+                  </select>
+                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu mensaje (oración, discipulado, solicitud de sitio web gratuito para tu iglesia...)" required></textarea>
+                  <button type="submit" class="btn btn-primary full-width">
+                    <i class="fas fa-paper-plane"></i> Enviar mensaje
+                  </button>
+                  <p id="formFeedback" class="form-feedback"></p>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -404,8 +678,104 @@
     </div>
   </footer>
 
-  <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+  <a href="#inicio" class="scroll-top" id="scrollTopBtn" style="position:fixed; bottom:20px; right:20px; background:#c6a43b; padding:10px; border-radius:50%; color:white; display:none;"><i class="fas fa-arrow-up"></i></a>
 
-  <script src="script.js"></script>
+  <script>
+    // Acordeón
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        header.classList.toggle('active');
+        if (content.classList.contains('show')) {
+          content.classList.remove('show');
+        } else {
+          content.classList.add('show');
+        }
+      });
+    });
+
+    // Función para abrir acordeón desde enlaces
+    function openAccordion(sectionId) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        const header = target.querySelector('.accordion-header');
+        const content = target.querySelector('.accordion-content');
+        if (header && content && !content.classList.contains('show')) {
+          header.classList.add('active');
+          content.classList.add('show');
+        }
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    const triggers = document.querySelectorAll('.accordion-trigger');
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = trigger.getAttribute('data-target');
+        if (targetId) openAccordion(targetId);
+        const navbar = document.getElementById('navbar');
+        if (navbar.classList.contains('active')) navbar.classList.remove('active');
+      });
+    });
+
+    // Menú hamburguesa
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbar = document.getElementById('navbar');
+    mobileToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    // Buscadores (datos simulados, igual que original)
+    const churchData = [
+      { name:"Iglesia de Cristo en Sutiaba", city:"Sutiaba, Nicaragua" },
+      { name:"Iglesia de Cristo en Managua", city:"Managua, Nicaragua" },
+      { name:"Iglesia de Cristo en Lima", city:"Lima, Perú" }
+    ];
+    const brotherData = [
+      { name:"Juan Pineda", desc:"Predicador y escritor" }
+    ];
+    const churchInput = document.getElementById('churchSearch');
+    const brotherInput = document.getElementById('brotherSearch');
+    if (churchInput) {
+      churchInput.addEventListener('input', () => {
+        const val = churchInput.value.toLowerCase();
+        const results = churchData.filter(c => c.name.toLowerCase().includes(val) || c.city.toLowerCase().includes(val));
+        document.getElementById('churchResults').innerHTML = results.map(c => `<div class="result-item">${c.name} - ${c.city}</div>`).join('') || '<div>No se encontraron iglesias</div>';
+      });
+    }
+    if (brotherInput) {
+      brotherInput.addEventListener('input', () => {
+        const val = brotherInput.value.toLowerCase();
+        const results = brotherData.filter(b => b.name.toLowerCase().includes(val));
+        document.getElementById('brotherResults').innerHTML = results.map(b => `<div class="result-item">${b.name} - ${b.desc}</div>`).join('') || '<div>No se encontraron hermanos</div>';
+      });
+    }
+
+    // Botón de oración y pasos del evangelio (para mostrar versículos)
+    const steps = document.querySelectorAll('.step');
+    steps.forEach(step => {
+      step.addEventListener('click', () => {
+        const verseDiv = step.querySelector('.step-verse');
+        if (verseDiv) verseDiv.classList.toggle('hidden');
+      });
+    });
+    const prayerBtn = document.getElementById('prayerBtn');
+    if(prayerBtn) {
+      prayerBtn.addEventListener('click', () => {
+        const msg = document.getElementById('prayerMessage');
+        msg.classList.toggle('hidden');
+      });
+    }
+
+    // Scroll top
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('scrollTopBtn');
+      if (window.scrollY > 300) btn.style.display = 'flex';
+      else btn.style.display = 'none';
+    });
+    document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
 </body>
 </html>
