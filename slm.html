@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Worldwide Spanish Literature Ministry | Spanish Christian Literature</title>
+  <meta name="description" content="Providing biblically sound Spanish literature to churches, missions, and believers across Latin America and beyond.">
+  <meta name="author" content="Worldwide Spanish Literature Ministry">
+  <link rel="canonical" href="https://spanliterature.com">
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FEFCF8;
+      color: #2C3A2B;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Language Switcher - modern glass */
+    .lang-switch {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      z-index: 1100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 100px;
+      padding: 6px 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+      display: flex;
+      gap: 6px;
+      border: 1px solid rgba(107, 142, 107, 0.2);
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #4A5E3F;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-btn.active {
+      background: #6B8E6B;
+      color: white;
+      box-shadow: 0 2px 6px rgba(107,142,107,0.2);
+    }
+    .lang-btn:hover:not(.active) {
+      background: #EDE9DF;
+      color: #2C452C;
+    }
+
+    /* Bilingual visibility */
+    .lang-en, .lang-es {
+      transition: opacity 0.2s;
+    }
+    body.lang-en .lang-es { display: none; }
+    body.lang-es .lang-en { display: none; }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      margin-bottom: 1rem;
+      color: #3F603F;
+      font-weight: 700;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: #5A6E4F;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #6B8E6B;
+      color: white;
+      padding: 12px 34px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
+      border: none;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(107,142,107,0.15);
+    }
+    .btn-primary i {
+      font-size: 1rem;
+    }
+    .btn-primary:hover {
+      background: #4A6E4A;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(107,142,107,0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #6B8E6B;
+      color: #4A654A;
+      padding: 10px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .btn-outline i {
+      font-size: 0.9rem;
+    }
+    .btn-outline:hover {
+      background: #6B8E6B;
+      color: white;
+      border-color: #6B8E6B;
+    }
+
+    /* Hero Section - modern soft gradient */
+    .hero {
+      padding: 130px 0 80px;
+      background: linear-gradient(125deg, #FCF9F2 0%, #F7F2E6 100%);
+      border-bottom: 1px solid rgba(107,142,107,0.08);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      color: #2A452A;
+      line-height: 1.2;
+      max-width: 800px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #4A5F43;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .stat-item i {
+      font-size: 1.5rem;
+      color: #6B8E6B;
+    }
+    .stat-item span {
+      font-weight: 500;
+      color: #3B553B;
+      font-size: 0.95rem;
+    }
+
+    /* Cards Grid - modern cards with subtle border and lift */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin: 70px 0;
+    }
+    .card {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 36px 32px;
+      box-shadow: 0 15px 35px -12px rgba(0,0,0,0.05);
+      border: 1px solid #EFE8DC;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -16px rgba(0,0,0,0.1);
+      border-color: #D9D0BE;
+    }
+    .card i {
+      font-size: 2.4rem;
+      color: #6B8E6B;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .card p {
+      color: #4F6048;
+      line-height: 1.55;
+    }
+
+    /* About Section - two column modern */
+    .about-wrap {
+      background: #FFFFFF;
+      padding: 80px 0;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1.4;
+    }
+    .about-quote {
+      flex: 1;
+      background: #F4EFE6;
+      border-radius: 36px;
+      padding: 48px 36px;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .about-quote i {
+      font-size: 3rem;
+      color: #6B8E6B;
+      margin-bottom: 24px;
+    }
+    .about-quote p {
+      font-size: 1.1rem;
+    }
+
+    /* Contact Section - modern two column layout */
+    .contact-section {
+      background: #F9F6EF;
+      padding: 80px 0;
+    }
+    .contact-card {
+      background: white;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 42px;
+      padding: 56px 48px;
+      box-shadow: 0 20px 40px -14px rgba(0,0,0,0.04);
+      border: 1px solid #EAE2D4;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 32px 0 24px;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    .contact-item i {
+      font-size: 1.25rem;
+      color: #6B8E6B;
+      width: 32px;
+    }
+    .address {
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .contact-note {
+      flex: 1;
+      border-left: 1px solid #E8DFD0;
+      padding-left: 40px;
+    }
+    hr {
+      margin: 28px 0 16px;
+      border: none;
+      height: 1px;
+      background: #E8DFD0;
+    }
+    @media (max-width: 780px) {
+      .contact-grid { flex-direction: column; }
+      .contact-note { border-left: none; padding-left: 0; margin-top: 20px; }
+      .contact-card { padding: 36px 28px; }
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6B7A5A;
+      background: #FEFCF8;
+      border-top: 1px solid #EAE2D4;
+    }
+
+    @media (max-width: 800px) {
+      .hero h1 { font-size: 2.5rem; }
+      .section-title { font-size: 2rem; }
+      .lang-switch { top: 16px; right: 20px; }
+      .hero { padding: 100px 0 60px; }
+      .cards-grid { gap: 24px; margin: 50px 0; }
+    }
+    @media (max-width: 550px) {
+      .hero-stats { flex-direction: column; gap: 20px; }
+      .card { padding: 28px 24px; }
+      .about-quote { padding: 32px 24px; }
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="lang-en">
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="es">Español</button>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>
+        <span class="lang-en">Worldwide Spanish Literature Ministry</span>
+        <span class="lang-es">Ministerio Mundial de Literatura Hispana</span>
+      </h1>
+      <p class="lang-en">Providing biblically sound Spanish literature to churches, missions, and believers across Latin America and beyond.</p>
+      <p class="lang-es">Proveyendo literatura española bíblicamente sólida a iglesias, misiones y creyentes en Latinoamérica y el mundo.</p>
+      <div>
+        <a href="https://spanliterature.com" target="_blank" class="btn-primary"><i class="fas fa-external-link-alt"></i> <span class="lang-en">Visit Official Website</span><span class="lang-es">Ir al sitio oficial</span></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><i class="fas fa-church"></i> <span class="lang-en">Serving churches worldwide</span><span class="lang-es">Sirviendo a iglesias mundial</span></div>
+        <div class="stat-item"><i class="fas fa-hands-helping"></i> <span class="lang-en">Supporting missions</span><span class="lang-es">Apoyando misiones</span></div>
+        <div class="stat-item"><i class="fas fa-book"></i> <span class="lang-en">Spanish Christian literature</span><span class="lang-es">Literatura cristiana en español</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Core focus cards -->
+    <div style="text-align: center; margin-top: 20px;">
+      <h2 class="section-title">
+        <span class="lang-en">Our Commitment</span>
+        <span class="lang-es">Nuestro compromiso</span>
+      </h2>
+      <p class="section-sub" style="margin-left: auto; margin-right: auto;">
+        <span class="lang-en">Strengthening the Spanish‑speaking church through reliable literature.</span>
+        <span class="lang-es">Fortaleciendo a la iglesia hispanohablante mediante literatura confiable.</span>
+      </p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <i class="fas fa-print"></i>
+        <h3><span class="lang-en">Quality Printing</span><span class="lang-es">Impresión de calidad</span></h3>
+        <p class="lang-en">Professionally printed tracts, booklets, and Bible study guides designed for evangelism and discipleship.</p>
+        <p class="lang-es">Tratados, folletos y guías de estudio bíblico impresos profesionalmente para el evangelismo y el discipulado.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-truck"></i>
+        <h3><span class="lang-en">Global Distribution</span><span class="lang-es">Distribución global</span></h3>
+        <p class="lang-en">Shipping literature to mission fields, local congregations, and individuals who need Spanish Christian resources.</p>
+        <p class="lang-es">Envío de literatura a campos misioneros, congregaciones locales y personas que necesitan recursos cristianos en español.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-praying-hands"></i>
+        <h3><span class="lang-en">Mission Partnership</span><span class="lang-es">Alianza misionera</span></h3>
+        <p class="lang-en">Working alongside missionaries and church planters to equip them with sound doctrinal materials.</p>
+        <p class="lang-es">Trabajando junto a misioneros y plantadores de iglesias para equiparlos con materiales de sana doctrina.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About section - no dates, no leaders -->
+  <div class="about-wrap">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">
+            <span class="lang-en">Rooted in the Word</span>
+            <span class="lang-es">Enraizados en la Palabra</span>
+          </h2>
+          <p class="lang-en">This ministry exists to provide Spanish Christian literature that honors God and edifies His people. Every printed page is prepared with care, following the principle of service without commercial emphasis.</p>
+          <p class="lang-es">Este ministerio existe para proveer literatura cristiana en español que honra a Dios y edifica a su pueblo. Cada página impresa se prepara con esmero, siguiendo el principio de servicio sin énfasis comercial.</p>
+          <p class="lang-en" style="margin-top: 24px;">Through faithful distribution, we support churches and missions across Latin America and the Spanish‑speaking world.</p>
+          <p class="lang-es" style="margin-top: 24px;">Mediante la distribución fiel, apoyamos a iglesias y misiones en Latinoamérica y el mundo hispanohablante.</p>
+          <div style="margin-top: 36px;">
+            <a href="https://spanliterature.com/about/" target="_blank" class="btn-outline"><i class="fas fa-info-circle"></i> <span class="lang-en">Learn more</span><span class="lang-es">Conozca más</span></a>
+          </div>
+        </div>
+        <div class="about-quote">
+          <i class="fas fa-bible"></i>
+          <p style="font-size: 1.3rem; font-weight: 500; font-style: italic; color: #4A654A; margin-top: 8px;">
+            <span class="lang-en">“Faith comes by hearing, and hearing by the word of God.”</span>
+            <span class="lang-es">“La fe es por el oír, y el oír, por la palabra de Dios.”</span>
+          </p>
+          <p style="margin-top: 24px; font-size: 0.9rem; opacity: 0.8;">Romans 10:17 / Romanos 10:17</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section with exact provided details, modern two-column -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: #6B8E6B; margin-bottom: 8px; display: inline-block;"></i>
+        <h2 class="section-title" style="margin-bottom: 8px;">
+          <span class="lang-en">Contact the Ministry</span>
+          <span class="lang-es">Contacte al Ministerio</span>
+        </h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Worldwide Spanish Literature Ministry<br>PO BOX 4650<br>Wichita Falls, Texas 76308-0650</span></div>
+            <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>Office: 940-692-4933</span></div>
+            <div class="contact-item"><i class="fas fa-fax"></i> <span>Fax: 940-692-4961</span></div>
+            <div class="contact-item"><i class="fab fa-whatsapp"></i> <span>WhatsApp: 940-280-1076</span></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> <span>jessica@spanliterature.com</span></div>
+          </div>
+          <div class="contact-note">
+            <p class="lang-en"><strong>Get in touch</strong><br>For inquiries, partnership opportunities, or to request information about available literature, please reach out via phone, email, or WhatsApp.</p>
+            <p class="lang-es"><strong>Comuníquese</strong><br>Para consultas, oportunidades de colaboración o para solicitar información sobre la literatura disponible, contáctenos por teléfono, correo electrónico o WhatsApp.</p>
+            <div style="margin-top: 28px;">
+              <a href="https://spanliterature.com/#contact" target="_blank" class="btn-primary"><i class="fas fa-paper-plane"></i> <span class="lang-en">Visit official website</span><span class="lang-es">Visitar sitio oficial</span></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p style="text-align: center; font-size: 0.85rem; color: #6B7A5A;">© 2026 Worldwide Spanish Literature Ministry — Serving the Spanish‑speaking church with integrity and faith.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><a href="https://spanliterature.com" target="_blank" style="color: #6B8E6B; text-decoration: underline;">spanliterature.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const body = document.body;
+
+    function setLanguage(lang) {
+      if (lang === 'en') {
+        body.classList.remove('lang-es');
+        body.classList.add('lang-en');
+      } else {
+        body.classList.remove('lang-en');
+        body.classList.add('lang-es');
+      }
+      langBtns.forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      localStorage.setItem('spanlit_lang', lang);
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+
+    const savedLang = localStorage.getItem('spanlit_lang');
+    if (savedLang && (savedLang === 'en' || savedLang === 'es')) setLanguage(savedLang);
+    else setLanguage('en');
+  </script>
+</body>
+</html>
