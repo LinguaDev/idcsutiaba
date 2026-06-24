@@ -104,7 +104,21 @@ h3 {
   color: #f4b642;
 }
 
-/* Submenús en desktop (hover) */
+/* Enlace de donación con estilo especial */
+.donate-link {
+  background: #f4b642;
+  color: #0a2c2e !important;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.donate-link:hover {
+  background: #e0a12e;
+  color: #0a2c2e !important;
+}
+
+/* Submenús en desktop (hover) – no usados pero se mantienen por si acaso */
 .menu-item-has-children {
   position: relative;
 }
@@ -130,7 +144,6 @@ h3 {
   visibility: visible;
 }
 
-/* Flecha indicadora en desktop */
 .menu-item-has-children > .nav-link::after {
   content: "▼";
   font-size: 0.7rem;
@@ -157,7 +170,6 @@ h3 {
   color: #0a2c2e;
 }
 
-/* Submenú de segundo nivel */
 .submenu .menu-item-has-children .submenu {
   top: 0;
   left: 100%;
@@ -217,7 +229,7 @@ h3 {
     position: static;
     opacity: 1;
     visibility: visible;
-    display: none;  /* Oculto por defecto */
+    display: none;
     background: #1a4a44;
     margin-top: 0.5rem;
     margin-left: 1rem;
@@ -226,7 +238,6 @@ h3 {
     padding: 0.5rem 0;
   }
 
-  /* Mostrar submenú cuando el elemento padre tiene la clase 'active-submenu' */
   .menu-item-has-children.active-submenu > .submenu {
     display: block;
   }
@@ -237,7 +248,6 @@ h3 {
     font-size: 0.9rem;
   }
 
-  /* Flecha indicadora en móvil (gira al abrir) */
   .menu-item-has-children > .nav-link {
     display: flex;
     justify-content: space-between;
@@ -288,6 +298,8 @@ h3 {
   margin: 0 auto;
 }
 
+/* Versículo del día (coincide con #verseOfDay en el HTML) */
+.verse-of-day,
 .verse-day {
   background: #f4b642;
   display: inline-block;
@@ -300,6 +312,7 @@ h3 {
   transition: transform 0.2s;
 }
 
+.verse-of-day:hover,
 .verse-day:hover {
   transform: scale(1.02);
 }
@@ -409,13 +422,17 @@ h3 {
 }
 
 /* ==================== TARJETAS ==================== */
-.cards-grid, .discipulado-grid, .resources-grid {
+.cards-grid,
+.discipulado-grid,
+.resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-.card, .discipulo-card, .resource-item {
+.card,
+.discipulo-card,
+.resource-item {
   background: white;
   border-radius: 1.5rem;
   padding: 1.5rem;
@@ -424,22 +441,29 @@ h3 {
   transition: all 0.3s;
 }
 
-.card:hover, .discipulo-card:hover, .resource-item:hover {
+.card:hover,
+.discipulo-card:hover,
+.resource-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.card i, .discipulo-card i, .resource-item i {
+.card i,
+.discipulo-card i,
+.resource-item i {
   font-size: 2.2rem;
   color: #f4b642;
   margin-bottom: 1rem;
 }
 
-.card h4, .discipulo-card h4, .resource-item h4 {
+.card h4,
+.discipulo-card h4,
+.resource-item h4 {
   margin-bottom: 0.5rem;
 }
 
-.card-link, .btn-course {
+.card-link,
+.btn-course {
   display: inline-block;
   margin-top: 1rem;
   font-weight: 600;
@@ -450,7 +474,8 @@ h3 {
   transition: 0.2s;
 }
 
-.card-link:hover, .btn-course:hover {
+.card-link:hover,
+.btn-course:hover {
   color: #d4a030;
   border-bottom-color: #d4a030;
 }
@@ -462,7 +487,8 @@ h3 {
   gap: 2rem;
 }
 
-.gospel-card, .testimony-card {
+.gospel-card,
+.testimony-card {
   background: white;
   border-radius: 1.5rem;
   padding: 1.8rem;
@@ -534,8 +560,14 @@ h3 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn-prayer {
@@ -582,6 +614,61 @@ h3 {
   margin-bottom: 1rem;
 }
 
+/* ==================== ACORDEÓN ==================== */
+.accordion-item {
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header {
+  background: #fff;
+  padding: 1.2rem 1.8rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f0e7d6;
+}
+
+.accordion-header:hover {
+  background: #faf7f0;
+}
+
+.accordion-header i:first-child {
+  margin-right: 0.8rem;
+  color: #f4b642;
+}
+
+.accordion-header .toggle-icon {
+  transition: transform 0.3s;
+}
+
+.accordion-header.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: #fff;
+}
+
+.accordion-content.show {
+  max-height: 2000px;
+  transition: max-height 0.6s ease-in;
+}
+
+.accordion-inner {
+  padding: 1.5rem 1.8rem;
+}
+
 /* ==================== BUSCADORES ==================== */
 .search-container {
   max-width: 500px;
@@ -619,6 +706,53 @@ h3 {
   padding: 1rem;
   max-height: 400px;
   overflow-y: auto;
+}
+
+/* Resultados de búsqueda (iglesias y hermanos) */
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.result-info p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.result-desc {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.result-link {
+  color: #f4b642;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.result-link:hover {
+  color: #d4a030;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 1rem;
 }
 
 .info-message {
@@ -679,7 +813,9 @@ h3 {
   border-radius: 1.5rem;
 }
 
-.contact-form input, .contact-form select, .contact-form textarea {
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
   width: 100%;
   padding: 0.7rem;
   margin: 0.5rem 0;
@@ -723,7 +859,7 @@ h3 {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: flex;
+  display: none;          /* Oculto por defecto, JS lo muestra */
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -731,13 +867,12 @@ h3 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
   z-index: 99;
-  opacity: 0;
-  visibility: hidden;
+  border: none;
+  cursor: pointer;
 }
 
 .scroll-top.visible {
-  opacity: 1;
-  visibility: visible;
+  display: flex;          /* Clase que añade JS cuando debe mostrarse */
 }
 
 .scroll-top:hover {
@@ -774,10 +909,14 @@ h3 {
   .section-header h3 {
     font-size: 1.6rem;
   }
-  .cards-grid, .discipulado-grid, .resources-grid {
+  .cards-grid,
+  .discipulado-grid,
+  .resources-grid {
     gap: 1.2rem;
   }
-  .card, .discipulo-card, .resource-item {
+  .card,
+  .discipulo-card,
+  .resource-item {
     padding: 1rem;
   }
   .step {
