@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const navbar = document.getElementById('navbar');
       if (navbar && navbar.classList.contains('active')) {
         navbar.classList.remove('active');
-        // También cambiar ícono del toggle si existe
         const mobileToggle = document.getElementById('mobileToggle');
         if (mobileToggle) {
           const icon = mobileToggle.querySelector('i');
@@ -55,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.getElementById('navbar');
   const body = document.body;
 
-  // Abrir/cerrar menú lateral
   if (mobileToggle && navbar) {
     mobileToggle.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -69,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
         body.style.overflow = '';
-        // Cerrar todos los submenús al cerrar el menú principal
         document.querySelectorAll('.menu-item-has-children.active-submenu').forEach(item => {
           item.classList.remove('active-submenu');
         });
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Función para manejar clics en elementos con submenú (solo en móvil)
   function handleSubmenuClick(e) {
     if (window.innerWidth <= 768) {
       e.preventDefault();
@@ -116,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Cerrar menú al hacer clic fuera (mejora UX)
   document.addEventListener('click', function(e) {
     if (navbar && navbar.classList.contains('active') &&
         !navbar.contains(e.target) &&
@@ -134,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Cerrar menú al hacer clic en enlace interno (ancla)
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -160,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
           targetElement.scrollIntoView({ behavior: 'smooth' });
         }
       } else if (href === 'javascript:void(0)') {
-        // No hacer nada, ya se maneja en el evento de submenú
+        // No hacer nada
       }
     });
   });
@@ -324,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `).join('');
   }
 
-  // Buscador de iglesias
   const churchSearch = document.getElementById('churchSearch');
   const churchResults = document.getElementById('churchResults');
   if (churchSearch && churchResults) {
@@ -334,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Buscador de hermanos
   const brotherSearch = document.getElementById('brotherSearch');
   const brotherResults = document.getElementById('brotherResults');
   if (brotherSearch && brotherResults) {
@@ -362,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ==================== NAVEGACIÓN SUAVE PARA ENLACES INTERNOS (sin submenú) ====================
+  // ==================== NAVEGACIÓN SUAVE PARA ENLACES INTERNOS ====================
   document.querySelectorAll('a[href^="#"]:not(.nav-link[href="javascript:void(0)"])').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -376,5 +368,93 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // ==================== POPUPS POR TIEMPO ====================
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupContent = document.getElementById('popupContent');
+  const popupClose = document.getElementById('popupClose');
+
+  let versePopupShown = false;
+  let versePopupClosed = false;
+  let donationPopupShown = false;
+  let donationTimer = null;
+
+  function showPopup(htmlContent) {
+    if (!popupOverlay) return;
+    popupContent.innerHTML = htmlContent;
+    popupOverlay.classList.remove('hidden');
+  }
+
+  function closePopup() {
+    if (!popupOverlay) return;
+    popupOverlay.classList.add('hidden');
+    if (versePopupShown && !versePopupClosed && !donationPopupShown) {
+      versePopupClosed = true;
+      donationTimer = setTimeout(() => {
+        if (!donationPopupShown) {
+          showDonationPopup();
+        }
+      }, 300000); // 5 minutos
+    }
+  }
+
+  function showVersePopup() {
+    if (versePopupShown || !popupOverlay) return;
+    versePopupShown = true;
+
+    // Usamos la misma lista de versículos que ya existe
+    const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+
+    const html = `
+      <div class="popup-content">
+        <i class="fas fa-bible"></i>
+        <h3>Versículo del día</h3>
+        <div class="verse-text">“${randomVerse}”</div>
+        <p>Comparte este mensaje de esperanza con tus seres queridos.</p>
+        <div class="social-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="social-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://wa.me/?text=${encodeURIComponent('Mira este versículo: ' + randomVerse + ' - ' + window.location.href)}" target="_blank" class="social-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(randomVerse + ' ' + window.location.href)}" target="_blank" class="social-tw"><i class="fab fa-twitter"></i> X</a>
+          <button onclick="navigator.clipboard.writeText('${randomVerse} - ${window.location.href}')" class="social-copy" style="background:#555; color:white; border:none; padding:0.5rem 1rem; border-radius:50px; cursor:pointer;"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <button class="btn-share" onclick="closePopup()">Cerrar</button>
+      </div>
+    `;
+    showPopup(html);
+
+    popupClose.onclick = closePopup;
+    popupOverlay.onclick = function(e) {
+      if (e.target === popupOverlay) closePopup();
+    };
+  }
+
+  function showDonationPopup() {
+    if (donationPopupShown || !popupOverlay) return;
+    donationPopupShown = true;
+
+    const html = `
+      <div class="popup-content">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Apoya este ministerio</h3>
+        <p>IDCLATAM es un proyecto voluntario que busca conectar y edificar a la Iglesia de Cristo en Latinoamérica. Tu donación nos ayuda a mantener y expandir este trabajo.</p>
+        <p><strong>¡Gracias por tu generosidad!</strong></p>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="btn-donate"><i class="fab fa-paypal"></i> Donar vía PayPal</a>
+        <br>
+        <button class="btn-share" onclick="closePopup()" style="background:#1a4a44; color:white; border:none; padding:0.7rem 1.6rem; border-radius:50px; margin-top:0.8rem; cursor:pointer;">Cerrar</button>
+      </div>
+    `;
+    showPopup(html);
+    popupClose.onclick = closePopup;
+    popupOverlay.onclick = function(e) {
+      if (e.target === popupOverlay) closePopup();
+    };
+  }
+
+  // Iniciar temporizador para el popup de versículo a los 60 segundos
+  setTimeout(() => {
+    if (!versePopupShown) {
+      showVersePopup();
+    }
+  }, 60000); // 1 minuto
 
 });

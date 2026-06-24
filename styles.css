@@ -923,3 +923,156 @@ h3 {
     flex-wrap: wrap;
   }
 }
+
+/* ==================== POPUP ==================== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeInOverlay 0.3s ease;
+}
+
+.popup-overlay.hidden {
+  display: none;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-container {
+  background: white;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem 1.5rem 1.5rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+  padding: 0 6px;
+}
+
+.popup-close:hover {
+  color: #0a2c2e;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-content i {
+  font-size: 2.5rem;
+  color: #f4b642;
+  margin-bottom: 0.8rem;
+}
+
+.popup-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #0a2c2e;
+}
+
+.popup-content p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.popup-content .verse-text {
+  font-style: italic;
+  background: #faf7f2;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border-left: 4px solid #f4b642;
+  margin: 0.8rem 0;
+}
+
+.popup-content .btn-share,
+.popup-content .btn-donate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0.4rem;
+  transition: all 0.2s;
+}
+
+.popup-content .btn-share {
+  background: #1a4a44;
+  color: white;
+}
+
+.popup-content .btn-share:hover {
+  background: #0a2c2e;
+  transform: translateY(-2px);
+}
+
+.popup-content .btn-donate {
+  background: #f4b642;
+  color: #0a2c2e;
+}
+
+.popup-content .btn-donate:hover {
+  background: #e0a12e;
+  transform: translateY(-2px);
+}
+
+.popup-content .social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.8rem 0;
+}
+
+.popup-content .social-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.popup-content .social-buttons a:hover {
+  transform: scale(1.05);
+}
+
+.social-fb { background: #1877f2; }
+.social-wa { background: #25d366; }
+.social-tw { background: #000; }
+.social-copy { background: #555; }
