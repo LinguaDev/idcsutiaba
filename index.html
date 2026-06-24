@@ -1,299 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
   <title>IDCLATAM | Iglesia de Cristo Latinoamérica - Uniendo a la hermandad en Cristo</title>
-  <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos, directorio de iglesias y hermanos. Sitios web gratuitos para congregaciones.">
-  <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos bíblicos, IDCLATAM, iglesias cristianas, directorio cristiano">
-  <meta name="author" content="IDCLATAM - Iglesia de Cristo Latinoamérica">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Evangelismo, discipulado, recursos bíblicos, directorio de iglesias y hermanos. Sitios web gratuitos para congregaciones." />
+  <meta name="keywords" content="Iglesia de Cristo, Latinoamérica, evangelismo, discipulado, recursos bíblicos, IDCLATAM, iglesias cristianas, directorio cristiano" />
+  <meta name="author" content="IDCLATAM - Iglesia de Cristo Latinoamérica" />
+  <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="Xkzih71RtkbdP8h33xwVq4JMreR1pWGVS7R83l3wlTk" />
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://idclatam.org/">
-  <meta property="og:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica">
-  <meta property="og:description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Encuentra iglesias, recursos, discipulado y más.">
-  <meta property="og:image" content="https://idclatam.org/img/og-image.jpg">
-  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://idclatam.org/" />
+  <meta property="og:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica" />
+  <meta property="og:description" content="Portal oficial de la Iglesia de Cristo en Latinoamérica. Encuentra iglesias, recursos, discipulado y más." />
+  <meta property="og:image" content="https://idclatam.org/img/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica" />
   
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IDCLATAM | Iglesia de Cristo Latinoamérica">
+  <link rel="canonical" href="https://idclatam.org/" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
-  <link rel="canonical" href="https://idclatam.org/">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <style>
-    /* Estilos base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fefcf5;
-      color: #1e2a2e;
-      line-height: 1.5;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .header {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem 0;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo i {
-      font-size: 2rem;
-      color: #c6a43b;
-    }
-    .logo h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #1f3b2c;
-    }
-    .logo-sub {
-      font-size: 0.7rem;
-      background: #e7e4d8;
-      padding: 0.2rem 0.5rem;
-      border-radius: 20px;
-    }
-    .mobile-toggle {
-      display: none;
-      background: #c6a43b;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #1f3b2c;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      transition: 0.2s;
-    }
-    .mobile-toggle:hover {
-      background: #1f3b2c;
-      color: white;
-    }
-    .navbar ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .nav-link {
-      text-decoration: none;
-      color: #2c3a2f;
-      font-weight: 600;
-    }
-    .donate-link {
-      background: #c6a43b;
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      color: #1f3b2c;
-    }
-    
-    /* RESPONSIVE: menú hamburguesa */
-    @media (max-width: 1024px) {
-      .mobile-toggle {
-        display: block;
-      }
-      .navbar {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 85%;
-        max-width: 320px;
-        height: calc(100vh - 80px);
-        background: white;
-        transition: 0.3s ease-in-out;
-        z-index: 999;
-        padding: 2rem 1.5rem;
-        box-shadow: 2px 0 20px rgba(0,0,0,0.1);
-        overflow-y: auto;
-      }
-      .navbar.active {
-        left: 0;
-      }
-      .navbar ul {
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-    }
-    
-    .hero {
-      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
-      padding: 3rem 0;
-      text-align: center;
-    }
-    .hero-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 24px;
-      margin: 1.5rem auto;
-      max-width: 800px;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      border-radius: 40px;
-      text-decoration: none;
-      margin: 0.5rem;
-    }
-    .btn-primary {
-      background: #1f3b2c;
-      color: white;
-    }
-    .btn-secondary {
-      background: #c6a43b;
-      color: #1f3b2c;
-    }
-    .section {
-      padding: 3rem 0;
-      border-bottom: 1px solid #e0d6c6;
-    }
-    .bg-light {
-      background: #f5efe3;
-    }
-    .bg-dark {
-      background: #1f3b2c;
-      color: white;
-    }
-    .cards-grid, .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card, .resource-item {
-      background: white;
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    .search-container {
-      position: relative;
-      margin: 1rem 0;
-    }
-    .search-input {
-      width: 100%;
-      padding: 1rem 1rem 1rem 3rem;
-      border-radius: 50px;
-      border: 1px solid #ddd;
-    }
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-    }
-    .contacto-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .contact-info, .contact-form {
-      flex: 1;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border-radius: 30px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #c6a43b;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .footer {
-      background: #111c16;
-      color: #cdd9cf;
-      text-align: center;
-      padding: 2rem;
-    }
-    /* Acordeón */
-    .accordion-item {
-      margin-bottom: 1rem;
-      border-radius: 20px;
-      background: white;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .accordion-header {
-      background: #fff;
-      padding: 1.2rem 1.8rem;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 1.3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
-      border-bottom: 1px solid #f0e7d6;
-    }
-    .accordion-header:hover {
-      background: #faf7f0;
-    }
-    .accordion-header i:first-child {
-      margin-right: 0.8rem;
-      color: #c6a43b;
-    }
-    .accordion-header .toggle-icon {
-      transition: transform 0.3s;
-    }
-    .accordion-header.active .toggle-icon {
-      transform: rotate(180deg);
-    }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      background: #fff;
-    }
-    .accordion-content.show {
-      max-height: 2000px;
-      transition: max-height 0.6s ease-in;
-    }
-    .accordion-inner {
-      padding: 1.5rem 1.8rem;
-    }
-    .hidden { display: none; }
-    .gospel-steps .step { margin-bottom: 0.5rem; cursor: pointer; }
-    .step-verse { margin-top: 0.3rem; padding-left: 1rem; font-size: 0.9rem; color: #5b6e5f; }
-  </style>
+  <!-- ARCHIVOS EXTERNOS: CSS y JS separados -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
 </head>
 <body>
   <header class="header" id="header">
@@ -312,16 +44,10 @@
           <li><a href="about" class="nav-link">¿Quiénes Somos?</a></li>
           <li><a href="infantil" class="nav-link">Ministerio Infantil</a></li>
           <li><a href="https://biblefluent.org/" class="nav-link">Idiomas Bíblicos</a></li>
-          
-          <!-- Recursos ahora es enlace directo al acordeón de recursos -->
           <li><a href="#recursos" class="nav-link accordion-trigger" data-target="recursos">Recursos</a></li>
-          
           <li><a href="#sitios-web-gratuitos" class="nav-link accordion-trigger" data-target="sitios-web-gratuitos">Sitios Web Gratuitos</a></li>
           <li><a href="#iglesias" class="nav-link accordion-trigger" data-target="iglesias">Iglesias</a></li>
-          
-          <!-- Escritores Cristianos ahora es enlace directo al acordeón de escritores -->
           <li><a href="#hermanos" class="nav-link accordion-trigger" data-target="hermanos">Escritores Cristianos</a></li>
-          
           <li><a href="#contacto" class="nav-link accordion-trigger" data-target="contacto">Contacto</a></li>
           <li><a href="donaciones" target="_blank" class="nav-link donate-link">Dona y apoya nuestro ministerio</a></li>
           <li><a href="donate" target="_blank" class="nav-link donate-link">Support Our Ministry</a></li>
@@ -331,7 +57,7 @@
   </header>
 
   <main>
-    <!-- HERO con VIDEO -->
+    <!-- HERO con VIDEO y VERSÍCULO ALEATORIO -->
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -340,6 +66,10 @@
         </div>
         <h2><strong>Iglesia de Cristo</strong> en toda Latinoamérica</h2>
         <p>Un movimiento de fe, esperanza y amor. Predicamos a Jesucristo, hacemos discípulos y conectamos a la hermandad a lo largo del continente.</p>
+        <!-- Contenedor para el versículo aleatorio (manejado por script.js) -->
+        <div id="verseOfDay" class="verse-of-day">
+          <i class="fas fa-bible"></i> Cargando versículo...
+        </div>
         <div class="hero-buttons">
           <a href="#evangelismo" class="btn btn-primary accordion-trigger" data-target="evangelismo"><i class="fas fa-heart"></i> Conoce el Evangelio</a>
           <a href="#iglesias" class="btn btn-secondary accordion-trigger" data-target="iglesias"><i class="fas fa-map-marker-alt"></i> Encuentra una iglesia</a>
@@ -348,7 +78,7 @@
     </section>
 
     <div class="container" style="margin-bottom: 2rem;">
-      <!-- ACORDEÓN 1: Resumen de recursos y objetivos -->
+      <!-- ACORDEÓN 1: Resumen -->
       <div class="accordion-item" id="resumen">
         <div class="accordion-header">
           <span><i class="fas fa-bullseye"></i> Nuestra misión y recursos</span>
@@ -360,16 +90,16 @@
             <ul style="margin: 1rem 0 1rem 2rem;">
               <li><i class="fas fa-book-open"></i> Recursos bíblicos y teológicos gratuitos (estudios, podcasts, biblioteca).</li>
               <li><i class="fas fa-globe"></i> Sitios web gratuitos para congregaciones locales.</li>
-              <li><i class="fas fa-university"></i> Universidad Cristiana de Latinoamérica (UCLAT) – formación bíblica y secular colaborativa.</li>
+              <li><i class="fas fa-university"></i>Próximamente Universidad Cristiana en Latinoamérica (UCLA) – formación bíblica y secular colaborativa.</li>
               <li><i class="fas fa-handshake"></i> Invitación abierta a pastores, maestros y hermanos a sumarse al ministerio.</li>
             </ul>
             <p>Conoce más sobre nuestra historia, doctrina y valores en la página <strong>¿Quiénes Somos?</strong></p>
-            <a href="about.html" class="btn-primary" style="display: inline-block; margin-top: 0.5rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Conoce más <i class="fas fa-arrow-right"></i></a>
+            <a href="about.html" class="btn-primary">Conoce más <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
 
-      <!-- ACORDEÓN 2: RECURSOS GRATUITOS (id="recursos") -->
+      <!-- ACORDEÓN 2: RECURSOS GRATUITOS -->
       <div class="accordion-item" id="recursos">
         <div class="accordion-header">
           <span><i class="fas fa-tools"></i> Recursos para la Iglesia y el Creyente</span>
@@ -396,12 +126,12 @@
                 <p>Cursos gratuitos para ancianos, diáconos y maestros.</p>
                 <a href="https://biblefluent.org/" target="_blank" class="resource-link">Más información</a>
               </div>
-                          <div class="resource-item">
-  <i class="fas fa-book-open"></i>
-  <h4>Biblioteca de Literatura Hispana</h4>
-  <p>Acceda a materiales bíblicos en español para estudio, enseñanza y edificación de la iglesia.</p>
-  <a href="slm" target="_blank" class="resource-link">Explorar biblioteca →</a>
-</div>
+              <div class="resource-item">
+                <i class="fas fa-book-open"></i>
+                <h4>Biblioteca de Literatura Hispana</h4>
+                <p>Acceda a materiales bíblicos en español para estudio, enseñanza y edificación de la iglesia.</p>
+                <a href="slm" target="_blank" class="resource-link">Explorar biblioteca →</a>
+              </div>
               <div class="resource-item">
                 <i class="fas fa-hand-holding-heart"></i>
                 <h4>Donaciones Voluntarias</h4>
@@ -424,18 +154,17 @@
             <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
               <div class="card">
                 <i class="fas fa-bible"></i>
-                <h4>Formando líderes para la Iglesia</h4>
+                <h4>El sueño de una universidad cristiana en Latinoamérica</h4>
                 <p>Conocimiento teológico, pastoral, administrativo y herramientas seculares al servicio del Reino. Gratuito y abierto.</p>
               </div>
               <div class="card">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h4>Colaboración global</h4>
                 <p>Maestros y universidades cristianas donan libros, videoclases y cursos. Todo organizado por carreras y asignaturas.</p>
-                <a href="ucla.html" class="btn-primary" style="display:inline-block; margin-top:1rem; background:#1f3b2c; padding:0.5rem 1rem; border-radius:40px; color:white; text-decoration:none;">Conocer proyecto <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
             <div style="text-align:center; margin-top:1rem;">
-              <a href="ucla.html" class="btn btn-primary">Visitar la Universidad Cristiana</a>
+              <a href="ucla" class="btn btn-primary">Conocer proyecto</a>
             </div>
           </div>
         </div>
@@ -491,8 +220,8 @@
                     </div>
                   </div>
                 </div>
-                <button id="prayerBtn" class="btn-prayer" style="margin-top:1rem; background:#1f3b2c; color:white;"><i class="fas fa-praying-hands"></i> Te invito a orar</button>
-                <div id="prayerMessage" class="prayer-message hidden" style="margin-top:1rem; background:#e9e0cf; padding:1rem; border-radius:20px;">
+                <button id="prayerBtn" class="btn-prayer"><i class="fas fa-praying-hands"></i> Te invito a orar</button>
+                <div id="prayerMessage" class="prayer-message hidden">
                   <i class="fas fa-dove"></i> 
                   <strong>Esta oracion te acerca un poco más a Dios, seras salvo en el momento del bautismo</strong><br><br>
                   “Padre eterno, reconozco que he pecado contra ti y que necesito tu perdón (Romanos 3:23).<br><br>
@@ -539,7 +268,7 @@
               </div>
             </div>
             <div class="cta-center">
-              <a href="#contacto" class="btn-primary accordion-trigger" data-target="contacto" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; background:#1f3b2c; padding:0.6rem 1.2rem; border-radius:40px; color:white; text-decoration:none;">Solicitar sitio gratuito <i class="fas fa-arrow-right"></i></a>
+              <a href="#contacto" class="btn-primary accordion-trigger" data-target="contacto">Solicitar sitio gratuito <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -555,7 +284,7 @@
           <div class="accordion-inner">
             <div class="search-container">
               <i class="fas fa-search search-icon"></i>
-              <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: Sutiaba, Nicaragua, Perú..">
+              <input type="text" id="churchSearch" class="search-input" placeholder="Ejemplo: Sutiaba, Nicaragua, Perú.." />
             </div>
             <div id="churchResults" class="results-list">
               <div class="info-message">Escribe para buscar iglesias...</div>
@@ -567,7 +296,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 7: BUSCADOR ESCRITORES CRISTIANOS (id="hermanos") -->
+      <!-- ACORDEÓN 7: BUSCADOR ESCRITORES CRISTIANOS -->
       <div class="accordion-item" id="hermanos">
         <div class="accordion-header">
           <span><i class="fas fa-users"></i> Buscar Escritores Cristianos</span>
@@ -577,7 +306,7 @@
           <div class="accordion-inner">
             <div class="search-container">
               <i class="fas fa-search search-icon"></i>
-              <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda...">
+              <input type="text" id="brotherSearch" class="search-input" placeholder="Ejemplo: Juan Pineda..." />
             </div>
             <div id="brotherResults" class="results-list">
               <div class="info-message">Escribe para buscar escritores cristianos...</div>
@@ -589,7 +318,7 @@
         </div>
       </div>
 
-      <!-- ACORDEÓN 8: CONTACTO -->
+      <!-- ACORDEÓN 8: CONTACTO (formulario WhatsApp) -->
       <div class="accordion-item" id="contacto">
         <div class="accordion-header">
           <span><i class="fas fa-address-card"></i> Contáctanos</span>
@@ -614,12 +343,10 @@
               </div>
               <div class="contact-form">
                 <h4>Solicita tu sitio web gratuito</h4>
-                <form id="contactForm" action="https://formsubmit.co/juancanales5019@gmail.com" method="POST">
-                  <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web IDCLATAM">
-                  <input type="hidden" name="_captcha" value="false">
-                  <input type="hidden" name="_template" value="box">
-                  <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
-                  <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                <!-- Formulario sin action/method; el JS maneja el envío a WhatsApp -->
+                <form id="contactForm">
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
+                  <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
                   <select id="pais" name="pais" required>
                     <option value="">Selecciona tu país</option>
                     <option>Argentina</option><option>Bolivia</option><option>Brasil</option><option>Chile</option><option>Colombia</option>
@@ -648,110 +375,8 @@
     </div>
   </footer>
 
-  <a href="#inicio" class="scroll-top" id="scrollTopBtn" style="position:fixed; bottom:20px; right:20px; background:#c6a43b; padding:10px; border-radius:50%; color:white; display:none;"><i class="fas fa-arrow-up"></i></a>
-
-  <script>
-    // Acordeón
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        header.classList.toggle('active');
-        if (content.classList.contains('show')) {
-          content.classList.remove('show');
-        } else {
-          content.classList.add('show');
-        }
-      });
-    });
-
-    function openAccordion(sectionId) {
-      const target = document.getElementById(sectionId);
-      if (target) {
-        const header = target.querySelector('.accordion-header');
-        const content = target.querySelector('.accordion-content');
-        if (header && content && !content.classList.contains('show')) {
-          header.classList.add('active');
-          content.classList.add('show');
-        }
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    const triggers = document.querySelectorAll('.accordion-trigger');
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = trigger.getAttribute('data-target');
-        if (targetId) openAccordion(targetId);
-        const navbar = document.getElementById('navbar');
-        if (navbar.classList.contains('active')) navbar.classList.remove('active');
-      });
-    });
-
-    // Menú hamburguesa
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navbar = document.getElementById('navbar');
-    mobileToggle.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (navbar.classList.contains('active') && !navbar.contains(e.target) && !mobileToggle.contains(e.target)) {
-        navbar.classList.remove('active');
-      }
-    });
-
-    // Buscadores
-    const churchData = [
-      { name:"Iglesia de Cristo en Sutiaba", city:"Sutiaba, Nicaragua" },
-      { name:"Iglesia de Cristo en Managua", city:"Managua, Nicaragua" },
-      { name:"Iglesia de Cristo en Lima", city:"Lima, Perú" }
-    ];
-    const brotherData = [
-      { name:"Juan Pineda", desc:"Predicador y escritor" }
-    ];
-    const churchInput = document.getElementById('churchSearch');
-    const brotherInput = document.getElementById('brotherSearch');
-    if (churchInput) {
-      churchInput.addEventListener('input', () => {
-        const val = churchInput.value.toLowerCase();
-        const results = churchData.filter(c => c.name.toLowerCase().includes(val) || c.city.toLowerCase().includes(val));
-        document.getElementById('churchResults').innerHTML = results.map(c => `<div class="result-item">${c.name} - ${c.city}</div>`).join('') || '<div>No se encontraron iglesias</div>';
-      });
-    }
-    if (brotherInput) {
-      brotherInput.addEventListener('input', () => {
-        const val = brotherInput.value.toLowerCase();
-        const results = brotherData.filter(b => b.name.toLowerCase().includes(val));
-        document.getElementById('brotherResults').innerHTML = results.map(b => `<div class="result-item">${b.name} - ${b.desc}</div>`).join('') || '<div>No se encontraron escritores</div>';
-      });
-    }
-
-    // Pasos del evangelio
-    const steps = document.querySelectorAll('.step');
-    steps.forEach(step => {
-      step.addEventListener('click', () => {
-        const verseDiv = step.querySelector('.step-verse');
-        if (verseDiv) verseDiv.classList.toggle('hidden');
-      });
-    });
-    const prayerBtn = document.getElementById('prayerBtn');
-    if(prayerBtn) {
-      prayerBtn.addEventListener('click', () => {
-        const msg = document.getElementById('prayerMessage');
-        msg.classList.toggle('hidden');
-      });
-    }
-
-    // Scroll top
-    window.addEventListener('scroll', () => {
-      const btn = document.getElementById('scrollTopBtn');
-      if (window.scrollY > 300) btn.style.display = 'flex';
-      else btn.style.display = 'none';
-    });
-    document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-  </script>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Subir arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </body>
 </html>
