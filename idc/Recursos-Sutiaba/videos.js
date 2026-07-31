@@ -20,7 +20,7 @@ function generarMeses() {
 
         let videos = [];
 
-        // --- Videos de ejemplo para Julio 2026 ---
+        // --- Videos Julio 2026 ---
         if (year === 2026 && month === 6) {
             videos = [
                 {
@@ -29,12 +29,16 @@ function generarMeses() {
                     url: 'https://www.facebook.com/reel/1362661809174750/'
                 },
                 {
-                    titulo: 'Predicación "El Poder de la Oración"',
-                    url: 'https://www.facebook.com/facebook/videos/10153231379946729/'
+                    titulo: 'La exelencia del amor de Cristo',
+                    url: 'https://www.facebook.com/reel/1032140639464877'
                 },
                 {
-                    titulo: 'Predicación "Fe que Mueve Montañas"',
-                    url: 'https://www.facebook.com/facebook/videos/10153231379946729/'
+                    titulo: 'Donde está el Espíritu del Señor, allí hay libertad',
+                    url: 'https://www.facebook.com/reel/1048726370927851'
+                },
+                {
+                    titulo: 'Elias: de la cueva al servicio de Dios',
+                    url: 'https://www.facebook.com/reel/1485926486912093'
                 }
             ];
         }
