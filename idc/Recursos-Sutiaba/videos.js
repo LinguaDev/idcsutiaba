@@ -29,6 +29,10 @@ function generarMeses() {
                     url: 'https://www.facebook.com/reel/1362661809174750/'
                 },
                 {
+                    titulo: '¿Eres realmente maduro en Cristo?',
+                    url: 'https://www.facebook.com/reel/1056865286792650'
+                },
+                {
                     titulo: 'La exelencia del amor de Cristo',
                     url: 'https://www.facebook.com/reel/1032140639464877'
                 },
@@ -39,6 +43,10 @@ function generarMeses() {
                 {
                     titulo: 'Elias: de la cueva al servicio de Dios',
                     url: 'https://www.facebook.com/reel/1485926486912093'
+                },
+                {
+                    titulo: 'El conocimiento que refleja el amor de Cristo',
+                    url: 'https://www.facebook.com/reel/2136071030662595'
                 }
             ];
         }
