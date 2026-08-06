@@ -273,6 +273,12 @@ document.addEventListener('DOMContentLoaded', function() {
       location: "Nicaragua",
       description: "Predicador y maestro de la Palabra. Conferencias y estudios bíblicos.",
       url: "Juan-Pineda"
+    },
+     {
+      name: "Mario Salinas",
+      location: "Nicaragua",
+      description: "Predicador y maestro de la Palabra. Conferencias y estudios bíblicos.",
+      url: "hn/Mario-Salinas/main"
     }
   ];
 
