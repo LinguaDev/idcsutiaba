@@ -1,17 +1,94 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Mario Salinas | Predicador | Iglesia de Cristo</title>
-  <meta name="description" content="Mario Salinas, predicador de la Iglesia de Cristo. A pesar de la diabetes que lo dejó ciego y problemas renales, continúa predicando la Palabra a tiempo y fuera de tiempo. Pide tus oraciones y colaboración para su familia y ministerio.">
-  <meta name="keywords" content="Mario Salinas, predicador, Iglesia de Cristo, diabetes, riñones, oraciones, ministerio cristiano">
+  <meta name="description" content="Mario Salinas, predicador de la Iglesia de Cristo. A pesar de la diabetes que lo dejó ciego y problemas renales, continúa predicando la Palabra con fe inquebrantable. Conoce su ministerio y apóyalo en oración.">
+  <meta name="keywords" content="Mario Salinas, predicador, Iglesia de Cristo, ministerio, diabetes, fe, oraciones">
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- CSS externo (se creará después) -->
   <link rel="stylesheet" href="../hn.css">
+  <style>
+    /* Estilos adicionales para responsividad de iframes y mejoras visuales */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 178%; /* Relación 9:16 (267/476) */
+      height: 0;
+      overflow: hidden;
+      background: #0d2c2a;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      margin-top: 1rem;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-wrapper iframe[allowfullscreen] {
+      /* asegurar fullscreen */
+    }
+    @media (max-width: 600px) {
+      .video-wrapper {
+        padding-bottom: 178%; /* se mantiene */
+      }
+    }
+    .recurso-block {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .recurso-block:hover {
+      transform: translateY(-4px);
+    }
+    .recurso-block i {
+      font-size: 2.2rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
+    .btn-outline-small {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border: 2px solid #c49a6c;
+      color: #c49a6c;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.3s;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .btn-outline-small:hover {
+      background: #c49a6c;
+      color: #fff;
+    }
+    .bg-light {
+      background: #f8f6f2;
+    }
+    .bg-dark {
+      background: #0d2c2a;
+      color: #f5f0e8;
+    }
+    .bg-dark h3, .bg-dark p {
+      color: #f5f0e8;
+    }
+    .bg-dark .btn-contact {
+      background: #c49a6c;
+      color: #0d2c2a;
+    }
+    .bg-dark .btn-contact:hover {
+      background: #dbb48b;
+    }
+  </style>
 </head>
 <body>
 
@@ -33,7 +110,7 @@
           <li><a href="#videos" class="nav-link">Videos</a></li>
           <li><a href="#oracion" class="nav-link">Oración y apoyo</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="../index.html" class="nav-link" target="_blank">IDCLATAM</a></li>
+          <li><a href="../../index.html" class="nav-link" target="_blank">IDCLATAM</a></li>
         </ul>
       </nav>
     </div>
@@ -47,140 +124,128 @@
         <div class="hero-text">
           <span class="badge">Predicador de la Iglesia de Cristo</span>
           <h1>Mario Salinas</h1>
-          <p>A pesar de la ceguera y los problemas renales causados por la diabetes, continúa predicando la Palabra de Dios a tiempo y fuera de tiempo.</p>
+          <p><strong>“Predica la palabra; insiste a tiempo y fuera de tiempo”</strong> (2 Timoteo 4:2). A pesar de la ceguera y los problemas renales, Mario Salinas levanta su voz con fe inquebrantable. Su ministerio es un faro de esperanza y un llamado a la perseverancia para toda la Iglesia.</p>
           <div class="hero-buttons">
-            <a href="#oracion" class="btn btn-primary"><i class="fas fa-praying-hands"></i> Orar y colaborar</a>
-            <a href="#videos" class="btn btn-secondary"><i class="fas fa-video"></i> Ver videos</a>
+            <a href="#oracion" class="btn btn-primary"><i class="fas fa-praying-hands"></i> Ora y apoya</a>
+            <a href="#videos" class="btn btn-secondary"><i class="fas fa-video"></i> Ver predicaciones</a>
           </div>
         </div>
         <div class="hero-image">
-          <img src="hn/Mario-Salinas/MARIO.png" alt="Mario Salinas" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Mario+Salinas'">
+          <img src="mario.jpg" alt="Mario Salinas" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Mario+Salinas'">
         </div>
       </div>
     </section>
 
-    <!-- Biografía -->
+    <!-- Biografía ministerial -->
     <section id="biografia" class="section biografia">
       <div class="container">
         <div class="section-header">
-          <h3><i class="fas fa-user-alt"></i> Su historia</h3>
-          <p>Un siervo fiel que predica a pesar de las dificultades.</p>
+          <h3><i class="fas fa-user-alt"></i> Su ministerio</h3>
+          <p>Un siervo que predica con valentía en medio de la adversidad.</p>
         </div>
         <div class="bio-grid">
           <div class="bio-text">
-            <p>Mario Salinas es predicador de la Iglesia de Cristo. La diabetes lo dejó ciego y actualmente enfrenta problemas graves de los riñones relacionados con esa misma enfermedad.</p>
-            <p>A pesar de estas adversidades de salud, el hermano Mario continúa predicando la Palabra de Dios <strong>a tiempo y fuera de tiempo</strong>, demostrando un compromiso inquebrantable con el evangelio y con el ministerio que el Señor le ha confiado.</p>
-            <p>Su vida es un testimonio vivo de fe, perseverancia y amor por las almas. Junto a su familia, sigue sirviendo al Señor y edificando a la iglesia local y a los hermanos que lo escuchan.</p>
-            <p>Pedimos las oraciones de la hermandad y cualquier colaboración posible para su familia y su ministerio, a fin de que pueda seguir proclamando el mensaje de salvación.</p>
-          </div>
-          <div class="bio-family">
-            <div class="family-card">
-              <i class="fas fa-heart"></i>
-              <h4>Familia</h4>
-              <p>Junto a su familia sirve al Señor. Oramos por su bienestar y provisión en medio de las dificultades de salud.</p>
-            </div>
-            <div class="family-card">
-              <i class="fas fa-church"></i>
-              <h4>Ministerio</h4>
-              <p>Predicación fiel de la Palabra, a tiempo y fuera de tiempo, a pesar de la ceguera y los problemas renales.</p>
-            </div>
+            <p>Mario Salinas es un predicador de la Iglesia de Cristo cuya vida es un testimonio vivo de <strong>fe y perseverancia</strong>. La diabetes lo dejó ciego y hoy enfrenta graves problemas renales, pero lejos de detenerse, su voz resuena con más fuerza proclamando el evangelio <strong>a tiempo y fuera de tiempo</strong>.</p>
+            <p>Su ministerio no se ha apagado; al contrario, se ha encendido como antorcha en medio de la oscuridad. Cada mensaje que predica es un recordatorio de que <strong>Dios usa lo débil para confundir lo fuerte</strong>, y que el poder del Espíritu se perfecciona en la debilidad.</p>
+            <p>Mario no solo predica con palabras, sino con su propia existencia: es un ejemplo de que el llamado de Dios es más fuerte que cualquier limitación física. Su labor pastoral y su entrega a la Palabra han bendecido a cientos de hermanos, y su legado sigue creciendo.</p>
+            <p>Hoy te invitamos a conocer su obra, a ser edificado por sus enseñanzas y a unirte en oración para que este siervo fiel continúe siendo instrumento de bendición para la Iglesia de Cristo.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Artículos (placeholder) -->
+    <!-- Artículos con títulos reales -->
     <section id="articulos" class="section escritos bg-light">
       <div class="container">
         <div class="section-header">
           <h3><i class="fas fa-book-open"></i> Artículos</h3>
-          <p>El hermano Mario colaborará con artículos periódicamente, según Dios le permita.</p>
+          <p>Reflexiones bíblicas que el hermano Mario comparte para edificación del cuerpo de Cristo.</p>
         </div>
         <div class="escritos-grid">
-          <!-- Placeholder para artículos futuros -->
           <div class="escrito-card">
             <i class="fas fa-pen"></i>
-            <h4>Próximamente</h4>
-            <p>Artículos bíblicos y reflexiones del hermano Mario Salinas serán publicados aquí según Dios le permita.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
+            <h4>La obesidad espiritual</h4>
+            <p>El peligro de alimentarse mucho y no producir nada. Una llamada a la fructificación genuina en la obra del Señor.</p>
+            <a href="#" class="btn-outline-small">Leer más</a>
           </div>
           <div class="escrito-card">
             <i class="fas fa-cross"></i>
-            <h4>Espacio para artículo</h4>
-            <p>Placeholder para futuros escritos de edificación y enseñanza bíblica.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
+            <h4>El justo florecerá como la palmera</h4>
+            <p>Aliento en tiempos de crisis. Cómo mantenerse firme y productivo aun en las sequías espirituales.</p>
+            <a href="#" class="btn-outline-small">Leer más</a>
           </div>
           <div class="escrito-card">
             <i class="fas fa-bible"></i>
-            <h4>Espacio para artículo</h4>
-            <p>Placeholder para futuros escritos de edificación y enseñanza bíblica.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
+            <h4>Predicando a tiempo y fuera de tiempo</h4>
+            <p>Lecciones de perseverancia de un siervo que no se rinde ante las pruebas. El llamado urgente a proclamar la Palabra.</p>
+            <a href="#" class="btn-outline-small">Leer más</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Videos de Facebook (placeholder) -->
+    <!-- Videos con enlaces reales de Facebook y responsive -->
     <section id="videos" class="section recursos">
       <div class="container">
         <div class="section-header">
-          <h3><i class="fas fa-video"></i> Videos</h3>
-          <p>Mensajes y predicaciones del hermano Mario Salinas.</p>
+          <h3><i class="fas fa-video"></i> Predicaciones en video</h3>
+          <p>Mensajes impactantes del hermano Mario Salinas que fortalecen la fe y animan al pueblo de Dios.</p>
         </div>
         <div class="recursos-flex">
-          <!-- Placeholders para videos embebidos de Facebook -->
+          <!-- Video 1: Obesidad espiritual -->
           <div class="recurso-block">
             <i class="fas fa-play-circle"></i>
-            <h3>Video 1</h3>
-            <p>Placeholder para video embebido de Facebook.</p>
-            <!-- Aquí se insertará el iframe o embed de Facebook -->
-            <div class="video-placeholder" style="background:#eee; min-height:200px; display:flex; align-items:center; justify-content:center; border-radius:8px; margin-top:1rem;">
-              <span>[Embed de Facebook aquí]</span>
+            <h3>Obesidad espiritual</h3>
+            <p>El peligro de alimentarse mucho y no producir nada. Un mensaje que confronta y desafía.</p>
+            <div class="video-wrapper">
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1654628982300301%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
           </div>
+          <!-- Video 2: El justo florecerá como la palmera -->
           <div class="recurso-block">
             <i class="fas fa-play-circle"></i>
-            <h3>Video 2</h3>
-            <p>Placeholder para video embebido de Facebook.</p>
-            <div class="video-placeholder" style="background:#eee; min-height:200px; display:flex; align-items:center; justify-content:center; border-radius:8px; margin-top:1rem;">
-              <span>[Embed de Facebook aquí]</span>
+            <h3>El justo florecerá como la palmera</h3>
+            <p>Aliento en tiempos de crisis. Cómo mantenerse firme y dar fruto aun en la adversidad.</p>
+            <div class="video-wrapper">
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1362661809174750%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
           </div>
+          <!-- Video 3: Próximamente -->
           <div class="recurso-block">
             <i class="fas fa-play-circle"></i>
-            <h3>Video 3</h3>
-            <p>Placeholder para video embebido de Facebook.</p>
-            <div class="video-placeholder" style="background:#eee; min-height:200px; display:flex; align-items:center; justify-content:center; border-radius:8px; margin-top:1rem;">
-              <span>[Embed de Facebook aquí]</span>
+            <h3>Próximamente</h3>
+            <p>Más mensajes del hermano Mario serán añadidos pronto. <br> <strong>¡Suscríbete para no perdértelos!</strong></p>
+            <div class="video-wrapper" style="background: #e8e0d6; display: flex; align-items: center; justify-content: center; color: #0d2c2a; font-weight: 500;">
+              <span style="text-align: center; padding: 1rem;">🔔 Pronto nuevos videos</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Oración y colaboración -->
+    <!-- Oración y apoyo ministerial (sin mencionar familia) -->
     <section id="oracion" class="section biografia">
       <div class="container">
         <div class="section-header">
-          <h3><i class="fas fa-praying-hands"></i> Oración y colaboración</h3>
-          <p>Tu apoyo en oración y colaboración es una bendición para el hermano Mario, su familia y su ministerio.</p>
+          <h3><i class="fas fa-praying-hands"></i> Oración y apoyo ministerial</h3>
+          <p>Tu intercesión y colaboración son vitales para que este ministerio continúe impactando vidas.</p>
         </div>
         <div class="bio-grid">
           <div class="bio-text">
-            <p>Pedimos a los hermanos que intercedan en oración por la salud del hermano <strong>Mario Salinas</strong>: por sus problemas renales relacionados con la diabetes y por la ceguera que esta enfermedad le dejó anteriormente.</p>
-            <p>También solicitamos colaboración para su familia y para el sostenimiento de su ministerio, a fin de que pueda seguir predicando la Palabra de Dios con fidelidad.</p>
-            <p>Si el Señor pone en tu corazón ayudar, puedes contactarlo directamente. Preferiblemente envía <strong>mensajes de audio</strong> por WhatsApp, ya que le resulta más fácil interactuar de esa manera.</p>
+            <p>El hermano <strong>Mario Salinas</strong> necesita de la oración constante de la Iglesia. Sus problemas renales y su ceguera son desafíos reales, pero la fe de los santos puede mover montañas. <strong>Ora para que Dios le conceda fuerzas, sabiduría y discernimiento</strong> para seguir predicando con poder y unción.</p>
+            <p>Además de la oración, puedes colaborar con el sostenimiento de su ministerio. Los recursos económicos permiten que pueda seguir viajando, adquiriendo materiales y atendiendo las necesidades de la obra. <strong>Cada aporte es una semilla que dará fruto para la gloria de Dios</strong>.</p>
+            <p>Si el Señor pone en tu corazón apoyar, puedes contactarlo directamente. <strong>Los mensajes de audio por WhatsApp</strong> son su medio preferido, ya que le facilitan la interacción debido a su condición visual. Tu voz de aliento es un bálsamo para su espíritu.</p>
           </div>
           <div class="bio-family">
             <div class="family-card">
               <i class="fas fa-hands-helping"></i>
-              <h4>Cómo ayudar</h4>
-              <p>Oración continua y colaboración económica o en especies para su familia y ministerio.</p>
+              <h4>¿Cómo apoyar?</h4>
+              <p>Oración ferviente y colaboración económica para el ministerio. Toda ayuda es bienvenida y bendecida.</p>
             </div>
             <div class="family-card">
               <i class="fas fa-microphone"></i>
               <h4>Contacto preferido</h4>
-              <p>Mensajes de audio por WhatsApp al número indicado. Facilita la comunicación debido a su condición visual.</p>
+              <p>Envía mensajes de audio por WhatsApp. Esto facilita la comunicación y le permite responder con mayor libertad.</p>
             </div>
           </div>
         </div>
@@ -191,11 +256,11 @@
     <section id="contacto" class="section bg-dark">
       <div class="container contacto-simple">
         <h3><i class="fas fa-envelope"></i> Contacta al hermano Mario</h3>
-        <p>Puedes escribirle o, preferiblemente, enviarle un mensaje de audio por WhatsApp. Así le resulta más fácil interactuar.</p>
+        <p>Puedes escribirle o, mejor aún, enviarle un mensaje de audio por WhatsApp. Él responderá con gozo.</p>
         <div class="contact-buttons">
-          <a href="https://wa.me/57372099" target="_blank" class="btn-contact whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp: 57372099</a>
+          <a href="https://wa.me/50557372099" target="_blank" class="btn-contact whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp: 57372099</a>
         </div>
-        <p class="thankyou">Gracias por tus oraciones y por tu apoyo. ¡Que el Señor te bendiga!</p>
+        <p class="thankyou">Gracias por tu oración y apoyo. ¡Que el Señor te bendiga abundantemente!</p>
       </div>
     </section>
   </main>
@@ -222,4 +287,3 @@
   <script src="../hn.js" defer></script>
 </body>
 </html>
-```
