@@ -9,7 +9,6 @@
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS y JS integrados (no dependen de archivos externos) -->
   <style>
     /* ===== RESET Y ESTILOS BASE ===== */
     * {
@@ -153,7 +152,6 @@
       padding: 1.5rem 1.8rem 2rem;
       border-top: 1px solid #f0ebe3;
     }
-    /* Botón de lectura en voz alta */
     .speak-btn {
       display: inline-flex;
       align-items: center;
@@ -363,6 +361,66 @@
     .btn-outline-small:hover {
       background: #c49a6c;
       color: #fff;
+    }
+
+    /* ===== CURSOS BÍBLICOS ===== */
+    .cursos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .curso-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #f0ebe3;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .curso-card:hover {
+      transform: translateY(-4px);
+    }
+    .curso-card i {
+      font-size: 2.5rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
+    .curso-card h4 {
+      font-size: 1.1rem;
+      color: #0d2c2a;
+      margin-bottom: 0.3rem;
+    }
+    .curso-card p {
+      font-size: 0.95rem;
+      color: #4a4540;
+      margin-bottom: 0.8rem;
+    }
+    .curso-card .badge-proximo {
+      display: inline-block;
+      background: #c49a6c;
+      color: #fff;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .btn-curso {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border: 2px solid #0d2c2a;
+      color: #0d2c2a;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.3s;
+      margin-top: 0.5rem;
+    }
+    .btn-curso:hover {
+      background: #0d2c2a;
+      color: #f5f0e8;
     }
 
     /* ===== VIDEOS ===== */
@@ -589,6 +647,7 @@
           <li><a href="#inicio" data-target="inicio">Inicio</a></li>
           <li><a href="#biografia" data-target="biografia">Biografía</a></li>
           <li><a href="#articulos" data-target="articulos">Artículos</a></li>
+          <li><a href="#cursos" data-target="cursos">Cursos bíblicos</a></li>
           <li><a href="#videos" data-target="videos">Videos</a></li>
           <li><a href="#oracion" data-target="oracion">Oración y apoyo</a></li>
           <li><a href="#contacto" data-target="contacto">Contacto</a></li>
@@ -601,7 +660,7 @@
   <main>
     <div class="container">
 
-      <!-- ===== INICIO (HERO) como acordeón ===== -->
+      <!-- ===== INICIO (HERO) ===== -->
       <details class="accordion-section" id="inicio" open>
         <summary><i class="fas fa-home"></i> Inicio</summary>
         <div class="accordion-content">
@@ -622,7 +681,6 @@
               </div>
             </div>
           </div>
-          <!-- Botón de lectura en voz alta para esta sección -->
           <button class="speak-btn" data-section="inicio"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
         </div>
       </details>
@@ -689,6 +747,38 @@
               <h4>Predicando a tiempo y fuera de tiempo</h4>
               <p>Lecciones de perseverancia de un siervo que no se rinde ante las pruebas.</p>
               <a href="articles/art-3" class="btn-outline-small">Leer más</a>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ===== CURSOS BÍBLICOS ===== -->
+      <details class="accordion-section" id="cursos">
+        <summary><i class="fas fa-graduation-cap"></i> Cursos bíblicos</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="cursos"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <p style="margin-bottom:1.2rem;">Cursos bíblicos impartidos por el hermano Mario Salinas para edificación de líderes y obreros.</p>
+          <div class="cursos-grid">
+            <!-- Curso 1: Real -->
+            <div class="curso-card">
+              <i class="fas fa-church"></i>
+              <h4>Mejorando la calidad del culto de adoración</h4>
+              <p>Curso bíblico para líderes y obreros. Aprende a dirigir un culto que honre a Dios y edifique a la congregación.</p>
+              <a href="cursos/curso-1" class="btn-curso">Ver curso</a>
+            </div>
+            <!-- Curso 2: Próximo -->
+            <div class="curso-card">
+              <i class="fas fa-book"></i>
+              <h4>Curso 2</h4>
+              <p>Próximamente</p>
+              <span class="badge-proximo">Próximo</span>
+            </div>
+            <!-- Curso 3: Próximo -->
+            <div class="curso-card">
+              <i class="fas fa-book"></i>
+              <h4>Curso 3</h4>
+              <p>Próximamente</p>
+              <span class="badge-proximo">Próximo</span>
             </div>
           </div>
         </div>
@@ -826,7 +916,6 @@
       }
 
       // ===== NAVEGACIÓN POR ACORDEÓN =====
-      // Al hacer clic en un enlace del menú que tenga data-target, abrir ese acordeón
       const navLinks = document.querySelectorAll('.navbar a[data-target]');
       navLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
@@ -835,7 +924,6 @@
           if (targetDetail) {
             e.preventDefault();
             targetDetail.open = true;
-            // Desplazar suavemente hacia el acordeón
             targetDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
@@ -862,60 +950,35 @@
         });
       }
 
-      // ===== LECTURA EN VOZ ALTA (SPEECHSYNTHESIS) =====
+      // ===== LECTURA EN VOZ ALTA =====
       const speakBtns = document.querySelectorAll('.speak-btn');
-      let currentUtterance = null; // para detener la lectura anterior
-
       speakBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          // Detener cualquier lectura en curso
           if (window.speechSynthesis) {
             window.speechSynthesis.cancel();
           }
-
-          // Obtener la sección a la que pertenece el botón
           const section = this.closest('.accordion-section');
           if (!section) return;
-
-          // Extraer todo el texto visible del contenido de la sección (sin incluir el summary)
           const content = section.querySelector('.accordion-content');
           if (!content) return;
-
-          // Clonar el contenido para no modificar el DOM
           const clone = content.cloneNode(true);
-          // Eliminar el botón de "escuchar" del clon para no repetirlo
           const speakBtnClone = clone.querySelector('.speak-btn');
           if (speakBtnClone) speakBtnClone.remove();
-
-          // Obtener el texto limpio
           let text = clone.textContent || '';
-          // Limpiar espacios y saltos de línea excesivos
           text = text.replace(/\s+/g, ' ').trim();
-
           if (!text) {
             alert('No hay texto para leer en esta sección.');
             return;
           }
-
-          // Usar la API de SpeechSynthesis
           if (!window.speechSynthesis) {
             alert('Tu navegador no soporta la lectura en voz alta.');
             return;
           }
-
           const utterance = new SpeechSynthesisUtterance(text);
           utterance.lang = 'es-ES';
-          utterance.rate = 0.9; // velocidad
+          utterance.rate = 0.9;
           utterance.pitch = 1;
           utterance.volume = 1;
-
-          // Guardar referencia para poder cancelar
-          currentUtterance = utterance;
-
-          utterance.onend = function() {
-            currentUtterance = null;
-          };
-
           window.speechSynthesis.speak(utterance);
         });
       });
