@@ -1,6 +1,6 @@
 /* ============================================
-   articulos.css - Estilos para artículos de Mario Salinas
-   Uso compartido para art-1.html, art-2.html, etc.
+   art.css - Estilos para artículos de Mario Salinas
+   Uso compartido para todos los artículos
    ============================================ */
 
 /* ===== RESET Y ESTILOS BASE ===== */
@@ -148,37 +148,21 @@ img {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.article-featured-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ===== MEDIA WRAPPER (video/audio) ===== */
+/* ===== REPRODUCTOR DE AUDIO ===== */
 .media-wrapper {
-  position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   margin: 1.5rem auto;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   background: #0d2c2a;
-}
-
-.media-wrapper iframe {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 9 / 16;
-  border: none;
+  padding: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .media-wrapper audio {
   display: block;
   width: 100%;
-  padding: 1rem;
-  background: #0d2c2a;
 }
 
 .media-caption {
@@ -201,7 +185,6 @@ img {
 
 .article-body blockquote {
   border-left: 5px solid #c49a6c;
-  padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
   color: #3d3a36;
@@ -225,7 +208,7 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* ===== COMENTARIO ===== */
+/* ===== COMENTARIO / AMPLIACIÓN ===== */
 .commentary-section {
   background: #f8f6f2;
   padding: 1.8rem;
@@ -244,17 +227,66 @@ img {
   margin-right: 0.5rem;
 }
 
-.commentary-section h4 {
-  font-weight: 500;
-  color: #6b5e4e;
-  margin-top: 0.5rem;
-}
-
 .commentary-section blockquote {
   margin: 1rem 0;
   font-style: italic;
   border-left: 3px solid #c49a6c;
   padding-left: 1rem;
+}
+
+/* ===== SECCIÓN DE APOYO (WHATSAPP) ===== */
+.support-section {
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 16px;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e8e0d6;
+}
+
+.support-section h3 {
+  color: #0d2c2a;
+  margin-top: 0;
+}
+
+.support-section h3 i {
+  color: #c49a6c;
+  margin-right: 0.5rem;
+}
+
+.support-section p {
+  margin-bottom: 1.2rem;
+  color: #4a4540;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #25d366;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5c;
+  transform: scale(1.02);
+}
+
+.support-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #6b5e4e;
+}
+
+.support-note strong {
+  color: #0d2c2a;
 }
 
 /* ===== NAVEGACIÓN ENTRE ARTÍCULOS ===== */
@@ -278,8 +310,7 @@ img {
   color: #f5f0e8;
   border-radius: 30px;
   font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
   font-size: 0.95rem;
 }
 
@@ -294,8 +325,9 @@ img {
   background: #aaa;
 }
 
-.article-navigation .nav-btn i {
-  font-size: 1.1rem;
+.nav-separator {
+  color: #6b5e4e;
+  font-size: 1.5rem;
 }
 
 .back-to-articles {
@@ -376,14 +408,14 @@ img {
   justify-content: center;
   font-size: 1.4rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s;
   z-index: 999;
-  opacity: 0.8;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .scroll-top:hover {
   background: #c49a6c;
-  opacity: 1;
 }
 
 /* ============================================
@@ -427,6 +459,11 @@ img {
   .media-wrapper {
     max-width: 100%;
   }
+
+  .btn-whatsapp {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
 }
 
 /* Móviles pequeños */
@@ -447,8 +484,12 @@ img {
     font-size: 1rem;
   }
 
-  .article-header .meta {
-    font-size: 0.8rem;
-    gap: 0.8rem;
+  .support-section {
+    padding: 1.2rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }

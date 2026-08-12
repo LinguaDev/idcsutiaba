@@ -9,20 +9,389 @@
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS externo (se creará después) -->
-  <link rel="stylesheet" href="../hn.css">
+  <!-- CSS y JS integrados (no dependen de archivos externos) -->
   <style>
-    /* Estilos adicionales para responsividad de iframes y mejoras visuales */
+    /* ===== RESET Y ESTILOS BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f0e8;
+      color: #2c2a28;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #0d2c2a;
+      color: #f5f0e8;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo i {
+      font-size: 2rem;
+      color: #c49a6c;
+    }
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      display: block;
+      margin-top: -0.2rem;
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #f5f0e8;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .navbar ul li a {
+      color: #f5f0e8;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar ul li a:hover {
+      color: #c49a6c;
+      border-bottom-color: #c49a6c;
+    }
+
+    /* ===== ACORDEÓN ===== */
+    .accordion-section {
+      margin: 1rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid #e8e0d6;
+    }
+    .accordion-section summary {
+      padding: 1.2rem 1.8rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d2c2a;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .accordion-section summary::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-section summary::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 1.8rem;
+      font-size: 1rem;
+      color: #c49a6c;
+      transition: transform 0.3s;
+    }
+    .accordion-section[open] summary::after {
+      transform: rotate(180deg);
+    }
+    .accordion-section summary:hover {
+      background: #f8f6f2;
+    }
+    .accordion-section summary i {
+      color: #c49a6c;
+      font-size: 1.4rem;
+      width: 2rem;
+      text-align: center;
+    }
+    .accordion-content {
+      padding: 1.5rem 1.8rem 2rem;
+      border-top: 1px solid #f0ebe3;
+    }
+    /* Botón de lectura en voz alta */
+    .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0d2c2a;
+      color: #f5f0e8;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 1.5rem;
+    }
+    .speak-btn:hover {
+      background: #c49a6c;
+      color: #0d2c2a;
+    }
+    .speak-btn i {
+      font-size: 1rem;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #0d2c2a 0%, #1a4a47 100%);
+      color: #f5f0e8;
+      padding: 3rem 0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(13,44,42,0.7);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-text {
+      flex: 1 1 60%;
+    }
+    .hero-text .badge {
+      display: inline-block;
+      background: #c49a6c;
+      color: #0d2c2a;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: #c49a6c;
+      color: #0d2c2a;
+    }
+    .btn-primary:hover {
+      background: #dbb48b;
+      transform: scale(1.02);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #f5f0e8;
+      border: 2px solid #f5f0e8;
+    }
+    .btn-secondary:hover {
+      background: #f5f0e8;
+      color: #0d2c2a;
+    }
+    .hero-image {
+      flex: 0 0 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #c49a6c;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* ===== BIOGRAFÍA ===== */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    .bio-text p {
+      margin-bottom: 1rem;
+    }
+    .bio-data {
+      background: #f8f6f2;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+    .bio-data h4 {
+      color: #0d2c2a;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #c49a6c;
+      padding-bottom: 0.5rem;
+    }
+    .bio-data ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bio-data ul li {
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .bio-data ul li strong {
+      color: #0d2c2a;
+    }
+    .bio-data ul li i {
+      color: #c49a6c;
+      width: 1.5rem;
+      text-align: center;
+      margin-right: 0.5rem;
+    }
+
+    /* ===== ARTÍCULOS ===== */
+    .escritos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .escrito-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #f0ebe3;
+      transition: transform 0.2s;
+    }
+    .escrito-card:hover {
+      transform: translateY(-4px);
+    }
+    .escrito-card i {
+      font-size: 2rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
+    .escrito-card h4 {
+      font-size: 1.1rem;
+      color: #0d2c2a;
+      margin-bottom: 0.3rem;
+    }
+    .escrito-card p {
+      font-size: 0.95rem;
+      color: #4a4540;
+      margin-bottom: 0.8rem;
+    }
+    .btn-outline-small {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border: 2px solid #c49a6c;
+      color: #c49a6c;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+    .btn-outline-small:hover {
+      background: #c49a6c;
+      color: #fff;
+    }
+
+    /* ===== VIDEOS ===== */
+    .recursos-flex {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .recurso-block {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #f0ebe3;
+    }
+    .recurso-block i {
+      font-size: 2.2rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
     .video-wrapper {
       position: relative;
       width: 100%;
-      padding-bottom: 178%; /* Relación 9:16 (267/476) */
+      padding-bottom: 178%; /* 9:16 */
       height: 0;
       overflow: hidden;
       background: #0d2c2a;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      margin-top: 1rem;
+      border-radius: 8px;
+      margin-top: 0.8rem;
     }
     .video-wrapper iframe {
       position: absolute;
@@ -32,239 +401,380 @@
       height: 100%;
       border: none;
     }
-    .video-wrapper iframe[allowfullscreen] {
-      /* asegurar fullscreen */
-    }
-    @media (max-width: 600px) {
-      .video-wrapper {
-        padding-bottom: 178%; /* se mantiene */
-      }
-    }
-    .recurso-block {
+
+    /* ===== ORACIÓN Y CONTACTO ===== */
+    .family-card {
       background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #f0ebe3;
+      margin-bottom: 1rem;
     }
-    .recurso-block:hover {
-      transform: translateY(-4px);
-    }
-    .recurso-block i {
-      font-size: 2.2rem;
+    .family-card i {
       color: #c49a6c;
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+    .contacto-simple {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .contacto-simple h3 {
+      font-size: 1.8rem;
       margin-bottom: 0.5rem;
     }
-    .btn-outline-small {
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border: 2px solid #c49a6c;
-      color: #c49a6c;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: 0.3s;
-      text-decoration: none;
-      margin-top: 0.5rem;
+    .contacto-simple p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
     }
-    .btn-outline-small:hover {
-      background: #c49a6c;
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #25d366;
       color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background 0.3s;
     }
-    .bg-light {
-      background: #f8f6f2;
+    .btn-contact:hover {
+      background: #1ebe5c;
     }
-    .bg-dark {
+    .thankyou {
+      margin-top: 1.5rem;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
       background: #0d2c2a;
       color: #f5f0e8;
+      padding: 2rem 0;
+      margin-top: 2rem;
     }
-    .bg-dark h3, .bg-dark p {
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-logo i {
+      font-size: 2rem;
+      color: #c49a6c;
+    }
+    .footer-logo p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
       color: #f5f0e8;
+      transition: color 0.3s;
     }
-    .bg-dark .btn-contact {
+    .footer-links a:hover {
+      color: #c49a6c;
+    }
+    .footer-copyright {
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ===== SCROLL TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0d2c2a;
+      color: #f5f0e8;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .scroll-top:hover {
       background: #c49a6c;
-      color: #0d2c2a;
     }
-    .bg-dark .btn-contact:hover {
-      background: #dbb48b;
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        display: none;
+        width: 100%;
+      }
+      .navbar.active {
+        display: block;
+      }
+      .navbar ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem 0;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-image {
+        flex: 0 0 150px;
+      }
+      .hero-image img {
+        height: 150px;
+      }
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+      .accordion-section summary {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+      }
+      .accordion-content {
+        padding: 1rem 1.2rem 1.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .logo h1 {
+        font-size: 1.2rem;
+      }
+      .logo-sub {
+        font-size: 0.7rem;
+      }
+      .hero-text h1 {
+        font-size: 1.6rem;
+      }
+      .hero-image {
+        flex: 0 0 120px;
+      }
+      .hero-image img {
+        height: 120px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header-container">
       <div class="logo">
         <i class="fas fa-bible"></i>
-        <h1>Mario Salinas</h1>
-        <span class="logo-sub">Predicador de la Iglesia de Cristo</span>
+        <div>
+          <h1>Mario Salinas</h1>
+          <span class="logo-sub">Predicador de la Iglesia de Cristo</span>
+        </div>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
         <i class="fas fa-bars"></i>
       </button>
-      <nav class="navbar" id="navbar">
-        <ul class="nav-menu">
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#biografia" class="nav-link">Biografía</a></li>
-          <li><a href="#articulos" class="nav-link">Artículos</a></li>
-          <li><a href="#videos" class="nav-link">Videos</a></li>
-          <li><a href="#oracion" class="nav-link">Oración y apoyo</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="../../index.html" class="nav-link" target="_blank">IDCLATAM</a></li>
+      <nav class="navbar" id="navbar" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio" data-target="inicio">Inicio</a></li>
+          <li><a href="#biografia" data-target="biografia">Biografía</a></li>
+          <li><a href="#articulos" data-target="articulos">Artículos</a></li>
+          <li><a href="#videos" data-target="videos">Videos</a></li>
+          <li><a href="#oracion" data-target="oracion">Oración y apoyo</a></li>
+          <li><a href="#contacto" data-target="contacto">Contacto</a></li>
+          <li><a href="https://idclatam.org" target="_blank">IDCLATAM</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="inicio" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="hero-text">
-          <span class="badge">Predicador de la Iglesia de Cristo</span>
-          <h1>Mario Salinas</h1>
-          <p><strong>“Predica la palabra; insiste a tiempo y fuera de tiempo”</strong> (2 Timoteo 4:2). A pesar de la ceguera y los problemas renales, Mario Salinas levanta su voz con fe inquebrantable. Su ministerio es un faro de esperanza y un llamado a la perseverancia para toda la Iglesia.</p>
-          <div class="hero-buttons">
-            <a href="#oracion" class="btn btn-primary"><i class="fas fa-praying-hands"></i> Ora y apoya</a>
-            <a href="#videos" class="btn btn-secondary"><i class="fas fa-video"></i> Ver predicaciones</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img src="mario.jpg" alt="Mario Salinas" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Mario+Salinas'">
-        </div>
-      </div>
-    </section>
+    <div class="container">
 
-    <!-- Biografía ministerial -->
-    <section id="biografia" class="section biografia">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-user-alt"></i> Su ministerio</h3>
-          <p>Un siervo que predica con valentía en medio de la adversidad.</p>
-        </div>
-        <div class="bio-grid">
-          <div class="bio-text">
-            <p>Mario Salinas es un predicador de la Iglesia de Cristo cuya vida es un testimonio vivo de <strong>fe y perseverancia</strong>. La diabetes lo dejó ciego y hoy enfrenta graves problemas renales, pero lejos de detenerse, su voz resuena con más fuerza proclamando el evangelio <strong>a tiempo y fuera de tiempo</strong>.</p>
-            <p>Su ministerio no se ha apagado; al contrario, se ha encendido como antorcha en medio de la oscuridad. Cada mensaje que predica es un recordatorio de que <strong>Dios usa lo débil para confundir lo fuerte</strong>, y que el poder del Espíritu se perfecciona en la debilidad.</p>
-            <p>Mario no solo predica con palabras, sino con su propia existencia: es un ejemplo de que el llamado de Dios es más fuerte que cualquier limitación física. Su labor pastoral y su entrega a la Palabra han bendecido a cientos de hermanos, y su legado sigue creciendo.</p>
-            <p>Hoy te invitamos a conocer su obra, a ser edificado por sus enseñanzas y a unirte en oración para que este siervo fiel continúe siendo instrumento de bendición para la Iglesia de Cristo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Artículos con títulos reales -->
-    <section id="articulos" class="section escritos bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-book-open"></i> Artículos</h3>
-          <p>Reflexiones bíblicas que el hermano Mario comparte para edificación del cuerpo de Cristo.</p>
-        </div>
-        <div class="escritos-grid">
-          <div class="escrito-card">
-            <i class="fas fa-pen"></i>
-            <h4>El cielo te espera</h4>
-            <p>La clave para no retroceder en el camino de la fe.</p>
-            <a href="articles/art-1.html" class="btn-outline-small">Leer más</a>
-          </div>
-          <div class="escrito-card">
-            <i class="fas fa-cross"></i>
-            <h4>El justo florecerá como la palmera</h4>
-            <p>Aliento en tiempos de crisis. Cómo mantenerse firme y productivo aun en las sequías espirituales.</p>
-            <a href="#" class="btn-outline-small">Leer más</a>
-          </div>
-          <div class="escrito-card">
-            <i class="fas fa-bible"></i>
-            <h4>Predicando a tiempo y fuera de tiempo</h4>
-            <p>Lecciones de perseverancia de un siervo que no se rinde ante las pruebas. El llamado urgente a proclamar la Palabra.</p>
-            <a href="#" class="btn-outline-small">Leer más</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Videos con enlaces reales de Facebook y responsive -->
-    <section id="videos" class="section recursos">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-video"></i> Predicaciones en video</h3>
-          <p>Mensajes impactantes del hermano Mario Salinas que fortalecen la fe y animan al pueblo de Dios.</p>
-        </div>
-        <div class="recursos-flex">
-          <!-- Video 1: Obesidad espiritual -->
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>Obesidad espiritual</h3>
-            <p>El peligro de alimentarse mucho y no producir nada. Un mensaje que confronta y desafía.</p>
-            <div class="video-wrapper">
-              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1654628982300301%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+      <!-- ===== INICIO (HERO) como acordeón ===== -->
+      <details class="accordion-section" id="inicio" open>
+        <summary><i class="fas fa-home"></i> Inicio</summary>
+        <div class="accordion-content">
+          <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+              <div class="hero-text">
+                <span class="badge">Predicador de la Iglesia de Cristo</span>
+                <h1>Mario Salinas</h1>
+                <p><strong>“Predica la palabra; insiste a tiempo y fuera de tiempo”</strong> (2 Timoteo 4:2). A pesar de la ceguera y los problemas renales, Mario Salinas levanta su voz con fe inquebrantable. Su ministerio es un faro de esperanza y un llamado a la perseverancia para toda la Iglesia.</p>
+                <div class="hero-buttons">
+                  <a href="#oracion" class="btn btn-primary" onclick="document.getElementById('oracion').open=true; event.preventDefault();"><i class="fas fa-praying-hands"></i> Ora y apoya</a>
+                  <a href="#videos" class="btn btn-secondary" onclick="document.getElementById('videos').open=true; event.preventDefault();"><i class="fas fa-video"></i> Ver predicaciones</a>
+                </div>
+              </div>
+              <div class="hero-image">
+                <img src="mario.jpg" alt="Mario Salinas, predicador" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Mario+Salinas'">
+              </div>
             </div>
           </div>
-          <!-- Video 2: El justo florecerá como la palmera -->
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>El justo florecerá como la palmera</h3>
-            <p>Aliento en tiempos de crisis. Cómo mantenerse firme y dar fruto aun en la adversidad.</p>
-            <div class="video-wrapper">
-              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1362661809174750%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          <!-- Botón de lectura en voz alta para esta sección -->
+          <button class="speak-btn" data-section="inicio"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+        </div>
+      </details>
+
+      <!-- ===== BIOGRAFÍA ===== -->
+      <details class="accordion-section" id="biografia">
+        <summary><i class="fas fa-user-alt"></i> Biografía y ministerio</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="biografia"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <div class="bio-grid">
+            <div class="bio-text">
+              <p>Mario Salinas es un predicador de la Iglesia de Cristo cuya vida es un testimonio vivo de <strong>fe y perseverancia</strong>. La diabetes lo dejó ciego y hoy enfrenta graves problemas renales, pero lejos de detenerse, su voz resuena con más fuerza proclamando el evangelio <strong>a tiempo y fuera de tiempo</strong>.</p>
+              <p>Su ministerio no se ha apagado; al contrario, se ha encendido como antorcha en medio de la oscuridad. Cada mensaje que predica es un recordatorio de que <strong>Dios usa lo débil para confundir lo fuerte</strong>, y que el poder del Espíritu se perfecciona en la debilidad.</p>
+              <p>Mario no solo predica con palabras, sino con su propia existencia: es un ejemplo de que el llamado de Dios es más fuerte que cualquier limitación física. Su labor pastoral y su entrega a la Palabra han bendecido a cientos de hermanos, y su legado sigue creciendo.</p>
+              <p>Hoy te invitamos a conocer su obra, a ser edificado por sus enseñanzas y a unirte en oración para que este siervo fiel continúe siendo instrumento de bendición para la Iglesia de Cristo.</p>
             </div>
-          </div>
-          <!-- Video 3: Próximamente -->
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>Próximamente</h3>
-            <p>Más mensajes del hermano Mario serán añadidos pronto. <br> <strong>¡Suscríbete para no perdértelos!</strong></p>
-            <div class="video-wrapper" style="background: #e8e0d6; display: flex; align-items: center; justify-content: center; color: #0d2c2a; font-weight: 500;">
-              <span style="text-align: center; padding: 1rem;">🔔 Pronto nuevos videos</span>
+            <div class="bio-data">
+              <h4><i class="fas fa-id-card"></i> Datos personales</h4>
+              <ul>
+                <li><i class="fas fa-user"></i> <strong>Nombre:</strong> Mario José Salinas Parrales</li>
+                <li><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Reparto Enrique Lorente, casa 128, León, Nicaragua</li>
+                <li><i class="fas fa-calendar-alt"></i> <strong>Nacimiento:</strong> 12 de diciembre de 1981 (44 años)</li>
+                <li><i class="fas fa-cross"></i> <strong>Bautismo:</strong> 24 de enero de 1994</li>
+                <li><i class="fas fa-ring"></i> <strong>Matrimonio:</strong> Casado con Magaly del Carmen Paiz Catin (16 de junio de 1999)</li>
+                <li><i class="fas fa-child"></i> <strong>Hijos:</strong> Una hija de 26 años y una nieta</li>
+              </ul>
+              <h4 style="margin-top:1.2rem;"><i class="fas fa-graduation-cap"></i> Estudios</h4>
+              <ul>
+                <li><i class="fas fa-laptop"></i> <strong>Académicos:</strong> Técnico Operador y Programador Analista en Computación (2001). Estudios en Administración de Empresas (2003).</li>
+                <li><i class="fas fa-bible"></i> <strong>Bíblicos:</strong> Instituto Bíblico de la Iglesia de Cristo, Reparto Fátima, León (2000). Seminarios en Instituto Bíblico Baxter (Honduras) y estudios en Instituto Bíblico BICA.</li>
+              </ul>
+              <h4 style="margin-top:1.2rem;"><i class="fas fa-church"></i> Experiencia ministerial</h4>
+              <ul>
+                <li><i class="fas fa-place-of-worship"></i> <strong>1997-2007:</strong> Predicador en Iglesia de Cristo, Reparto Villa Soberana, León.</li>
+                <li><i class="fas fa-place-of-worship"></i> <strong>2008-2012:</strong> Líder predicador en Iglesia de Cristo, Reparto Fátima, León.</li>
+                <li><i class="fas fa-globe-americas"></i> <strong>2013-actualidad:</strong> Misionero en iglesias del occidente y norte de Nicaragua.</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </details>
 
-    <!-- Oración y apoyo ministerial (sin mencionar familia) -->
-    <section id="oracion" class="section biografia">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-praying-hands"></i> Oración y apoyo ministerial</h3>
+      <!-- ===== ARTÍCULOS ===== -->
+      <details class="accordion-section" id="articulos">
+        <summary><i class="fas fa-book-open"></i> Artículos</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="articulos"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <p style="margin-bottom:1.2rem;">Reflexiones bíblicas que el hermano Mario comparte para edificación del cuerpo de Cristo.</p>
+          <div class="escritos-grid">
+            <div class="escrito-card">
+              <i class="fas fa-pen"></i>
+              <h4>El cielo te espera</h4>
+              <p>La clave para no retroceder en el camino de la fe.</p>
+              <a href="articles/art-1" class="btn-outline-small">Leer más</a>
+            </div>
+            <div class="escrito-card">
+              <i class="fas fa-cross"></i>
+              <h4>El Tribunal de Cristo: ¿Miedo o Alegría?</h4>
+              <p>La expectativa del juicio divino y cómo prepararnos para él con fe y arrepentimiento.</p>
+              <a href="articles/art-2" class="btn-outline-small">Leer más</a>
+            </div>
+            <div class="escrito-card">
+              <i class="fas fa-bible"></i>
+              <h4>Predicando a tiempo y fuera de tiempo</h4>
+              <p>Lecciones de perseverancia de un siervo que no se rinde ante las pruebas.</p>
+              <a href="articles/art-3" class="btn-outline-small">Leer más</a>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ===== VIDEOS ===== -->
+      <details class="accordion-section" id="videos">
+        <summary><i class="fas fa-video"></i> Predicaciones en video</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="videos"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <p style="margin-bottom:1.2rem;">Mensajes impactantes del hermano Mario Salinas que fortalecen la fe y animan al pueblo de Dios.</p>
+          <div class="recursos-flex">
+            <div class="recurso-block">
+              <i class="fas fa-play-circle"></i>
+              <h3>Obesidad espiritual</h3>
+              <p>El peligro de alimentarse mucho y no producir nada.</p>
+              <div class="video-wrapper">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1654628982300301%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+              </div>
+            </div>
+            <div class="recurso-block">
+              <i class="fas fa-play-circle"></i>
+              <h3>El justo florecerá como la palmera</h3>
+              <p>Aliento en tiempos de crisis.</p>
+              <div class="video-wrapper">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1362661809174750%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+              </div>
+            </div>
+            <div class="recurso-block">
+              <i class="fas fa-play-circle"></i>
+              <h3>Próximamente</h3>
+              <p>Más mensajes serán añadidos pronto. <br> <strong>¡Suscríbete!</strong></p>
+              <div class="video-wrapper" style="background:#e8e0d6; display:flex; align-items:center; justify-content:center; color:#0d2c2a; font-weight:500;">
+                <span style="text-align:center; padding:1rem;">🔔 Pronto nuevos videos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ===== ORACIÓN Y APOYO ===== -->
+      <details class="accordion-section" id="oracion">
+        <summary><i class="fas fa-praying-hands"></i> Oración y apoyo ministerial</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="oracion"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
           <p>Tu intercesión y colaboración son vitales para que este ministerio continúe impactando vidas.</p>
-        </div>
-        <div class="bio-grid">
-          <div class="bio-text">
-            <p>El hermano <strong>Mario Salinas</strong> necesita de la oración constante de la Iglesia. Sus problemas renales y su ceguera son desafíos reales, pero la fe de los santos puede mover montañas. <strong>Ora para que Dios le conceda fuerzas, sabiduría y discernimiento</strong> para seguir predicando con poder y unción.</p>
-            <p>Además de la oración, puedes colaborar con el sostenimiento de su ministerio. Los recursos económicos permiten que pueda seguir viajando, adquiriendo materiales y atendiendo las necesidades de la obra. <strong>Cada aporte es una semilla que dará fruto para la gloria de Dios</strong>.</p>
-            <p>Si el Señor pone en tu corazón apoyar, puedes contactarlo directamente. <strong>Los mensajes de audio por WhatsApp</strong> son su medio preferido, ya que le facilitan la interacción debido a su condición visual. Tu voz de aliento es un bálsamo para su espíritu.</p>
-          </div>
-          <div class="bio-family">
-            <div class="family-card">
-              <i class="fas fa-hands-helping"></i>
-              <h4>¿Cómo apoyar?</h4>
-              <p>Oración ferviente y colaboración económica para el ministerio. Toda ayuda es bienvenida y bendecida.</p>
+          <div class="bio-grid" style="margin-top:1.2rem;">
+            <div class="bio-text">
+              <p>El hermano <strong>Mario Salinas</strong> necesita de la oración constante de la Iglesia. Sus problemas renales y su ceguera son desafíos reales, pero la fe de los santos puede mover montañas. <strong>Ora para que Dios le conceda fuerzas, sabiduría y discernimiento</strong> para seguir predicando con poder y unción.</p>
+              <p>Además de la oración, puedes colaborar con el sostenimiento de su ministerio. Los recursos económicos permiten que pueda seguir viajando, adquiriendo materiales y atendiendo las necesidades de la obra. <strong>Cada aporte es una semilla que dará fruto para la gloria de Dios</strong>.</p>
+              <p>Si el Señor pone en tu corazón apoyar, puedes contactarlo directamente. <strong>Los mensajes de audio por WhatsApp</strong> son su medio preferido, ya que le facilitan la interacción debido a su condición visual. Tu voz de aliento es un bálsamo para su espíritu.</p>
             </div>
-            <div class="family-card">
-              <i class="fas fa-microphone"></i>
-              <h4>Contacto preferido</h4>
-              <p>Envía mensajes de audio por WhatsApp. Esto facilita la comunicación y le permite responder con mayor libertad.</p>
+            <div>
+              <div class="family-card">
+                <i class="fas fa-hands-helping"></i>
+                <h4>¿Cómo apoyar?</h4>
+                <p>Oración ferviente y colaboración económica para el ministerio. Toda ayuda es bienvenida y bendecida.</p>
+              </div>
+              <div class="family-card">
+                <i class="fas fa-microphone"></i>
+                <h4>Contacto preferido</h4>
+                <p>Envía mensajes de audio por WhatsApp. Esto facilita la comunicación y le permite responder con mayor libertad.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </details>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section bg-dark">
-      <div class="container contacto-simple">
-        <h3><i class="fas fa-envelope"></i> Contacta al hermano Mario</h3>
-        <p>Puedes escribirle o, mejor aún, enviarle un mensaje de audio por WhatsApp. Él responderá con gozo.</p>
-        <div class="contact-buttons">
-          <a href="https://wa.me/50557372099" target="_blank" class="btn-contact whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp: 57372099</a>
+      <!-- ===== CONTACTO ===== -->
+      <details class="accordion-section" id="contacto">
+        <summary><i class="fas fa-envelope"></i> Contacto</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="contacto"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <div class="contacto-simple">
+            <h3>Contacta al hermano Mario</h3>
+            <p>Puedes escribirle o, mejor aún, enviarle un mensaje de audio por WhatsApp. Él responderá con gozo.</p>
+            <a href="https://wa.me/50557372099" target="_blank" class="btn-contact"><i class="fab fa-whatsapp"></i> WhatsApp: 57372099</a>
+            <p class="thankyou">Gracias por tu oración y apoyo. ¡Que el Señor te bendiga abundantemente!</p>
+          </div>
         </div>
-        <p class="thankyou">Gracias por tu oración y apoyo. ¡Que el Señor te bendiga abundantemente!</p>
-      </div>
-    </section>
+      </details>
+
+    </div>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-logo">
@@ -273,8 +783,8 @@
       </div>
       <div class="footer-links">
         <a href="https://idclatam.org">IDCLATAM</a>
-        <a href="#oracion">Oración y apoyo</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#oracion" onclick="document.getElementById('oracion').open=true; event.preventDefault();">Oración y apoyo</a>
+        <a href="#contacto" onclick="document.getElementById('contacto').open=true; event.preventDefault();">Contacto</a>
       </div>
       <div class="footer-copyright">
         <p>Mario Salinas</p>
@@ -282,8 +792,136 @@
     </div>
   </footer>
 
-  <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+  <a href="#header" class="scroll-top" id="scrollTopBtn" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
-  <script src="../hn.js" defer></script>
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ===== MENÚ MÓVIL =====
+      const toggle = document.getElementById('mobileToggle');
+      const navbar = document.getElementById('navbar');
+      if (toggle && navbar) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navbar.classList.toggle('active');
+        });
+        const links = navbar.querySelectorAll('a');
+        links.forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (navbar.classList.contains('active')) {
+              navbar.classList.remove('active');
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (navbar.classList.contains('active')) {
+            const isInside = navbar.contains(e.target) || toggle.contains(e.target);
+            if (!isInside) {
+              navbar.classList.remove('active');
+            }
+          }
+        });
+      }
+
+      // ===== NAVEGACIÓN POR ACORDEÓN =====
+      // Al hacer clic en un enlace del menú que tenga data-target, abrir ese acordeón
+      const navLinks = document.querySelectorAll('.navbar a[data-target]');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('data-target');
+          const targetDetail = document.getElementById(targetId);
+          if (targetDetail) {
+            e.preventDefault();
+            targetDetail.open = true;
+            // Desplazar suavemente hacia el acordeón
+            targetDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // ===== BOTÓN SCROLL TOP =====
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      if (scrollBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 400) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.visibility = 'visible';
+          } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.visibility = 'hidden';
+          }
+        });
+        scrollBtn.style.opacity = '0';
+        scrollBtn.style.visibility = 'hidden';
+        scrollBtn.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        scrollBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // ===== LECTURA EN VOZ ALTA (SPEECHSYNTHESIS) =====
+      const speakBtns = document.querySelectorAll('.speak-btn');
+      let currentUtterance = null; // para detener la lectura anterior
+
+      speakBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          // Detener cualquier lectura en curso
+          if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+          }
+
+          // Obtener la sección a la que pertenece el botón
+          const section = this.closest('.accordion-section');
+          if (!section) return;
+
+          // Extraer todo el texto visible del contenido de la sección (sin incluir el summary)
+          const content = section.querySelector('.accordion-content');
+          if (!content) return;
+
+          // Clonar el contenido para no modificar el DOM
+          const clone = content.cloneNode(true);
+          // Eliminar el botón de "escuchar" del clon para no repetirlo
+          const speakBtnClone = clone.querySelector('.speak-btn');
+          if (speakBtnClone) speakBtnClone.remove();
+
+          // Obtener el texto limpio
+          let text = clone.textContent || '';
+          // Limpiar espacios y saltos de línea excesivos
+          text = text.replace(/\s+/g, ' ').trim();
+
+          if (!text) {
+            alert('No hay texto para leer en esta sección.');
+            return;
+          }
+
+          // Usar la API de SpeechSynthesis
+          if (!window.speechSynthesis) {
+            alert('Tu navegador no soporta la lectura en voz alta.');
+            return;
+          }
+
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'es-ES';
+          utterance.rate = 0.9; // velocidad
+          utterance.pitch = 1;
+          utterance.volume = 1;
+
+          // Guardar referencia para poder cancelar
+          currentUtterance = utterance;
+
+          utterance.onend = function() {
+            currentUtterance = null;
+          };
+
+          window.speechSynthesis.speak(utterance);
+        });
+      });
+
+    })();
+  </script>
+
 </body>
 </html>
