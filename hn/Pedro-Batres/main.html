@@ -1,227 +1,674 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Pedro Batres | Pionero de la Iglesia de Cristo en Nicaragua | IDCLATAM</title>
-  <meta name="description" content="Pedro Batres, junto a su hermano, es uno de los pioneros de la Iglesia de Cristo en Nicaragua. Egresado del Instituto Sunset (Texas) en 1970. Larga trayectoria de servicio en Nicaragua y Latinoamérica.">
-  <meta name="keywords" content="Pedro Batres, Iglesia de Cristo, Nicaragua, pionero, Sunset Institute, predicador, IDCLATAM">
+  <meta name="description" content="Pedro Salvador Batres, anciano de la Iglesia de Cristo en Nueva Libia, Managua y pionero en compartir las enseñanzas de la Iglesia de Cristo en Nicaragua en los años 70.">
+  <meta name="keywords" content="Pedro Batres, Pedro Salvador Batres, Iglesia de Cristo, Nicaragua, Nueva Libia, Managua, pionero, IDCLATAM">
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="../hn.css">
+  <style>
+    /* ===== RESET Y ESTILOS BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f0e8;
+      color: #2c2a28;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #0d2c2a;
+      color: #f5f0e8;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo i {
+      font-size: 2rem;
+      color: #c49a6c;
+    }
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      display: block;
+      margin-top: -0.2rem;
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #f5f0e8;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .navbar ul li a {
+      color: #f5f0e8;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar ul li a:hover {
+      color: #c49a6c;
+      border-bottom-color: #c49a6c;
+    }
+
+    /* ===== ACORDEÓN ===== */
+    .accordion-section {
+      margin: 1rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid #e8e0d6;
+    }
+    .accordion-section summary {
+      padding: 1.2rem 1.8rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d2c2a;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .accordion-section summary::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-section summary::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 1.8rem;
+      font-size: 1rem;
+      color: #c49a6c;
+      transition: transform 0.3s;
+    }
+    .accordion-section[open] summary::after {
+      transform: rotate(180deg);
+    }
+    .accordion-section summary:hover {
+      background: #f8f6f2;
+    }
+    .accordion-section summary i {
+      color: #c49a6c;
+      font-size: 1.4rem;
+      width: 2rem;
+      text-align: center;
+    }
+    .accordion-content {
+      padding: 1.5rem 1.8rem 2rem;
+      border-top: 1px solid #f0ebe3;
+    }
+    .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0d2c2a;
+      color: #f5f0e8;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 1.5rem;
+    }
+    .speak-btn:hover {
+      background: #c49a6c;
+      color: #0d2c2a;
+    }
+    .speak-btn i {
+      font-size: 1rem;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #0d2c2a 0%, #1a4a47 100%);
+      color: #f5f0e8;
+      padding: 3rem 0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(13,44,42,0.7);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-text {
+      flex: 1 1 60%;
+    }
+    .hero-text .badge {
+      display: inline-block;
+      background: #c49a6c;
+      color: #0d2c2a;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: #c49a6c;
+      color: #0d2c2a;
+    }
+    .btn-primary:hover {
+      background: #dbb48b;
+      transform: scale(1.02);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #f5f0e8;
+      border: 2px solid #f5f0e8;
+    }
+    .btn-secondary:hover {
+      background: #f5f0e8;
+      color: #0d2c2a;
+    }
+    .hero-image {
+      flex: 0 0 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #c49a6c;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* ===== BIOGRAFÍA ===== */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    .bio-text p {
+      margin-bottom: 1rem;
+    }
+    .bio-data {
+      background: #f8f6f2;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+    .bio-data h4 {
+      color: #0d2c2a;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #c49a6c;
+      padding-bottom: 0.5rem;
+    }
+    .bio-data ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bio-data ul li {
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .bio-data ul li strong {
+      color: #0d2c2a;
+    }
+    .bio-data ul li i {
+      color: #c49a6c;
+      width: 1.5rem;
+      text-align: center;
+      margin-right: 0.5rem;
+    }
+
+    /* ===== ARTÍCULOS ===== */
+    .escritos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .escrito-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #f0ebe3;
+      transition: transform 0.2s;
+    }
+    .escrito-card:hover {
+      transform: translateY(-4px);
+    }
+    .escrito-card i {
+      font-size: 2rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
+    .escrito-card h4 {
+      font-size: 1.1rem;
+      color: #0d2c2a;
+      margin-bottom: 0.3rem;
+    }
+    .escrito-card p {
+      font-size: 0.95rem;
+      color: #4a4540;
+      margin-bottom: 0.8rem;
+    }
+    .btn-outline-small {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border: 2px solid #c49a6c;
+      color: #c49a6c;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+    .btn-outline-small:hover {
+      background: #c49a6c;
+      color: #fff;
+    }
+
+    /* ===== VIDEOS / PREDICACIONES ===== */
+    .recursos-flex {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .recurso-block {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #f0ebe3;
+    }
+    .recurso-block i {
+      font-size: 2.2rem;
+      color: #c49a6c;
+      margin-bottom: 0.5rem;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 para horizontal */
+      height: 0;
+      overflow: hidden;
+      background: #0d2c2a;
+      border-radius: 8px;
+      margin-top: 0.8rem;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0d2c2a;
+      color: #f5f0e8;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-logo i {
+      font-size: 2rem;
+      color: #c49a6c;
+    }
+    .footer-logo p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: #f5f0e8;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #c49a6c;
+    }
+    .footer-copyright {
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ===== SCROLL TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0d2c2a;
+      color: #f5f0e8;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .scroll-top:hover {
+      background: #c49a6c;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        display: none;
+        width: 100%;
+      }
+      .navbar.active {
+        display: block;
+      }
+      .navbar ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem 0;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-image {
+        flex: 0 0 150px;
+      }
+      .hero-image img {
+        height: 150px;
+      }
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+      .accordion-section summary {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+      }
+      .accordion-content {
+        padding: 1rem 1.2rem 1.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .logo h1 {
+        font-size: 1.2rem;
+      }
+      .logo-sub {
+        font-size: 0.7rem;
+      }
+      .hero-text h1 {
+        font-size: 1.6rem;
+      }
+      .hero-image {
+        flex: 0 0 120px;
+      }
+      .hero-image img {
+        height: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header-container">
       <div class="logo">
         <i class="fas fa-church"></i>
-        <h1>Pedro Batres</h1>
-        <span class="logo-sub">Pionero de la Iglesia de Cristo en Nicaragua</span>
+        <div>
+          <h1>Pedro Batres</h1>
+          <span class="logo-sub">Anciano y Pionero de la Iglesia de Cristo</span>
+        </div>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
         <i class="fas fa-bars"></i>
       </button>
-      <nav class="navbar" id="navbar">
-        <ul class="nav-menu">
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#biografia" class="nav-link">Biografía</a></li>
-          <li><a href="#video-destacado" class="nav-link">Video destacado</a></li>
-          <li><a href="#predicaciones" class="nav-link">Predicaciones</a></li>
-          <li><a href="#articulos" class="nav-link">Artículos</a></li>
-          <li><a href="#recursos" class="nav-link">Recursos</a></li>
-          <li><a href="../index.html" class="nav-link" target="_blank">IDCLATAM</a></li>
+      <nav class="navbar" id="navbar" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio" data-target="inicio">Inicio</a></li>
+          <li><a href="#biografia" data-target="biografia">Biografía</a></li>
+          <li><a href="#articulos" data-target="articulos">Artículos</a></li>
+          <li><a href="#videos" data-target="videos">Videos</a></li>
+          <li><a href="../index.html" target="_blank">IDCLATAM</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="inicio" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="hero-text">
-          <span class="badge">Pionero · Predicador</span>
-          <h1>Pedro Batres</h1>
-          <p>Junto a su hermano, Raul Batres es uno de los pioneros de la Iglesia de Cristo en Nicaragua. Egresado del Instituto Sunset (Texas) en 1970. Una larga historia de servicio fiel en Nicaragua y Latinoamérica.</p>
-          <div class="hero-buttons">
-            <a href="#video-destacado" class="btn btn-primary"><i class="fas fa-play-circle"></i> Ver video histórico</a>
-            <a href="#biografia" class="btn btn-secondary"><i class="fas fa-book-open"></i> Conocer su historia</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img src="Pedro-Batres.jpg" alt="Pedro Batres" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Pedro+Batres'">
-        </div>
-      </div>
-    </section>
+    <div class="container">
 
-    <!-- Biografía -->
-    <section id="biografia" class="section biografia">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-user-alt"></i> Su historia</h3>
-          <p>Un siervo pionero cuyo ministerio ha marcado la Iglesia de Cristo en Nicaragua y más allá.</p>
-        </div>
-        <div class="bio-grid">
-          <div class="bio-text">
-            <p>El hermano <strong>Pedro Batres</strong>, junto a su hermano, es reconocido como uno de los <strong>pioneros de la Iglesia de Cristo en Nicaragua</strong>.</p>
-            <p>Terminó sus estudios en el <strong>Instituto Sunset</strong> (Sunset International Bible Institute) en Texas en el año <strong>1970</strong>. Desde entonces comenzó una larga y fiel trayectoria de servicio en la obra del Señor en Nicaragua y en Latinoamérica.</p>
-            <p>Su labor ha contribuido de manera significativa al origen, crecimiento y consolidación de muchas congregaciones de la Iglesia de Cristo en el país. A través de la predicación, la enseñanza y el ejemplo, ha dejado una huella perdurable en generaciones de hermanos.</p>
-            <p>En el video destacado de esta página, el hermano Pedro habla sobre el <strong>origen y desarrollo de la Iglesia de Cristo en Nicaragua</strong>, un testimonio valioso de la historia del movimiento en la región.</p>
+      <!-- ===== INICIO (HERO) ===== -->
+      <details class="accordion-section" id="inicio" open>
+        <summary><i class="fas fa-home"></i> Inicio</summary>
+        <div class="accordion-content">
+          <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+              <div class="hero-text">
+                <h1>Pedro Batres</h1>
+                <p>El hermano <strong>Pedro Salvador Batres</strong> es anciano de la iglesia de Cristo en Nueva Libia, Managua, y uno de los primeros en compartir las enseñanzas de la iglesia de Cristo en Nicaragua en la década de los 70 del siglo pasado.</p>
+              </div>
+              <div class="hero-image">
+                <img src="Pedro-Batres.jpg" alt="Pedro Salvador Batres" onerror="this.src='https://placehold.co/300x300/f5f0e8/0d2c2a?text=Pedro+Batres'">
+              </div>
+            </div>
           </div>
-          <div class="bio-family">
-            <div class="family-card">
-              <i class="fas fa-graduation-cap"></i>
-              <h4>Formación</h4>
-              <p>Egresado del Instituto Sunset (Texas) en 1970. Preparado para predicar y edificar la iglesia del Nuevo Testamento.</p>
+          <button class="speak-btn" data-section="inicio"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+        </div>
+      </details>
+
+      <!-- ===== BIOGRAFÍA ===== -->
+      <details class="accordion-section" id="biografia">
+        <summary><i class="fas fa-user-alt"></i> Biografía</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="biografia"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <div class="bio-grid">
+            <div class="bio-text">
+              <p>El hermano <strong>Pedro Salvador Batres</strong> es anciano de la iglesia de Cristo en Nueva Libia, Managua, y fue uno de los primeros en compartir las enseñanzas de la iglesia de Cristo en Nicaragua en la década de los 70 del siglo pasado.</p>
             </div>
-            <div class="family-card">
-              <i class="fas fa-church"></i>
-              <h4>Ministerio pionero</h4>
-              <p>Junto a su hermano, impulsó el establecimiento y crecimiento de la Iglesia de Cristo en Nicaragua y Latinoamérica.</p>
-            </div>
-            <div class="family-card">
-              <i class="fas fa-history"></i>
-              <h4>Legado</h4>
-              <p>Décadas de predicación, enseñanza y ejemplo que continúan edificando a la hermandad.</p>
+            <div class="bio-data">
+              <h4><i class="fas fa-id-card"></i> Información</h4>
+              <ul>
+                <li><i class="fas fa-user"></i> <strong>Nombre:</strong> Pedro Salvador Batres</li>
+                <li><i class="fas fa-church"></i> <strong>Servicio:</strong> Anciano de la iglesia de Cristo en Nueva Libia, Managua</li>
+                <li><i class="fas fa-history"></i> <strong>Pionero:</strong> Uno de los primeros en compartir las enseñanzas de la iglesia de Cristo en Nicaragua en la década de los 70.</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </details>
 
-    <!-- Video destacado (Facebook) -->
-    <section id="video-destacado" class="section recursos bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-play-circle"></i> Video destacado</h3>
-          <p>El hermano Pedro Batres habla sobre el origen y desarrollo de la Iglesia de Cristo en Nicaragua.</p>
-        </div>
-
-        <div class="video-destacado-wrap" style="max-width:720px; margin:0 auto 1.5rem;">
-          <div class="video-embed-responsive" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 8px 30px rgba(13,44,42,0.12); background:#0d2c2a;">
-            <!-- Embed de Facebook -->
-            <iframe
-              src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D931748103849801&show_text=false&width=720"
-              style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; overflow:hidden;"
-              scrolling="no"
-              frameborder="0"
-              allowfullscreen="true"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title="Pedro Batres — Origen y desarrollo de la Iglesia de Cristo en Nicaragua">
-            </iframe>
-          </div>
-          <p style="text-align:center; margin-top:1rem; font-size:0.95rem; color:#5a5a5a;">
-            <i class="fab fa-facebook" style="color:#1877f2; margin-right:0.35rem;"></i>
-            Video original en Facebook · 
-            <a href="https://www.facebook.com/watch/?v=931748103849801" target="_blank" rel="noopener" style="color:#0d2c2a; font-weight:600; text-decoration:underline;">Ver en Facebook →</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Otras predicaciones (placeholders) -->
-    <section id="predicaciones" class="section recursos">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-video"></i> Otras predicaciones</h3>
-          <p>Más mensajes y enseñanzas del hermano Pedro Batres (se irán agregando).</p>
-        </div>
-        <div class="recursos-flex">
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>Predicación 2</h3>
-            <p>Placeholder para otra predicación o mensaje del hermano Pedro Batres.</p>
-            <div class="video-placeholder">
-              <span>[Embed de video aquí]</span>
+      <!-- ===== ARTÍCULOS ===== -->
+      <details class="accordion-section" id="articulos">
+        <summary><i class="fas fa-book-open"></i> Artículos</summary>
+        <div class="accordion-content">
+          <button class="speak-btn" data-section="articulos"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+          <p style="margin-bottom:1.2rem;">Reflexiones y escritos bíblicos del hermano Pedro Batres.</p>
+          <div class="escritos-grid">
+            <div class="escrito-card">
+              <i class="fas fa-bible"></i>
+              <h4>Administración de la Iglesia sin Ancianos</h4>
+              <p>Primera parte: </p>
+              <a href="art-1" class="btn-outline-small">Clase completa</a>
             </div>
-          </div>
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>Predicación 3</h3>
-            <p>Placeholder para otra predicación o mensaje del hermano Pedro Batres.</p>
-            <div class="video-placeholder">
-              <span>[Embed de video aquí]</span>
+            <div class="escrito-card">
+              <i class="fas fa-bible"></i>
+              <h4>Administración de la Iglesia sin Ancianos</h4>
+              <p>Placeholder para futuros escritos de edificación y enseñanza bíblica.</p>
+              <a href="art-2" class="btn-outline-small">Próximamente</a>
             </div>
-          </div>
-          <div class="recurso-block">
-            <i class="fas fa-play-circle"></i>
-            <h3>Predicación 4</h3>
-            <p>Placeholder para otra predicación o mensaje del hermano Pedro Batres.</p>
-            <div class="video-placeholder">
-              <span>[Embed de video aquí]</span>
+            <div class="escrito-card">
+              <i class="fas fa-bible"></i>
+              <h4>História de la Iglesia de Cristo en Nicaragua</h4>
+              <p>Breve reseña histórica de la iglesia de Cristo en Nicaragua.</p>
+              <a href="art-3" class="btn-outline-small">ver artículo</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </details>
 
-    <!-- Artículos (placeholders) -->
-    <section id="articulos" class="section escritos bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-book-open"></i> Artículos y escritos</h3>
-          <p>Reflexiones y estudios del hermano Pedro Batres (se irán publicando).</p>
-        </div>
-        <div class="escritos-grid">
-          <div class="escrito-card">
-            <i class="fas fa-pen"></i>
-            <h4>Próximamente</h4>
-            <p>Artículos y escritos del hermano Pedro Batres serán publicados aquí.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
-          </div>
-          <div class="escrito-card">
-            <i class="fas fa-cross"></i>
-            <h4>Espacio para artículo</h4>
-            <p>Placeholder para futuros escritos de edificación y enseñanza bíblica.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
-          </div>
-          <div class="escrito-card">
-            <i class="fas fa-bible"></i>
-            <h4>Espacio para artículo</h4>
-            <p>Placeholder para futuros escritos de edificación y enseñanza bíblica.</p>
-            <a href="#" class="btn-outline-small">Próximamente</a>
-          </div>
+      <!-- ===== VIDEOS ===== -->
+      <details class="accordion-section" id="videos">
+  <summary><i class="fas fa-video"></i> Videos</summary>
+  <div class="accordion-content">
+    <button class="speak-btn" data-section="videos"><i class="fas fa-volume-up"></i> Escuchar esta sección</button>
+    <p style="margin-bottom:1.2rem;">Mensajes y testimonios del hermano Pedro Batres.</p>
+    <div class="recursos-flex">
+
+      <div class="recurso-block">
+        <i class="fas fa-play-circle"></i>
+        <h3>Origen y desarrollo de la Iglesia de Cristo en Nicaragua</h3>
+        <p>El hermano Pedro Batres habla sobre la historia y el desarrollo del evangelio en el país.</p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D931748103849801&show_text=false&width=720"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Pedro Batres — Origen y desarrollo de la Iglesia de Cristo en Nicaragua">
+          </iframe>
         </div>
       </div>
-    </section>
 
-    <!-- Recursos relacionados -->
-    <section id="recursos" class="section recursos">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-tools"></i> Recursos relacionados</h3>
-          <p>Herramientas y sitios de la hermandad para el crecimiento de la iglesia.</p>
-        </div>
-        <div class="recursos-flex">
-          <div class="recurso-block">
-            <i class="fas fa-church"></i>
-            <h3>IDCLATAM</h3>
-            <p>Portal de la Iglesia de Cristo en Latinoamérica: directorio de iglesias, hermanos, ministerios y recursos.</p>
-            <a href="https://idclatam.org" target="_blank" rel="noopener" class="btn-resource">Visitar sitio →</a>
-          </div>
-          <div class="recurso-block">
-            <i class="fas fa-language"></i>
-            <h3>BibleFluent</h3>
-            <p>Aprende hebreo, griego, inglés y otros idiomas a través de la Biblia. Plataforma gratuita.</p>
-            <a href="https://biblefluent.org" target="_blank" rel="noopener" class="btn-resource">Explorar →</a>
-          </div>
-          <div class="recurso-block">
-            <i class="fas fa-book"></i>
-            <h3>Pineda Amador Ministry</h3>
-            <p>Sitio del ministerio del hermano Juan Pineda, con escritos y recursos para la edificación.</p>
-            <a href="https://pinedaamador.org" target="_blank" rel="noopener" class="btn-resource">Conocer más →</a>
-          </div>
+      <div class="recurso-block">
+        <i class="fas fa-play-circle"></i>
+        <h3>Administración de la Iglesia sin Ancianos</h3>
+        <p>El hermano Pedro Batres explica la administración de la iglesia sin la presencia de ancianos.</p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D2173711999854368&show_text=false&width=720"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Pedro Batres — Administración de la Iglesia sin Ancianos">
+          </iframe>
         </div>
       </div>
-    </section>
 
+    </div>
+  </div>
+</details>
+
+    </div>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-logo">
@@ -229,19 +676,117 @@
         <p>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación…” (Romanos 1:16)</p>
       </div>
       <div class="footer-links">
-        <a href="https://idclatam.org" target="_blank" rel="noopener">IDCLATAM</a>
-        <a href="https://biblefluent.org" target="_blank" rel="noopener">BibleFluent</a>
-        <a href="https://pinedaamador.org" target="_blank" rel="noopener">Pineda Amador Ministry</a>
+        <a href="../index.html" target="_blank">IDCLATAM</a>
       </div>
       <div class="footer-copyright">
-        <p>&copy; 2026 Pedro Batres — Pionero de la Iglesia de Cristo en Nicaragua. Página expositiva en IDCLATAM.</p>
+        <p>&copy; 2026 Pedro Batres — Iglesia de Cristo. Página expositiva en IDCLATAM.</p>
       </div>
     </div>
   </footer>
 
-  <a href="#inicio" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+  <a href="#header" class="scroll-top" id="scrollTopBtn" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
-  <script src="../hn.js" defer></script>
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ===== MENÚ MÓVIL =====
+      const toggle = document.getElementById('mobileToggle');
+      const navbar = document.getElementById('navbar');
+      if (toggle && navbar) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navbar.classList.toggle('active');
+        });
+        const links = navbar.querySelectorAll('a');
+        links.forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (navbar.classList.contains('active')) {
+              navbar.classList.remove('active');
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (navbar.classList.contains('active')) {
+            const isInside = navbar.contains(e.target) || toggle.contains(e.target);
+            if (!isInside) {
+              navbar.classList.remove('active');
+            }
+          }
+        });
+      }
+
+      // ===== NAVEGACIÓN POR ACORDEÓN =====
+      const navLinks = document.querySelectorAll('.navbar a[data-target]');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('data-target');
+          const targetDetail = document.getElementById(targetId);
+          if (targetDetail) {
+            e.preventDefault();
+            targetDetail.open = true;
+            targetDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // ===== BOTÓN SCROLL TOP =====
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      if (scrollBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 400) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.visibility = 'visible';
+          } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.visibility = 'hidden';
+          }
+        });
+        scrollBtn.style.opacity = '0';
+        scrollBtn.style.visibility = 'hidden';
+        scrollBtn.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        scrollBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // ===== LECTURA EN VOZ ALTA =====
+      const speakBtns = document.querySelectorAll('.speak-btn');
+      speakBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+          }
+          const section = this.closest('.accordion-section');
+          if (!section) return;
+          const content = section.querySelector('.accordion-content');
+          if (!content) return;
+          const clone = content.cloneNode(true);
+          const speakBtnClone = clone.querySelector('.speak-btn');
+          if (speakBtnClone) speakBtnClone.remove();
+          let text = clone.textContent || '';
+          text = text.replace(/\s+/g, ' ').trim();
+          if (!text) {
+            alert('No hay texto para leer en esta sección.');
+            return;
+          }
+          if (!window.speechSynthesis) {
+            alert('Tu navegador no soporta la lectura en voz alta.');
+            return;
+          }
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'es-ES';
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+          window.speechSynthesis.speak(utterance);
+        });
+      });
+
+    })();
+  </script>
+
 </body>
 </html>
-```
