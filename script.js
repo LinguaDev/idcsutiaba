@@ -279,6 +279,12 @@ document.addEventListener('DOMContentLoaded', function() {
       location: "Nicaragua",
       description: "Predicador y maestro de la Palabra. Conferencias y estudios bíblicos.",
       url: "hn/Mario-Salinas/main"
+    },
+    {
+      name: "José Luis Hernández",
+      location: "Honduras",
+      description: "Anciano de la Iglesia de Cristo en Nueva Libia, Managua, Nicaragua. Conferencias y estudios bíblicos.",
+      url: "hn/Pedro-Batres/main"
     }
   ];
 
