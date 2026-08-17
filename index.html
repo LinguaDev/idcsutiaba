@@ -31,11 +31,14 @@
 <body>
   <header class="header" id="header">
     <div class="container header-container">
-      <div class="logo">
-        <i class="fas fa-church"></i>
-        <h1>Iglesia de Cristo en Latinoamérica</h1>
-        <span class="logo-sub">IdC-LATAM</span>
-      </div>
+      <div class="logo" style="display: flex; align-items: center;"> 
+    <img src="iglesia.png" alt="Icono Iglesia" style="height: 1.5em; width: auto; margin-right: 10px; vertical-align: middle;"> 
+    <div>
+        <h1 style="margin: 0; display: inline-block;">Iglesia de Cristo en Latinoamérica</h1> 
+        <span class="logo-sub" style="display: block;">IdC-LATAM</span> 
+    </div>
+   </div>
+
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
         <i class="fas fa-bars"></i>
       </button>
@@ -62,9 +65,17 @@
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/hG5nu460urA" title="Invitación a la hermandad - Iglesia de Cristo Latinoamérica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <div class="video-container" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
+  <iframe 
+    src="https://www.youtube.com/embed/hG5nu460urA" 
+    title="Invitación a la hermandad - Iglesia de Cristo Latinoamérica" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    style="width: 100%; aspect-ratio: 16 / 9; height: auto; display: block;"
+  ></iframe>
+</div>
+
         <h2><strong>Iglesia de Cristo</strong> en toda Latinoamérica</h2>
         <p>Un movimiento de fe, esperanza y amor. Predicamos a Jesucristo, hacemos discípulos y conectamos a la hermandad a lo largo del continente.</p>
         <!-- Contenedor para el versículo aleatorio (manejado por script.js) -->
