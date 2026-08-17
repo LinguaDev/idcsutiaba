@@ -281,8 +281,8 @@ document.addEventListener('DOMContentLoaded', function() {
       url: "hn/Mario-Salinas/main"
     },
     {
-      name: "José Luis Hernández",
-      location: "Honduras",
+      name: "Pedro Salvador Batres",
+      location: "Nicaragua",
       description: "Anciano de la Iglesia de Cristo en Nueva Libia, Managua, Nicaragua. Conferencias y estudios bíblicos.",
       url: "hn/Pedro-Batres/main"
     }
